@@ -7,6 +7,8 @@ Rails.application.initialize!
 require 'JSON'
 require 'httparty'
 require 'awesome_print'
+require 'pry-rails'
+
 def get_some_data(action, param_name, param_value)
   token = ENV['GIVE_API_TOKEN']
   puts token
