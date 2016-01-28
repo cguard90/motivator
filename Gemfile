@@ -13,9 +13,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem "httparty"
-gem "awesome_print"
-gem 'pry'
+gem 'httparty'
+gem 'awesome_print'
+gem 'pry-rails'
+gem 'pry-nav'
+gem 'factory_girl'
+gem 'launchy'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
