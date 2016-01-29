@@ -37,7 +37,8 @@ html {
   box-sizing: border-box;
   background-color: #888;
   color: #ddd;
-  font-size: 12px;
+  /*font-size: 12px;*/
+  font-size: 18px;
   line-height: 1.4;
 }
 
@@ -48,8 +49,10 @@ html {
 }
 
 body {
-  min-width: 320px;
-  max-width: 400px;
+  /*min-width: 320px;
+  max-width: 400px;*/
+  min-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   background-color: #222;
@@ -61,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  font-family: Bangers, sans-serif;
+  font-family: 'Bowlby One SC', sans-serif;
   letter-spacing: 0.075rem;
 }
 
@@ -105,17 +108,15 @@ header {
 header h1 {
   margin-bottom: 1rem;
   font-size: 2.75rem;
+  float: left;
 }
 
 header ul {
+  float: right;
 }
 
 header ul li {
   display: inline-block;
-  padding-left: 1rem;
-}
-
-header ul li {
   padding: 0 0.5rem;
   border-left: 3px solid #888;
 }
@@ -163,6 +164,7 @@ main input {
   display: block;
   margin-bottom: 0.75rem;
   width: 100%;
+  font-size: 18px;
 }
 
 main input[type="text"] {
@@ -217,7 +219,7 @@ footer {
 
 /* MEDIA QUERIES for screens larger than phones */
 
-/* TABLET - 680px */
+/* TABLET - 680px
 
 @media only screen and (min-width: 680px) {
 
@@ -240,7 +242,7 @@ footer {
 }
 
 
-/* COMPUTER (small monitor) - 960px */
+/* COMPUTER (small monitor) - 960px
 
 @media only screen and (min-width: 960px) {
 
@@ -255,7 +257,7 @@ footer {
 }
 
 
-/* COMPUTER (desktop) - 1120px */
+/* COMPUTER (desktop) - 1120px
 
 @media only screen and (min-width: 1200px) {
 
