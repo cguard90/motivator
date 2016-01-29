@@ -16,13 +16,13 @@ class GoalsController < ApplicationController
   end
 
   def create
-    binding.pry
     @goal = Goal.new(goal_params)
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
     if @goal.save
-      redirect goal_path(@goal)
+      binding.pry
+      redirect_to goal_path(id: @goal.id)
     else
       render :new
     end
