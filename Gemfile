@@ -29,6 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
+# OAuth for log-in with facebook id
+gem 'omniauth-facebook'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
