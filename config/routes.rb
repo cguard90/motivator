@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   resources :goals do
     resources :milestones, :pledges
   end
+  resources :charities, only: [:index, :show]
 
   root 'welcome#index'
 

@@ -1,0 +1,48 @@
+<div>
+  <ul>
+    <div class="goal-container">
+      <li id="goal-info">
+        <div class="goal label">
+          <p id="attribute-label">Goal Title</p>
+          <%= @goal.title %>
+          <p id="attribute-label">Goal Description</p>
+          <% if @goal.description != "" %>
+          <%= @goal.description %>
+          <% end %>
+        </li>
+      </div>
+      <%= link_to "Edit Goal", edit_goal_path %>
+      <%= link_to "Delete Goal", goal_path, method: :delete %>
+  </ul>
+
+  <div class="charity-container">
+    <p id="attribute-lable">Charity To Donate</p>
+    <%= @goal.charity.name %>
+    <!-- CHARITY NAME CAUSING AR SEARCH -->
+  </div>
+
+  <ul>
+      <div class="milestone-cotainer">
+        <p id="attribute-lable">Milestones</p>
+        <% @goal.milestones.each do |milestone| %>
+          <ul>
+            <%= milestone.description %>
+            <%= milestone.deadline %>
+          </ul>
+        <% end %>
+      </div>
+  </ul>
+
+  <ul>
+      <div class="message-cotainer">
+        <p id="attribute-lable">Messages</p>
+        <% @goal.messages.each do |message| %>
+        <%= message.content %>
+        <% end %>
+      </div>
+  </ul>
+
+</div>
+
+
+

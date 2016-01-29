@@ -1,0 +1,14 @@
+#attribute-label {
+  text-align: center;
+  font-size: 15px;
+  border: solid 4px #1949B7;
+  background-color: #5F80CC;
+  border-radius: 10px;
+  width:50%;
+  margin: 0 auto;
+}
+
+.container {
+  text-align: center;
+}
+
