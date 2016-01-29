@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      login @user
+      session[:user_id] = @user.id
       redirect_to user_path(id: @user.id)
     else
       flash[:notice] = "Invalid email or password"
