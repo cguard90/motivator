@@ -4,14 +4,23 @@ class GoalsController < ApplicationController
     @goals = Goal.all
   end
 
+  def new
+    @goal = Goal.new
+    @charities = Charity.all
+    @milestones = Milestone.new
+  end
+
   def show
     @goal = Goal.includes(:milestones, :messages).find_by(id: params[:id])
     @charities = @goal.charities
   end
 
   def create
+    binding.pry
     @goal = Goal.new(goal_params)
-    @goal.user = current_user
+    @goal.setter = current_user
+    @goal.charity = Charity.find_by(name: params[:charity_selector])
+    @goal.tender = User.find_by(username: params[:goal][:tender])
     if @goal.save
      redirect goal_path ##TAKE ME TO PROFILE PAGE
     else
@@ -41,7 +50,7 @@ class GoalsController < ApplicationController
 private
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :limit, :charity_id) ##ASK STEVEN ABOUT USER_ID
+    params.require(:goal).permit(:title, :description, :limit)
   end
 
 end
