@@ -4,15 +4,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # def show
-  #   @user = User.find_by(id: current_user.id)
-  # end
+  def show
+    @user = User.find_by(id: current_user.id)
+  end
 
   def create
     @user = User.new(user_params)
     if @user.save
       login @user
-      redirect_to questions_path
+      redirect_to user_path(id: @user.id)
     else
       flash[:notice] = "Invalid email or password"
       render new_user_path
