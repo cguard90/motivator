@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
     redirect_to new_admin_session_path unless current_user.present?
   end
 
-  def login user
-    session[:user_id] = user.id
-  end
+  # def login user
+  #   session[:user_id] = user.id
+  # end
 
   def logged_in?
     !!current_user
