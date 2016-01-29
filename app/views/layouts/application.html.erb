@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>T</title>
+  <title>Motivator</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1><a href="/">Motivator</a></h1>
+    <ul>
+      <% if logged_in? %>
+        <li>
+          Welcome, <a href="/users/<%= current_user.id %>"><%= current_user.username %></a>!
+        </li>
+        <li>
+          <form method="POST" action="/sessions" />
+            <input type="hidden" name="_method" value="DELETE" />
+            <input type="submit" value="Logout" />
+          </form>
+        </li>
 
-<%= yield %>
+      <% else %>
+        <li>
+          <a href="/users/new">Sign Up</a>
+        </li>
+        <li>
+          <a href="/sessions/new">Login</a>
+        </li>
+      <% end %>
 
+      <li>
+        <a href="/">Home</a>
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    <p>Created by Jeff George, Chris Guard, and Luis Plaz for Dev Bootcamp</p>
+  </footer>
+</body>
 </body>
 </html>
