@@ -789,3 +789,286 @@ ORDER BY c.conname
   [1m[35mGoal Load (0.5ms)[0m  SELECT "goals".* FROM "goals" WHERE "goals"."tender_id" = $1  [["tender_id", 1]]
   [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
   [1m[35mPledge Load (0.6ms)[0m  SELECT "pledges".* FROM "pledges" WHERE "pledges"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/" for ::1 at 2016-01-28 20:59:35 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.5.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 26ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-01-28 21:00:03 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/railties-4.2.5.1/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2016-01-28 21:00:26 -0500
+
+ActionController::RoutingError (No route matches [GET] "/users/new"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.8ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (90.0ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (84.7ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/CGuard/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (175.7ms)
+  [1m[36mMessage Load (4.7ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  [1m[35mMessage Load (2.5ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" ASC LIMIT 1
+  [1m[36m (13.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGoals (20160128222801)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (9.5ms)[0m  [1mCREATE TABLE "goals" ("id" serial primary key, "setter_id" integer NOT NULL, "tender_id" integer NOT NULL, "charity_id" integer NOT NULL, "title" character varying NOT NULL, "description" character varying(300) NOT NULL, "limit" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_goals_on_setter_id" ON "goals"  ("setter_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_goals_on_tender_id" ON "goals"  ("tender_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_goals_on_charity_id" ON "goals"  ("charity_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160128222801"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateMilestones (20160128224352)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.9ms)[0m  CREATE TABLE "milestones" ("id" serial primary key, "goal_id" integer NOT NULL, "description" character varying(300) NOT NULL, "deadline" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_milestones_on_goal_id" ON "milestones"  ("goal_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160128224352"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharities (20160129001610)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "charities" ("id" serial primary key, "name" character varying NOT NULL, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129001610"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePledges (20160129002418)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "pledges" ("id" serial primary key, "user_id" integer NOT NULL, "goal_id" integer NOT NULL, "amount" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_pledges_on_user_id" ON "pledges"  ("user_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_pledges_on_goal_id" ON "pledges"  ("goal_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002418"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20160129002534)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(20) NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002534"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20160129160810)
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGoals (20160128222801)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "goals" ("id" serial primary key, "setter_id" integer NOT NULL, "tender_id" integer NOT NULL, "charity_id" integer NOT NULL, "title" character varying NOT NULL, "description" character varying(300) NOT NULL, "limit" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_goals_on_setter_id" ON "goals"  ("setter_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_goals_on_tender_id" ON "goals"  ("tender_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_goals_on_charity_id" ON "goals"  ("charity_id")
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160128222801"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Migrating to CreateMilestones (20160128224352)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "milestones" ("id" serial primary key, "goal_id" integer NOT NULL, "description" character varying(300) NOT NULL, "deadline" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_milestones_on_goal_id" ON "milestones"  ("goal_id")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160128224352"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharities (20160129001610)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (4.7ms)[0m  [1mCREATE TABLE "charities" ("id" serial primary key, "name" character varying NOT NULL, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129001610"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePledges (20160129002418)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "pledges" ("id" serial primary key, "user_id" integer NOT NULL, "goal_id" integer NOT NULL, "amount" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_pledges_on_user_id" ON "pledges"  ("user_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_pledges_on_goal_id" ON "pledges"  ("goal_id")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002418"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20160129002534)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(20) NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002534"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20160129160810)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (6.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGoals (20160128222801)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (7.6ms)[0m  [1mCREATE TABLE "goals" ("id" serial primary key, "setter_id" integer NOT NULL, "tender_id" integer NOT NULL, "charity_id" integer NOT NULL, "title" character varying NOT NULL, "description" character varying(300) NOT NULL, "limit" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.9ms)[0m  CREATE  INDEX  "index_goals_on_setter_id" ON "goals"  ("setter_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_goals_on_tender_id" ON "goals"  ("tender_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_goals_on_charity_id" ON "goals"  ("charity_id")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160128222801"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateMilestones (20160128224352)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "milestones" ("id" serial primary key, "goal_id" integer NOT NULL, "description" character varying(300) NOT NULL, "deadline" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_milestones_on_goal_id" ON "milestones"  ("goal_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160128224352"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharities (20160129001610)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "charities" ("id" serial primary key, "name" character varying NOT NULL, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129001610"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePledges (20160129002418)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "pledges" ("id" serial primary key, "user_id" integer NOT NULL, "goal_id" integer NOT NULL, "amount" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE  INDEX  "index_pledges_on_user_id" ON "pledges"  ("user_id")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_pledges_on_goal_id" ON "pledges"  ("goal_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002418"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20160129002534)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(20) NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002534"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20160129160810)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "goal_id" integer NOT NULL, "user_id" integer NOT NULL, "content" character varying(140) NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129160810"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'charities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'goals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'milestones'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pledges'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (11.1ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "something"], ["email", "test@email.com"], ["password_digest", "$2a$10$Ieco3bwK7L.FVJawQAg8LOYPP76rybDCJbmtvAy/5fJ7NUnHDsUMm"], ["created_at", "2016-01-29 16:17:22.597809"], ["updated_at", "2016-01-29 16:17:22.597809"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "test Charity"], ["category", "test category for charity"], ["created_at", "2016-01-29 16:17:22.629810"], ["updated_at", "2016-01-29 16:17:22.629810"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCharity Load (0.7ms)[0m  SELECT  "charities".* FROM "charities"  ORDER BY "charities"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "goals" ("setter_id", "tender_id", "charity_id", "title", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["setter_id", 1], ["tender_id", 1], ["charity_id", 1], ["title", "test Goal"], ["description", "goal description"], ["created_at", "2016-01-29 16:17:22.657832"], ["updated_at", "2016-01-29 16:17:22.657832"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mGoal Load (1.9ms)[0m  SELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "milestones" ("goal_id", "description", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["goal_id", 1], ["description", "Test Milestone"], ["deadline", "2016-01-29"], ["created_at", "2016-01-29 16:17:22.676895"], ["updated_at", "2016-01-29 16:17:22.676895"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (2.0ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mGoal Load (0.6ms)[0m  [1mSELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "pledges" ("user_id", "goal_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["goal_id", 1], ["amount", 20], ["created_at", "2016-01-29 16:17:22.697202"], ["updated_at", "2016-01-29 16:17:22.697202"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mMessage Load (2.0ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" ASC LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT "messages".* FROM "messages"
+  [1m[36mGoal Load (1.2ms)[0m  [1mSELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1[0m
+  [1m[35mMessage Load (0.6ms)[0m  SELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" ASC LIMIT 1
+  [1m[36mGoal Load (0.7ms)[0m  [1mSELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1[0m
+  [1m[35mGoal Load (0.9ms)[0m  SELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "messages" ("goal_id", "user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["goal_id", 1], ["user_id", 1], ["content", "Hello I am a Message for testing"], ["created_at", "2016-01-29 16:19:27.532607"], ["updated_at", "2016-01-29 16:19:27.532607"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mMessage Load (1.1ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mMessage Load (0.4ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGoal Load (0.9ms)[0m  SELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT  "messages".* FROM "messages"  ORDER BY "messages"."id" ASC LIMIT 1[0m
+  [1m[36mGoal Load (1.4ms)[0m  [1mSELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1[0m
+  [1m[35mMessage Load (0.7ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."goal_id" = $1  [["goal_id", 1]]

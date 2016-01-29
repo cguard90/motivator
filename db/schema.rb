@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129002534) do
+ActiveRecord::Schema.define(version: 20160129160810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20160129002534) do
   add_index "goals", ["charity_id"], name: "index_goals_on_charity_id", using: :btree
   add_index "goals", ["setter_id"], name: "index_goals_on_setter_id", using: :btree
   add_index "goals", ["tender_id"], name: "index_goals_on_tender_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "goal_id",                null: false
+    t.integer  "user_id",                null: false
+    t.string   "content",    limit: 140, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "milestones", force: :cascade do |t|
     t.integer  "goal_id",                 null: false
