@@ -1,1 +1,20 @@
+<ul>
+<% @goals.each do |goal| %>
+  <div class="goal-container">
+    <li id="goal-info">
+      <div class="goal label">
+        <p id="attribute-lable">Goal Title</p>
+        <%= link_to "#{goal.title}", goal_path(goal) %>
+        <p id="attribute-lable">Goal Description</p>
+        <% if goal.description != "" %>
+          <%= goal.description %>
+        <% end %>
+        <p id="attribute-lable">Charity To Donate</p>
+        <%= link_to "#{goal.charity.name}", charities_path(goal.charity) %>
+      </div>
+    </li>
+  </div>
+<% end %>
+</ul>
+
 
