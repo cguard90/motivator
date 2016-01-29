@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.all
+    # Maybe apply batch
   end
 
   def new
@@ -11,8 +12,7 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.includes(:milestones, :messages).find_by(id: params[:id])
-    @charities = @goal.charities
+    @goal = Goal.includes(:milestones,:messages).find_by(id: params[:id])
   end
 
   def create
@@ -22,7 +22,7 @@ class GoalsController < ApplicationController
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
     if @goal.save
-     redirect goal_path ##TAKE ME TO PROFILE PAGE
+      redirect goal_path(@goal)
     else
       render :new
     end
@@ -52,5 +52,6 @@ private
   def goal_params
     params.require(:goal).permit(:title, :description, :limit)
   end
+
 
 end
