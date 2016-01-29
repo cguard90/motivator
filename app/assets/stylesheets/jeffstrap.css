@@ -37,7 +37,8 @@ html {
   box-sizing: border-box;
   background-color: #888;
   color: #ddd;
-  font-size: 12px;
+  /*font-size: 12px;*/
+  font-size: 16px;
   line-height: 1.4;
 }
 
@@ -48,8 +49,10 @@ html {
 }
 
 body {
-  min-width: 320px;
-  max-width: 400px;
+  /*min-width: 320px;
+  max-width: 400px;*/
+  min-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   background-color: #222;
@@ -217,7 +220,7 @@ footer {
 
 /* MEDIA QUERIES for screens larger than phones */
 
-/* TABLET - 680px */
+/* TABLET - 680px
 
 @media only screen and (min-width: 680px) {
 
@@ -240,7 +243,7 @@ footer {
 }
 
 
-/* COMPUTER (small monitor) - 960px */
+/* COMPUTER (small monitor) - 960px
 
 @media only screen and (min-width: 960px) {
 
@@ -255,7 +258,7 @@ footer {
 }
 
 
-/* COMPUTER (desktop) - 1120px */
+/* COMPUTER (desktop) - 1120px
 
 @media only screen and (min-width: 1200px) {
 
