@@ -1,0 +1,270 @@
+/**************************************************\
+README: JEFFSTRAP.CSS Sinatra Stylesheet
+Developed by Jeff George
+DBC Copperheads/Island Foxes 2016
+Designed for use in projects based on
+the Dev Bootcamp Sinatra Skeleton
+This stylesheet is designed to rely on element tags
+as css selectors, so it can be dropped on DBC Sinatra
+Skeleton projects to provide bare-bones styling without
+adding classes to the HTML file. Ordinarily, avoiding
+classes when styling would be bad practice; in this case,
+we use tags instead so that the stylesheet can be applied
+with minimal time invested in CSS styling.
+TO INCLUDE THIS STYLESHEET in your project,
+add the following link to the <head> of layout.erb,
+*between* the links to normalize.css and application.css:
+  <link rel="stylesheet" href="/css/jeffstrap.css">
+FOR SPECIFIED GOOGLE FONTS,
+add the following link to layout.erb, before the links to
+local css stylesheets:
+  <link href='https://fonts.googleapis.com/css?family=Bangers|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+These fonts are only referenced in two css rules, both in the
+GENERAL STYLES section of this sheet. Open Sans, which is used
+for everything except major headings, is declared in the style
+for the <body> tag; Bangers, a decorative font, is assigned in
+a single rule for h1, h2, and h3 headings. If you change these
+fonts, just add the link to the Google fonts, and declare the
+fonts in those two rules.
+* Thanks(?) to DBC Copperhead Jon Chen
+for coining the name "jeffstrap".
+\************************************************/
+
+
+/* GENERAL STYLES */
+
+html {
+  box-sizing: border-box;
+  background-color: #888;
+  color: #ddd;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h1, h2, h3 {
+  font-family: Bangers, sans-serif;
+  letter-spacing: 0.075rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-top: 1rem;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+a:link,
+a:visited {
+  color: #cc0000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #ff2222;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* HEADER STYLES */
+
+header {
+  padding: 1rem;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+  font-size: 2.75rem;
+}
+
+header ul {
+}
+
+header ul li {
+  display: inline-block;
+  padding-left: 1rem;
+}
+
+header ul li {
+  padding: 0 0.5rem;
+  border-left: 3px solid #888;
+}
+
+header ul li:first-child {
+  border-left: 0;
+}
+
+header ul li input[type="submit"] {
+  overflow: visible;
+  text-align: center;
+  width: auto;
+  border: none;
+  background-color: #222;
+  color: #c00;
+  font-weight: bold;
+}
+
+header ul li input[type="submit"]:hover,
+header ul li input[type="submit"]:active {
+  color: #f22;
+}
+
+
+/* MAIN STYLES - within YIELD block */
+
+main {
+  color: #222;
+  clear: both;
+  padding: 1rem;
+  background-color: #ddd;
+}
+
+main ul {
+  margin: 0 auto 1.5rem;
+}
+
+main ul li {
+  list-style: none;
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+main input {
+  display: block;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+main input[type="text"] {
+  padding: 0 0.5rem;
+}
+
+main input[type="submit"] {
+  width: 10rem;
+}
+
+main textarea {
+  width: 100%;
+  height: 5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+main table {
+  margin-bottom: 1rem;
+  border: 1px #222 solid;
+  background-color: #fff;
+  width: 100%;
+}
+
+main tr:first-child {
+  background-color: #aaa;
+  color: #222;
+}
+
+main th,
+main td {
+  padding: 0.25rem 0;
+  width: 25%;
+  text-align: center;
+  border: 1px solid #222;
+}
+
+.error {
+  color: #d00;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* FOOTER STYLES */
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 1rem;
+}
+
+
+/* MEDIA QUERIES for screens larger than phones */
+
+/* TABLET - 680px */
+
+@media only screen and (min-width: 680px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    width: 680px;
+    max-width: 680px;
+  }
+
+  header h1 {
+    float: left;
+  }
+
+  header ul {
+    float: right;
+  }
+}
+
+
+/* COMPUTER (small monitor) - 960px */
+
+@media only screen and (min-width: 960px) {
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    width: 960px;
+    max-width: 960px;
+  }
+}
+
+
+/* COMPUTER (desktop) - 1120px */
+
+@media only screen and (min-width: 1200px) {
+
+  html {
+    font-size: 19px;
+  }
+
+  body {
+    width: 1200px;
+    max-width: 1200px;
+  }
+}
