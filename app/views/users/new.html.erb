@@ -1,0 +1,21 @@
+<%= form_for User.new do |f| %>
+<fieldset id="form">
+  <div class="input-options">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="input-options">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="input-options">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%#= f.label :password_confirmation %>
+    <%#= f.password_field :password_confirmation %>
+  </div>
+  <div class="form-button">
+  <%= f.submit 'Create Account' %>
+  </div>
+</fieldset>
+<% end %>
