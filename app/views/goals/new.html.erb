@@ -1,0 +1,25 @@
+<%= form_for @goal  do |f| %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :tender, value: "Goal Tender" %>
+    <%= f.text_field :tender %>
+
+    <select  name="charity_selector">
+      <%= @charities.each do |charity| %>
+        <option value="<%=charity.name%>"><%= charity.name %> </option>
+      <% end %>
+    </select>
+
+      <%= f.label :milestones %>
+      <%= f.text_field :milestones, :value => ""%>
+
+      <input type = "Date", name="Deadline" min = "<%= Date.today %>" >
+    </div>
+    <%= submit_tag "Create Your Goal!"%>
+  </fieldset>
+<% end %>
