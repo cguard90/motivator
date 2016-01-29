@@ -3316,3 +3316,354 @@ Started GET "/" for ::1 at 2016-01-29 11:28:50 -0500
 Processing by SessionsController#new as HTML
   Rendered sessions/new.html.erb within layouts/application (0.3ms)
 Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (33.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateGoals (20160128222801)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (34.7ms)[0m  [1mCREATE TABLE "goals" ("id" serial primary key, "setter_id" integer NOT NULL, "tender_id" integer NOT NULL, "charity_id" integer NOT NULL, "title" character varying NOT NULL, "description" character varying(300) NOT NULL, "limit" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_goals_on_setter_id" ON "goals"  ("setter_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_goals_on_tender_id" ON "goals"  ("tender_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_goals_on_charity_id" ON "goals"  ("charity_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20160128222801"]]
+  [1m[35m (15.7ms)[0m  COMMIT
+Migrating to CreateMilestones (20160128224352)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.6ms)[0m  CREATE TABLE "milestones" ("id" serial primary key, "goal_id" integer NOT NULL, "description" character varying(300) NOT NULL, "deadline" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_milestones_on_goal_id" ON "milestones"  ("goal_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160128224352"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCharities (20160129001610)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "charities" ("id" serial primary key, "name" character varying NOT NULL, "category" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129001610"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePledges (20160129002418)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "pledges" ("id" serial primary key, "user_id" integer NOT NULL, "goal_id" integer NOT NULL, "amount" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_pledges_on_user_id" ON "pledges"  ("user_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX  "index_pledges_on_goal_id" ON "pledges"  ("goal_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002418"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20160129002534)
+  [1m[35m (15.8ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(20) NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129002534"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMessages (20160129160810)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "goal_id" integer NOT NULL, "user_id" integer NOT NULL, "content" character varying(140) NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160129160810"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'charities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'goals'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'milestones'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pledges'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "A C T ANIMALS CANT TALK INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:16.406760"], ["updated_at", "2016-01-29 17:04:16.406760"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "ALL ANIMALS MATTER"], ["created_at", "2016-01-29 17:04:18.321820"], ["updated_at", "2016-01-29 17:04:18.321820"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ALLEGANY COUNTY SOCIETY FOR PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:19.737250"], ["updated_at", "2016-01-29 17:04:19.737250"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "AMERICAN SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities, Schools, Colleges and Related Activities"], ["created_at", "2016-01-29 17:04:22.812219"], ["updated_at", "2016-01-29 17:04:22.812219"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ANIMALS ARE A PART OF OUR LIVES CORPORATION"], ["created_at", "2016-01-29 17:04:30.174888"], ["updated_at", "2016-01-29 17:04:30.174888"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "ANIMALS PARADISE FOREVER INC"], ["created_at", "2016-01-29 17:04:31.762936"], ["updated_at", "2016-01-29 17:04:31.762936"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ANIMALS R FRIENDS FOREVER INC"], ["created_at", "2016-01-29 17:04:34.511175"], ["updated_at", "2016-01-29 17:04:34.511175"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "A C T ANIMALS CANT TALK INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.586583"], ["updated_at", "2016-01-29 17:04:43.586583"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "ALL ANIMALS MATTER"], ["created_at", "2016-01-29 17:04:43.593811"], ["updated_at", "2016-01-29 17:04:43.593811"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "ALLEGANY COUNTY SOCIETY FOR PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.598726"], ["updated_at", "2016-01-29 17:04:43.598726"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "AMERICAN SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities, Schools, Colleges and Related Activities"], ["created_at", "2016-01-29 17:04:43.601168"], ["updated_at", "2016-01-29 17:04:43.601168"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ANIMALS ARE A PART OF OUR LIVES CORPORATION"], ["created_at", "2016-01-29 17:04:43.603578"], ["updated_at", "2016-01-29 17:04:43.603578"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "ANIMALS PARADISE FOREVER INC"], ["created_at", "2016-01-29 17:04:43.605771"], ["updated_at", "2016-01-29 17:04:43.605771"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ANIMALS R FRIENDS FOREVER INC"], ["created_at", "2016-01-29 17:04:43.607846"], ["updated_at", "2016-01-29 17:04:43.607846"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ANIMALS REQUIRE KINDNESS INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.609892"], ["updated_at", "2016-01-29 17:04:43.609892"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ANIMALS TOO SANCTUARY"], ["created_at", "2016-01-29 17:04:43.611998"], ["updated_at", "2016-01-29 17:04:43.611998"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "ART FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.613997"], ["updated_at", "2016-01-29 17:04:43.613997"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "AUDREYS ARK FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.616051"], ["updated_at", "2016-01-29 17:04:43.616051"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "CENTRAL NEW YORK SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["created_at", "2016-01-29 17:04:43.617964"], ["updated_at", "2016-01-29 17:04:43.617964"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "CHEMUNG COUNTY HUMANE SOCIETY FOR PREVENTION OF CRUELTY TO ANIMALS"], ["created_at", "2016-01-29 17:04:43.619810"], ["updated_at", "2016-01-29 17:04:43.619810"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "CHENANGO COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.621729"], ["updated_at", "2016-01-29 17:04:43.621729"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "CHRISTIANS HELPING ANIMALS AND PEOPLE INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.623637"], ["updated_at", "2016-01-29 17:04:43.623637"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "CORTLAND COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["created_at", "2016-01-29 17:04:43.625700"], ["updated_at", "2016-01-29 17:04:43.625700"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "DANCING FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.627569"], ["updated_at", "2016-01-29 17:04:43.627569"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "ELMORE SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.629457"], ["updated_at", "2016-01-29 17:04:43.629457"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "EVERYTHING ANIMALS RESOURCE & ACTIVITY CENTER"], ["created_at", "2016-01-29 17:04:43.631343"], ["updated_at", "2016-01-29 17:04:43.631343"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "FINALLY HOME-A SANCTUARY FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.633191"], ["updated_at", "2016-01-29 17:04:43.633191"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FIRST RUN MEDICAL AND RESCUE FUND FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.635026"], ["updated_at", "2016-01-29 17:04:43.635026"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.636895"], ["updated_at", "2016-01-29 17:04:43.636895"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FOR THE CARE OF ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.638756"], ["updated_at", "2016-01-29 17:04:43.638756"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "FOR THE LOVE OF ANIMALS INC"], ["category", "Other Activities Directed to Individuals, Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.640668"], ["updated_at", "2016-01-29 17:04:43.640668"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FOUNDATION FOR INTERNATIONAL AID TO ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.642560"], ["updated_at", "2016-01-29 17:04:43.642560"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "FOUNDATION FOR INTERNATIONAL AID TO ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.644426"], ["updated_at", "2016-01-29 17:04:43.644426"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "FRIENDS OF ROCKLAND SHELTER ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.646289"], ["updated_at", "2016-01-29 17:04:43.646289"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "FUND FOR ANIMALS INC"], ["category", "Conservation, Environmental and Beautification Activities"], ["created_at", "2016-01-29 17:04:43.648195"], ["updated_at", "2016-01-29 17:04:43.648195"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "HELP THE ANIMALS FUND INC"], ["created_at", "2016-01-29 17:04:43.650113"], ["updated_at", "2016-01-29 17:04:43.650113"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "HELPING ANIMALS LIVE ORGANIZATION"], ["created_at", "2016-01-29 17:04:43.652311"], ["updated_at", "2016-01-29 17:04:43.652311"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "KARUNA FOR ANIMALS COMPASSION IN ACTION INC"], ["created_at", "2016-01-29 17:04:43.654341"], ["updated_at", "2016-01-29 17:04:43.654341"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "LITTLE ORPHAN ANIMALS INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.656295"], ["updated_at", "2016-01-29 17:04:43.656295"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "MAYORS ALLIANCE FOR NYCS ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.658318"], ["updated_at", "2016-01-29 17:04:43.658318"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "MONTGOMERY COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["created_at", "2016-01-29 17:04:43.660420"], ["updated_at", "2016-01-29 17:04:43.660420"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "NASSAU COUNTY SOCIETY PREVENTION OF CRUELTY TO ANIMALS INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.662526"], ["updated_at", "2016-01-29 17:04:43.662526"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "NEW YORK SAVE ANIMALS IN VETERINARY EMERGENCY INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.664553"], ["updated_at", "2016-01-29 17:04:43.664553"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "NEWBURGH SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.666511"], ["updated_at", "2016-01-29 17:04:43.666511"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "NIAGARA COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS I"], ["category", "Legislative and Political Activities"], ["created_at", "2016-01-29 17:04:43.668467"], ["updated_at", "2016-01-29 17:04:43.668467"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "PEOPLE & ANIMALS TEAM-UP SUCCESSFULLY INC"], ["created_at", "2016-01-29 17:04:43.670388"], ["updated_at", "2016-01-29 17:04:43.670388"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "PEOPLE & ANIMALS WITH NEEDS INC"], ["created_at", "2016-01-29 17:04:43.672269"], ["updated_at", "2016-01-29 17:04:43.672269"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "PEOPLE PROTECTING ANIMALS AND THEIR HABITATS INC"], ["created_at", "2016-01-29 17:04:43.674103"], ["updated_at", "2016-01-29 17:04:43.674103"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "POOR ANIMALS OF SAINT FRANCES INC"], ["created_at", "2016-01-29 17:04:43.676016"], ["updated_at", "2016-01-29 17:04:43.676016"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "RONDOUT VALLEY ANIMALS FOR ADOPTION INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.684069"], ["updated_at", "2016-01-29 17:04:43.684069"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "RUSSIAN-AMERICAN SOCIETY FOR THE PROTECTION OF ANIMALS INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.686686"], ["updated_at", "2016-01-29 17:04:43.686686"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SAFE HAVEN FOR ANIMALS"], ["created_at", "2016-01-29 17:04:43.688701"], ["updated_at", "2016-01-29 17:04:43.688701"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "SANCTUARY FOR ANIMALS INC"], ["category", "Inner City or Community Activities, Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.690572"], ["updated_at", "2016-01-29 17:04:43.690572"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SANCTUARY FOR UNWANTED AND NEGLECTED ANIMALS"], ["created_at", "2016-01-29 17:04:43.692488"], ["updated_at", "2016-01-29 17:04:43.692488"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "SAVE THE ANIMALS RESCUE FOUNDATION INC"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.694345"], ["updated_at", "2016-01-29 17:04:43.694345"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SCHENECTADY COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS I"], ["created_at", "2016-01-29 17:04:43.696275"], ["updated_at", "2016-01-29 17:04:43.696275"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "SENECA CNTY SOC FOR THE PREVENTION OF CRUELTY TO ANIMALS LTD"], ["created_at", "2016-01-29 17:04:43.698114"], ["updated_at", "2016-01-29 17:04:43.698114"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SHEPHERDS FOR ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.699996"], ["updated_at", "2016-01-29 17:04:43.699996"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "SOCIETY FOR PREVENTION OF CRUELTY TO ANIMALS IN CATTARAUGUS COUNTY C"], ["created_at", "2016-01-29 17:04:43.701858"], ["updated_at", "2016-01-29 17:04:43.701858"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS OF UPSTATE"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.703687"], ["updated_at", "2016-01-29 17:04:43.703687"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS OF WESTCHESTER"], ["created_at", "2016-01-29 17:04:43.705548"], ["updated_at", "2016-01-29 17:04:43.705548"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SPEAKING OUT FOR ANIMALS"], ["created_at", "2016-01-29 17:04:43.707355"], ["updated_at", "2016-01-29 17:04:43.707355"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "SUFFOLK COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.709174"], ["updated_at", "2016-01-29 17:04:43.709174"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "SUSQUEHANNA SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["created_at", "2016-01-29 17:04:43.711040"], ["updated_at", "2016-01-29 17:04:43.711040"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "THE COALITION FOR NEW YORK CITY ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.712905"], ["updated_at", "2016-01-29 17:04:43.712905"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "THINKING ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.714743"], ["updated_at", "2016-01-29 17:04:43.714743"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "ULSTER COUNTY SOCIETY FOR THE PREVENTION OF CRUELTY TO ANIMALS"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.716594"], ["updated_at", "2016-01-29 17:04:43.716594"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "UNITED FRIENDS OF HOMELESS ANIMALS INC"], ["created_at", "2016-01-29 17:04:43.718503"], ["updated_at", "2016-01-29 17:04:43.718503"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "VOLUNTEERS FOR ANIMALS OF BATAVIA"], ["category", "Other Purposes and Activities"], ["created_at", "2016-01-29 17:04:43.720301"], ["updated_at", "2016-01-29 17:04:43.720301"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "WORLD SOCIETY FOR THE PROTECTION OF ANIMALS"], ["created_at", "2016-01-29 17:04:43.722149"], ["updated_at", "2016-01-29 17:04:43.722149"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "charities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "WORLD SOCIETY FOR THE PROTECTION OF ANIMALS"], ["created_at", "2016-01-29 17:04:43.724025"], ["updated_at", "2016-01-29 17:04:43.724025"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "something"], ["email", "test@email.com"], ["password_digest", "$2a$10$yGkQ2MGlSfxaf0YrehIVg.VlXN16SH7.ohJWxipe01q.CmWeEzmam"], ["created_at", "2016-01-29 17:04:43.813123"], ["updated_at", "2016-01-29 17:04:43.813123"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "charities" ("name", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "test Charity"], ["category", "test category for charity"], ["created_at", "2016-01-29 17:04:43.817432"], ["updated_at", "2016-01-29 17:04:43.817432"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCharity Load (0.4ms)[0m  SELECT  "charities".* FROM "charities"  ORDER BY "charities"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "goals" ("setter_id", "tender_id", "charity_id", "title", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["setter_id", 1], ["tender_id", 1], ["charity_id", 1], ["title", "test Goal"], ["description", "goal description"], ["created_at", "2016-01-29 17:04:43.864290"], ["updated_at", "2016-01-29 17:04:43.864290"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mGoal Load (0.5ms)[0m  SELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "milestones" ("goal_id", "description", "deadline", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["goal_id", 1], ["description", "Test Milestone"], ["deadline", "2016-01-29"], ["created_at", "2016-01-29 17:04:43.876228"], ["updated_at", "2016-01-29 17:04:43.876228"]]
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mGoal Load (0.4ms)[0m  [1mSELECT  "goals".* FROM "goals"  ORDER BY "goals"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "pledges" ("user_id", "goal_id", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["goal_id", 1], ["amount", 20], ["created_at", "2016-01-29 17:04:43.921028"], ["updated_at", "2016-01-29 17:04:43.921028"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mCharity Load (0.7ms)[0m  [1mSELECT "charities".* FROM "charities"[0m
