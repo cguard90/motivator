@@ -56,11 +56,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :new, :show, :create ]
   resources :sessions, only: [ :new, :create, :destroy ]
+
   resources :goals do
-    resources :milestones
-  end
-  resources :goals do
-    resources :pledges
+    resources :milestones, :pledges
   end
 
   root 'welcome#index'
