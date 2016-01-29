@@ -25,7 +25,7 @@ User.create(username: "something", email: "test@email.com", password: '1234')
 Charity.create(name: "test Charity", category: "test category for charity")
 
 Goal.create(setter_id: User.first.id, tender_id: User.first.id, charity_id: Charity.first.id, title: "test Goal", description: "goal description")
-
+5`
 Milestone.create(goal_id: Goal.first.id, description: "Test Milestone", deadline: Date.today)
 
 Pledge.create(user_id: User.first.id, goal_id: Goal.first.id, amount: 20)
