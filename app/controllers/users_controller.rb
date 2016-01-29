@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: current_user.id)
+    @user = User.includes(:set_goals).find_by(id: current_user.id)
   end
 
   def create

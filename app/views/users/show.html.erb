@@ -1,1 +1,5 @@
 <h2>Welcome, <%= current_user.username %></h2>
+
+<% @user.set_goals.each do |set_goal|%>
+  <%= render _goal %>
+<%end%>
