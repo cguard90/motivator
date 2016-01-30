@@ -1,0 +1,5 @@
+<ul>
+<% @charities.each_with_index do |charity, index| %>
+  <li> <%= index + 1 %>. <%= charity.name %> </li>
+<% end %>
+</ul>

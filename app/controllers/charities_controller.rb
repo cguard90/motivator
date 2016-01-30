@@ -10,4 +10,13 @@ def show
   @messages = Message.broadcast
 end
 
+  def index
+    @charities = Charity.all
+  end
+
+  def show
+    @charity = Charity.find_by(id: params[:id])
+  end
+
+
 end
