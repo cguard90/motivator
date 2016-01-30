@@ -17,6 +17,7 @@ gem 'httparty'
 gem 'awesome_print'
 gem 'factory_girl'
 gem 'launchy'
+gem 'faker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
