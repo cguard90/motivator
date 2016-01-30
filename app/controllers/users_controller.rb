@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
 
   def show
-    @user = User.includes(:set_goals, :tended_goals).find_by(id: current_user.id)
+    @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
     @pledges = @user.pledges.includes(:goal)
   end
 

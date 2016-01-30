@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :users, only: [ :new, :show, :create ]
+  resources :users, only: [ :new, :show, :create, :index ]
   resources :sessions, only: [ :new, :create, :destroy ]
 
   resources :goals do
