@@ -1,6 +1,6 @@
-<% if params[:id] == current_user.id %>
+<% if current_user && @user == current_user %>
   <h2>Welcome, <%= current_user.username %></h2>
-  <% else %>
+<% else %>
   <h2>Welcome to <%= @user.username %>'s page</h2>
 <% end %>
 
