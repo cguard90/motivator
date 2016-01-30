@@ -1,14 +1,101 @@
 #attribute-label {
   text-align: center;
   font-size: 15px;
-  border: solid 4px #1949B7;
-  background-color: #5F80CC;
   border-radius: 10px;
   width:50%;
   margin: 0 auto;
 }
 
-.container {
+.gbox {
+  padding: 10px;
+  text-align: center;
+  background-color: #69D2E7;
+  border-radius: 10px;
+}
+
+.cbox {
+  padding: 10px;
+  text-align: center;
+  background-color: #69D2E7;
+  border-radius: 10px;
+}
+
+.mbox {
+  padding: 10px;
+  text-align: center;
+  background-color: #E0E4CC;
+  border-radius: 10px;
+}
+
+#attribute {
+  font-size: 20px;
+}
+
+#option-links {
+  display:inline-block;
+  font-size: 15px;
+}
+
+#options {
   text-align: center;
 }
+
+#titles {
+  text-align: center
+}
+
+#topline {
+  border-top: solid 5px black;
+}
+
+#charity {
+  font-size: 15px;
+}
+
+main {
+  background-color:#DDDDDD;
+}
+
+
+.styled meter {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 85%;
+  height: 30px;
+  margin-bottom:10px;
+
+  /* For Firefox */
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+}
+
+/* WebKit */
+.styled meter::-webkit-meter-bar {
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+}
+
+.styled meter::-webkit-meter-optimum-value,
+.styled meter::-webkit-meter-suboptimum-value,
+.styled meter::-webkit-meter-even-less-good-value {
+  border-radius: 3px;
+}
+
+.styled meter::-webkit-meter-optimum-value {
+  background: #86CC00;
+}
+
+.styled meter::-webkit-meter-suboptimum-value {
+  background: #FFDB1A;
+}
+
+.styled meter::-webkit-meter-even-less-good-value  {
+  background: #CC4600;
+}
+
 
