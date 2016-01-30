@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.includes(:milestones,:messages).find_by(id: params[:id])
+    @goal = Goal.includes(:milestones, :messages).find_by(id: params[:id])
   end
 
   def create
