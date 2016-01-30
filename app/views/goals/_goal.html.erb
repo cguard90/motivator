@@ -12,6 +12,6 @@
 <h6>Pledges:</h6>
 <ul>
   <% goal.pledges.each do |pledge|%>
-    <li><%= pledge.user.username%> pledged: <%= pledge.amount %> </li>
+    <li><%= pledge.user.username%> pledged: $<%= pledge.amount %> </li>
   <%end%>
 </ul>
