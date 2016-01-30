@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'httparty'
 gem 'awesome_print'
-gem 'factory_girl'
+gem 'factory_girl_rails'
 gem 'launchy'
 gem 'faker'
 
