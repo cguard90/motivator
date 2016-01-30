@@ -1,3 +1,22 @@
 <h2>Search Results for: <%= params[:q] %> </h2>
 
-<%= params %>
+<% @results.each do |object| %>
+  <% case object %>
+  <% when User %>
+    <p>User: <%= object.username %> </p>
+
+  <% when Charity %>
+    <p>Charity: <%= object.name %></p>
+
+  <% when Goal %>
+    <p>Goal Title: <%= object.title %></p>
+    <p>Goal Description: <%= object.description %></p>
+
+  <% when Milestone %>
+    <p>Milestone: <%=object.description%> </p>
+  <% else %>
+    <p> No results were found. </p>
+  <% end %>
+
+
+<% end %>
