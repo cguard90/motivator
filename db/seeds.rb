@@ -29,7 +29,7 @@ end
 
   goal = Goal.create!(
     setter_id: user.id,
-    tender_id: user.id,
+    tender: User.all.sample,
     charity: Charity.all.sample,
     title: Faker::Hacker.say_something_smart,
     description: Faker::Name.title
