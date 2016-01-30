@@ -1,6 +1,7 @@
-<h2><%= goal.title%></h2>
-<p><%= goal.setter.username%></p>
-<h3><%= goal.description%></h3>
+<h2><%= link_to "#{goal.title}", goals_path %></h2>
+<p><%=goal.setter.username%></p>
+<h3><%=goal.description%></h3>
+
 <h4>Milestones:</h4>
 <ul>
   <% goal.milestones.each do |milestone|%>
