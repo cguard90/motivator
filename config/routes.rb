@@ -64,6 +64,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get '/search' => 'search#index'
+
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
   get 'register' => 'users#new'
