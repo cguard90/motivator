@@ -19,6 +19,11 @@
          <li id="option-links"><%= link_to "Delete Goal", goal_path, method: :delete %></li>
         </ul>
       </nav>
+      <% if current_user && @goal.setter_id != current_user.id %>
+        <div class="support-button">
+          <%= button_to "Support", new_goal_pledge_path(@goal),:method => :get%>
+        </div>
+      <% end %>
     </div>
   </ul>
 
