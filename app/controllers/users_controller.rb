@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @messages = Message.broadcast
     @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
     @pledges = @user.pledges.includes(:goal)
+    @messages = @user.network_messages
   end
 
   def create
