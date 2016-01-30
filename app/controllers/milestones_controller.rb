@@ -21,32 +21,32 @@ class MilestonesController < ApplicationController
     end
   end
 
-def edit
-  @milestone.find_by(id: params[:id])
-  @messages = Message.broadcast
-end
-
-def update
-  @milestone = Milestone.find_by(id: params[:id])
-  @messages = Message.broadcast
-  if @milestone.update_attributes(milestone_params)
-    redirect_to milestone_path
-  else
-    render :edit
+  def edit
+    @milestone.find_by(id: params[:id])
+    @messages = Message.broadcast
   end
-end
 
-def destroy
-  @messages = Message.broadcast
-  @milestone = Milestone.find_by(id: params[:id])
-  @milestone.destroy
-  redirect_to milestone_path
-end
+  def update
+    @milestone = Milestone.find_by(id: params[:id])
+    @messages = Message.broadcast
+    if @milestone.update_attributes(milestone_params)
+      redirect_to milestone_path
+    else
+      render :edit
+    end
+  end
 
-private
+  def destroy
+    @messages = Message.broadcast
+    @milestone = Milestone.find_by(id: params[:id])
+    @milestone.destroy
+    redirect_to milestone_path
+  end
 
-def milestone_params
-  params.require(:milestone).permit(:goal_id,:description,:deadline)
-end
+  private
+
+  def milestone_params
+    params.require(:milestone).permit(:goal_id,:description,:deadline)
+  end
 
 end
