@@ -1,29 +1,30 @@
 <div>
+  <p id="titles">Goal</p>
   <ul>
-    <div class="goal-container">
+    <div class="goal-container gbox">
       <li id="goal-info">
         <div class="goal label">
-          <p id="attribute-label">Goal Title</p>
-          <%= @goal.title %>
-          <p id="attribute-label">Goal Description</p>
+          <p id="attribute-lable"><%= @goal.title %></p>
           <% if @goal.description != "" %>
           <%= @goal.description %>
           <% end %>
+          <p class="styled">
+          <meter min="0" max="100" low="25" high="75" optimum="100" value="20"></meter>
+          </p>
+          <p id="charity">Charity: <%= @goal.charity.name %></p>
         </li>
-      </div>
-      <%= link_to "Edit Goal", edit_goal_path %>
-      <%= link_to "Delete Goal", goal_path, method: :delete %>
+      <nav id="options">
+        <ul>
+         <li id="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
+         <li id="option-links"><%= link_to "Delete Goal", goal_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
   </ul>
 
-  <div class="charity-container">
-    <p id="attribute-lable">Charity To Donate</p>
-    <%= @goal.charity.name %>
-    <!-- CHARITY NAME CAUSING AR SEARCH -->
-  </div>
-
+  <p id="titles">Milestones</p>
   <ul>
-      <div class="milestone-cotainer">
-        <p id="attribute-lable">Milestones</p>
+      <div class="milestone-cotainer gbox">
         <% @goal.milestones.each do |milestone| %>
           <ul>
             <%= milestone.description %>
@@ -33,9 +34,9 @@
       </div>
   </ul>
 
+  <p id="titles">Messages</p>
   <ul>
-      <div class="message-cotainer">
-        <p id="attribute-lable">Messages</p>
+      <div class="message-cotainer mbox">
         <% @goal.messages.each do |message| %>
         <%= message.content %>
         <% end %>
