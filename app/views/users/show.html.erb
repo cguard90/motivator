@@ -1,5 +1,19 @@
 <h2>Welcome, <%= current_user.username %></h2>
 
-<% @user.set_goals.each do |set_goal|%>
-  <%= render "goals/goal", goal: set_goal %>
-<%end%>
+<div id="set_goals"><h3>Set Goals:</h3>
+  <% @user.set_goals.each do |set_goal|%>
+    <%= render "goals/goal", goal: set_goal %>
+  <%end%>
+</div>
+
+<div id="supported_goals"><h3>Supporting Goals:</h3>
+  <% @pledges.each do |pledge|%>
+    <%= render "goals/goal", goal: pledge.goal %>
+  <%end%>
+</div>
+
+<div id="tending_goals"><h3>Tending Goals:</h3>
+  <% @user.tended_goals.each do |tended_goal|%>
+    <%= render "goals/goal", goal: tended_goal %>
+  <%end%>
+</div>
