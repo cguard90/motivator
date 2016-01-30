@@ -1,3 +1,9 @@
+<nav id="sorting">
+  <%= link_to "Newest", goals_path(sort: "Newest") %> |
+  <%= link_to "Submitted By", goals_path(sort: "Submitted") %> |
+  <%= link_to "Charity", goals_path(sort: "Charity") %>
+</nav>
+
 <ul>
 <% @goals.each do |goal| %>
 
@@ -9,8 +15,8 @@
           <% if goal.description != "" %>
             <%= goal.description %>
           <% end %>
-        <p id="charity">Charity To Donate</p>
-        <p id="charity"><%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
+        <p id="attribute-lable">Posted By <%= goal.tender.username %></p>
+        <p id="charity">Charity To Donate <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
       </div>
       <% if current_user && goal.setter_id != current_user.id %>
         <div class="support-button">
