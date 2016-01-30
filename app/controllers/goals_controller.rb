@@ -29,7 +29,7 @@ class GoalsController < ApplicationController
   end
 
   def edit
-    @goal.find_by(id: params[:id])
+    @goal = Goal.find_by(id: params[:id])
   end
 
   def update
