@@ -32,23 +32,27 @@ end
     tender_id: user.id,
     charity: Charity.all.sample,
     title: Faker::Hacker.say_something_smart,
-    description: Faker::Name.title)
+    description: Faker::Name.title
+  )
 
-    (1..3).to_a.each do |milestones_number|
-      milestone = Milestone.create!(
-        goal: goal, description: Faker::Name.title ,
-        deadline: Faker::Time.forward(50, :evening))
+  (1..3).to_a.each do |milestones_number|
+    milestone = Milestone.create!(
+      goal: goal, description: Faker::Name.title ,
+      deadline: Faker::Time.forward(50, :evening)
+    )
 
-      pledge = Pledge.create!(
-        user:user,
-        goal: goal,
-        amount: Faker::Number.between(1, 100))
+    pledge = Pledge.create!(
+      user:user,
+      goal: goal,
+      amount: Faker::Number.between(1, 100)
+    )
 
+    (3..5).to_a.each do |msg|
       messages = Message.create!(
         user:User.all.sample,
         goal: goal,
         content: Faker::Hipster.sentence(3, true)
-        )
-
+      )
     end
+  end
 end
