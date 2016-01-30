@@ -16,12 +16,8 @@
     <% end %>
     <ul>
       <% if logged_in? %>
-        <li>
-          Welcome, <%= link_to current_user.username, user_path(current_user) %>!
-        </li>
-        <li>
-          <%= link_to 'Log Out', session_path(current_user), method: :delete %>
-        </li>
+        <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
+        <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
 
       <% else %>
         <li>
