@@ -31,8 +31,8 @@ end
     setter_id: user.id,
     tender: User.all.sample,
     charity: Charity.all.sample,
-    title: Faker::Hacker.verb + " " + Faker::Hacker.noun,
-    description: Faker::Hacker.say_something_smart
+    title: Faker::Hacker.verb.capitalize + " " + Faker::Hacker.noun,
+    description: Faker::Hacker.say_something_smart.capitalize
   )
 
   (1..3).to_a.each do |milestones_number|
