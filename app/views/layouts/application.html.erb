@@ -35,22 +35,32 @@
 
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
-        <%= content_tag :div, msg, :class => "flash_#{name}" %>
+        <%= content_tag :div, msg, :class => "flash_#{name} error" %>
       <% end %>
     <% end %>
 
-    <nav>
+
+    <%= yield %>
+  </main>
+
+  <aside>
+    <nav class="side--nav">
       <ul>
         <li><%= link_to 'Create New Goal', new_goal_path%></li>
       </ul>
     </nav>
 
-    <%= yield %>
-  </main>
+    <h4>News Feed</h4>
+    <div id="feed" class="side--feed">
+      <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
+      <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
+      <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
+      <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
+    </div>
+  </aside>
 
   <footer>
     <p>Created by Jeff George, Chris Guard, and Luis Plaz for Dev Bootcamp</p>
   </footer>
-</body>
 </body>
 </html>
