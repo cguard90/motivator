@@ -1,6 +1,6 @@
-<h2><%= link_to "#{goal.title}", goal_path(goal.id) %></h2>
+<h4><%= link_to "#{goal.title}", goal_path(goal.id) %></h4>
 <p><%=goal.setter.username%></p>
-<h3><%=goal.description%></h3>
+<h4><%=goal.description%></h4>
 
 <h4>Milestones:</h4>
 <ul>
@@ -9,9 +9,9 @@
   <% end %>
 </ul>
 
-<h5>Pledges:</h5>
+<h6>Pledges:</h6>
 <ul>
-  <%= goal.pledges.each do |pledge|%>
+  <% goal.pledges.each do |pledge|%>
     <li><%= pledge.user.username%> pledged: <%= pledge.amount %> </li>
   <%end%>
 </ul>
