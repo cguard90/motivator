@@ -1,4 +1,8 @@
-<h2>Welcome, <%= current_user.username %></h2>
+<% if params[:id] == current_user.id %>
+  <h2>Welcome, <%= current_user.username %></h2>
+  <% else %>
+  <h2>Welcome to <%= @user.username %>'s page</h2>
+<% end %>
 
 <div id="set_goals"><h3>Set Goals:</h3>
   <% @user.set_goals.each do |set_goal|%>
