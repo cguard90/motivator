@@ -6,9 +6,9 @@
   margin: 0 auto;
 }
 
-main {
+/*main {
   overflow-y: scroll;
-}
+}*/
 
 .message {
   font-size: 15px;

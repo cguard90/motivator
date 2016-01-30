@@ -24,5 +24,28 @@ class User < ActiveRecord::Base
     end
   end
 
+  def network_messages
+    set_goals_msgs = []
+    self.set_goals.each do |goal|
+      goal.messages.each do |message|
+        set_goals_msgs.push message
+      end
+    end
+    tended_goals_msgs = []
+    self.tended_goals.each do |goal|
+      goal.messages.each do |message|
+        tended_goals_msgs.push message
+      end
+    end
+    supported_goals_msgs = []
+    self.pledges.each do |pledge|
+      pledge.goal.messages.each do |message|
+        supported_goals_msgs.push message
+      end
+    end
+    @messages = set_goals_msgs | tended_goals_msgs | supported_goals_msgs
+    @messages.sort_by! { |message| message.created_at }
+  end
+
 end
 
