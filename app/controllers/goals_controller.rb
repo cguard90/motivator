@@ -16,13 +16,13 @@ class GoalsController < ApplicationController
   end
 
   def create
-    binding.pry
     @goal = Goal.new(goal_params)
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
     if @goal.save
-      redirect goal_path(@goal)
+      @milestone = Milestone.new(milestone_params)
+      redirect_to goal_path(id: @goal.id) if @milestone.save
     else
       render :new
     end
@@ -51,6 +51,10 @@ private
 
   def goal_params
     params.require(:goal).permit(:title, :description, :limit)
+  end
+
+  def milestone_params
+    {description: params[:goal][:milestones], goal_id: @goal.id, deadline: params[:Deadline] }
   end
 
 
