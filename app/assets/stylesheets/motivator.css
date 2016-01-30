@@ -6,6 +6,15 @@
   margin: 0 auto;
 }
 
+main {
+  overflow: scroll;
+}
+
+.message {
+  font-size: 15px;
+
+}
+
 .gbox {
   padding: 10px;
   text-align: center;
@@ -51,6 +60,16 @@
 
 #charity {
   font-size: 15px;
+}
+.support-button input {
+  margin:0 auto;
+}
+
+.currencyinput {
+    border: 1px inset #ccc;
+}
+.currencyinput input {
+    border: 0;
 }
 
 main {

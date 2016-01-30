@@ -38,7 +38,7 @@
   <ul>
       <div class="message-cotainer mbox">
         <% @goal.messages.each do |message| %>
-        <%= message.content %>
+          <li class="message"><%= message.content %> - <%= message.user.id %></li>
         <% end %>
       </div>
   </ul>
