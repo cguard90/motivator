@@ -10,19 +10,21 @@ class PledgesController < ApplicationController
 
   def new
     @pledge = Pledge.new
+  end
 
   def create
     @pledge = Pledge.new(pledge_params)
-    @pledge.goal = params[:id]
-    if @pledge.save
-      redirect goal_path ##TAKE ME TO PROFILE PAGE
-    else
-      render :new
-    end
+    @pledge.goal = Goal.find_by(id: params[:goal_id])
+    @pledge.user = current_user
+      if @pledge.save
+        redirect goal_path(@pledge.goal)
+      else
+        render :new
+      end
   end
 
   def edit
-    @milestone.find_by(id: params[:id])
+    @pledge.find_by(id: params[:id])
   end
 
   private
