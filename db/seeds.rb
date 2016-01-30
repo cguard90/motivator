@@ -21,10 +21,34 @@ charities.each do |charity|
 end
 
 (1..5).to_a.each do |number|
-  user = User.create(user_name: "User#{number}", email: Faker::Internet.safe_email, password: "password")
-  goal = Survey.create(setter: user, tender: user, charity: Charity.all.sample, title: Faker::Hacker.say_something_smart, user: user)
+  user = User.create!(
+    username: "Testuser#{number}",
+    email: Faker::Internet.safe_email,
+    password: "password"
+    )
+
+  goal = Goal.create!(
+    setter_id: user.id,
+    tender_id: user.id,
+    charity: Charity.all.sample,
+    title: Faker::Hacker.say_something_smart,
+    description: Faker::Name.title)
+
     (1..3).to_a.each do |milestones_number|
-      milestone = Milestone.create(goal: goal, description: Faker::Name.title , deadline: Faker::Time.forward(50, :evening))
-      pledge = Pledge.create(user:user, goal: goal, amount: Faker::Number.between(1, 100))
+      milestone = Milestone.create!(
+        goal: goal, description: Faker::Name.title ,
+        deadline: Faker::Time.forward(50, :evening))
+
+      pledge = Pledge.create!(
+        user:user,
+        goal: goal,
+        amount: Faker::Number.between(1, 100))
+
+      messages = Message.create!(
+        user:User.all.sample,
+        goal: goal,
+        content: Faker::Hipster.sentence(3, true)
+        )
+
     end
 end
