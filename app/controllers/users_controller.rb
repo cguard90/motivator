@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:set_goals, :tended_goals).find_by(id: current_user.id)
+    @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
     @pledges = @user.pledges.includes(:goal)
   end
 
