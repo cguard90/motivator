@@ -1,0 +1,16 @@
+<h2><%= goal.title%></h2>
+<p><%= goal.setter.username%></p>
+<h3><%= goal.description%></h3>
+<h4>Milestones:</h4>
+<ul>
+  <% goal.milestones.each do |milestone|%>
+    <li><%= milestone.description%>, Deadline: <%=milestone.deadline%></li>
+  <% end %>
+</ul>
+
+<h5>Pledges:</h5>
+<ul>
+  <%= goal.pledges.each do |pledge|%>
+    <li><%= pledge.user.username%> pledged: <%= pledge.amount %> </li>
+  <%end%>
+</ul>

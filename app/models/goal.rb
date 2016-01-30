@@ -4,6 +4,7 @@ class Goal < ActiveRecord::Base
   belongs_to :charity
   has_many :milestones
   has_many :messages
+  has_many :pledges
 
   validates :title, presence: true
   validates :description, presence: true
