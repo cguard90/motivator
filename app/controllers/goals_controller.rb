@@ -1,11 +1,13 @@
 class GoalsController < ApplicationController
 
   def index
+    @messages = Message.broadcast
     @goals = Goal.all
     # Maybe apply batch
   end
 
   def new
+    @messages = Message.broadcast
     @goal = Goal.new
     @charities = Charity.all
     @milestones = Milestone.new
@@ -17,6 +19,7 @@ class GoalsController < ApplicationController
   end
 
   def create
+    @messages = Message.broadcast
     @goal = Goal.new(goal_params)
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
@@ -30,10 +33,12 @@ class GoalsController < ApplicationController
   end
 
   def edit
+    @messages = Message.broadcast
     @goal = Goal.find_by(id: params[:id])
   end
 
   def update
+    @messages = Message.broadcast
     @goal = Goal.find_by(id: params[:id])
     if @goal.update_attributes(goal_params)
       redirect_to goal_path

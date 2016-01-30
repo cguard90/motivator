@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
 
   def index
+    @messages = Message.broadcast
     @users = User.all
   end
 
   def new
+    @messages = Message.broadcast
     @user = User.new
   end
 
   def show
+    @messages = Message.broadcast
     @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
     @pledges = @user.pledges.includes(:goal)
   end
 
   def create
+    @messages = Message.broadcast
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
