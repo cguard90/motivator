@@ -49,36 +49,17 @@
         <li><%= link_to 'Create New Goal', new_goal_path %></li>
         <li><%= link_to "All Goals", goals_path %>  </li>
         <li><%= link_to "All Users", users_path %></li>
+        <!-- Temporary link for testing: -->
+        <li><%= link_to 'View messages (temp)', messages_path %></li>
       </ul>
     </nav>
 
     <div class="side--news">
       <h4>News Feed</h4>
       <div id="feed" class="side side--feed">
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
-        <p class="msg-head"><b>BifBarnes:</b> Stop Smoking, Jan. 17, 2016</p>
-        <p class="msg-content"><b>MommaSue</b> says, "Go, Bif! We know you can do it!"</p>
+        <% @messages.each do |message| %>
+          <%= render message %>
+        <% end %>
       </div>
     </div>
   </aside>

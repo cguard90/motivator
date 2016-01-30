@@ -70,4 +70,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#oauth_create'
 
 
+  # Temporary routes for testing:
+  resources :messages, only: [:new, :create, :destroy, :show, :index,]
+
 end

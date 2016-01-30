@@ -3,7 +3,6 @@
 main {
   float: left;
   width: 666px;
-  height: 700px;
   border-radius: 10px;
   background-color: #eee;
 }
@@ -58,14 +57,23 @@ aside div.side--feed {
   padding: 0 0.25rem;
 }
 
-aside .msg-head {
+.msg {
   font-size: 0.75rem;
-  font-style: ;
+  padding: 0.25rem;
+  line-height: 1.2;
+  border-bottom: 1px solid #ddd;
 }
 
-aside .msg-content {
-  font-size: 0.75rem;
-  padding-bottom: 0.25rem;
+.msg p {
+  margin: 0;
+  padding: 0;
+}
+
+.msg-head {
+  color: #888;
+}
+
+.msg-content {
 }
 
 
