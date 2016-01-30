@@ -8,6 +8,9 @@ class PledgesController < ApplicationController
     @pledge = Pledge.find_by(id: params[:id])
   end
 
+  def new
+    @pledge = Pledge.new
+
   def create
     @pledge = Pledge.new(pledge_params)
     @pledge.goal = params[:id]
