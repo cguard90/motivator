@@ -10,7 +10,7 @@
             <%= goal.description %>
           <% end %>
         <p id="charity">Charity To Donate</p>
-        <p id="charity"><%= link_to "#{goal.charity.name}", charities_path(goal.charity) %></p>
+        <p id="charity"><%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
       </div>
       <% if current_user %>
         <div class="support-button">
