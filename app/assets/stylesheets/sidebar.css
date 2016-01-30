@@ -57,14 +57,18 @@ aside div.side--feed {
   padding: 0 0.25rem;
 }
 
-aside .msg-head {
-  font-size: 0.75rem;
-  font-style: ;
-}
-
-aside .msg-content {
+.msg {
   font-size: 0.75rem;
   padding-bottom: 0.25rem;
+  line-height: 0.85;
+  border-bottom: 1px solid #ddd;
+}
+
+.msg-head {
+  color: #888;
+}
+
+.msg-content {
 }
 
 
