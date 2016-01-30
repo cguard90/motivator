@@ -9,4 +9,7 @@ class Goal < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
   #just a comment
+
+  delegate :username, to: :setter, prefix: true
+
 end
