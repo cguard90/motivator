@@ -16,7 +16,6 @@ class GoalsController < ApplicationController
   end
 
   def create
-    binding.pry
     @goal = Goal.new(goal_params)
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
