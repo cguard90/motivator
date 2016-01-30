@@ -9,16 +9,13 @@
     <%= f.label :tender, value: "Goal Tender" %>
     <%= f.text_field :tender %>
 
-    <select  name="charity_selector">
-      <%= @charities.each do |charity| %>
-        <option value="<%=charity.name%>"><%= charity.name %> </option>
-      <% end %>
-    </select>
+    <%= f.label :charity %>
+    <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name")%>
 
-      <%= f.label :milestones %>
-      <%= f.text_field :milestones, :value => ""%>
+    <%= f.label :milestones %>
+    <%= f.text_field :milestones, :value => ""%>
 
-      <input type = "Date", name="Deadline" min = "<%= Date.today %>" >
+    <input type = "Date", name="Deadline" min = "<%= Date.today %>" >
     </div>
     <%= submit_tag "Create Your Goal!"%>
   </fieldset>

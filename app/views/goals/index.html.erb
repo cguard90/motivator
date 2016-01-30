@@ -12,7 +12,7 @@
         <p id="charity">Charity To Donate</p>
         <p id="charity"><%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
       </div>
-      <% if current_user %>
+      <% if current_user && goal.setter_id != current_user.id %>
         <div class="support-button">
           <%= button_to "Support", new_goal_pledge_path(goal),:method => :get%>
         </div>
