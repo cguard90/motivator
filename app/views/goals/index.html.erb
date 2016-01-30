@@ -1,19 +1,26 @@
 <ul>
 <% @goals.each do |goal| %>
+
   <div class="goal-container gbox">
     <li id="goal-info">
       <div class="goal label">
         <p id="attribute-lable"><%= link_to "#{goal.title}", goal_path(goal) %></p>
-
         <p id="attribute-lable">Description</p>
-        <% if goal.description != "" %>
-          <%= goal.description %>
-        <% end %>
+          <% if goal.description != "" %>
+            <%= goal.description %>
+          <% end %>
         <p id="charity">Charity To Donate</p>
         <p id="charity"><%= link_to "#{goal.charity.name}", charities_path(goal.charity) %></p>
       </div>
+      <div class="support-button">
+        <%= button_to "Support", new_goal_pledge_path(goal),:method => :get%>
+      </div>
     </li>
   </div>
+<!--   <% if current_user && current_user.id != session[:id] %>
+  <%= button_to "Support", new_goal_pledge_path %>
+  <% end %> -->
+
 <% end %>
 </ul>
 
