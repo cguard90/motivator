@@ -72,6 +72,12 @@ main {
     border: 0;
 }
 
+select{
+  display: block;
+  right:0;
+  margin-bottom: 10px;
+}
+
 main {
   background-color:#DDDDDD;
 }
