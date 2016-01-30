@@ -1,6 +1,9 @@
-<%= form_for @pledge  do |f| %>
+<%= form_for(@pledge, url: goal_pledges_path) do |f| %>
   <fieldset>
-    <span class="currencyinput">$<input type="text" name="currency" min=1></span>
-    <%= submit_tag "Support Goal!"%>
+    <div>
+      <%= f.label :amount %>
+      <%= f.number_field :amount, min:1 %>
+    </div>
+    <%= f.submit 'Add Pledge' %>
   </fieldset>
 <% end %>
