@@ -28,7 +28,6 @@ class SearchController < ApplicationController
     charity_fields.each do |field|
       if Charity.find_by(field => arg) || Charity.find_by(field => arg.capitalize) || Charity.find_by(field => arg.upcase) || Charity.find_by(field => arg.downcase)
         @results.push Charity.find_by(field => arg) || @results.push(Charity.find_by(field => arg.capitalize)) || @results.push(Charity.find_by(field => arg.upcase)) || @results.push(Charity.find_by(field => arg.downcase))
-      #need partial matches
       end
     end
   end
