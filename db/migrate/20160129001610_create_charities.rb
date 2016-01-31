@@ -3,6 +3,7 @@ class CreateCharities < ActiveRecord::Migration
     create_table :charities do |t|
       t.string   :name, null: false
       t.string   :category
+      t.string   :url
 
       t.timestamps      null: false
     end
