@@ -24,6 +24,7 @@ class GoalsController < ApplicationController
     @goal = Goal.includes(:milestones, :messages,:pledges).find_by(id: params[:id])
     @message = Message.new
     @messages = @goal.messages.order(created_at: :desc)
+    @errors = params[:errors]
   end
 
   def create
