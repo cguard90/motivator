@@ -39,7 +39,7 @@
         <li>
           <p><%= milestone.description %> by <%= std_format_day milestone.deadline %></p>
           <% if @goal.tender == current_user && milestone.completed == false%>
-            <p><%= link_to "Milestone Completed", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p><%= link_to "Goaltender: Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
         </li>
       <% end %>

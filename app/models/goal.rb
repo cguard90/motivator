@@ -11,6 +11,14 @@ class Goal < ActiveRecord::Base
 
   delegate :username, to: :setter, prefix: true
 
+  def announcement
+    Message.create(
+      user_id: 1,
+      goal_id: self.id,
+      content: "#{self.setter.username} has set a goal to '#{self.title}'."
+    )
+  end
+
   def self.sort_time
     order(created_at: :desc)
   end

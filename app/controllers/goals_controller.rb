@@ -22,7 +22,6 @@ class GoalsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @goal = Goal.includes(:milestones, :messages,:pledges).find_by(id: params[:id])
     @message = Message.new
     @messages = @goal.messages.order(created_at: :desc)
@@ -35,6 +34,7 @@ class GoalsController < ApplicationController
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
     if @goal.save
+      @goal.announcement
       @milestone = Milestone.new(milestone_params)
       redirect_to goal_path(id: @goal.id) if @milestone.save
     else
