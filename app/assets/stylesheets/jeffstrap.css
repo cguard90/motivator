@@ -163,11 +163,17 @@ main {
 }
 
 main ul {
-  margin: 0 auto 1.5rem;
+  list-style: none;
 }
 
-main ul li {
-  list-style: none;
+main ul,
+main ol {
+  margin: 0 auto 1.5rem;
+  list-style-position: inside;
+}
+
+main ul li,
+main ol li {
   margin: 0.5rem 0;
   font-size: 1.25rem;
 }
