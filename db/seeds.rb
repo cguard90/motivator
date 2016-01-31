@@ -45,7 +45,8 @@ admin = User.create!(
     tender: User.real_users.sample,
     charity: Charity.all.sample,
     title: Faker::Hacker.verb.capitalize + " " + Faker::Hacker.noun,
-    description: Faker::Hacker.say_something_smart.capitalize
+    description: Faker::Hacker.say_something_smart.capitalize,
+    limit: Faker::Number.between(1, 100)
   )
 
   (1..3).to_a.each do |milestones_number|
