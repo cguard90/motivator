@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @messages = Message.broadcast
-    @users = User.all
+    @users = User.real_users
   end
 
   def new
