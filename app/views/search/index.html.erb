@@ -13,7 +13,7 @@
     <p>Goal Description: <%= object.description %></p>
 
   <% when Milestone %>
-    <p>Milestone: <%= link_to "#{object.description}", goal_path(id: milestone.goal.id)%> </p>
+    <p>Milestone: <%= link_to "#{object.description}", goal_path(id: object.goal.id)%> </p>
   <% end %>
 
 
