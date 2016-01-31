@@ -18,27 +18,19 @@
       <% if logged_in? %>
         <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
         <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
-
       <% else %>
-        <li>
-          <%= link_to 'Sign Up', new_user_path %>
-        </li>
-        <li>
-          <%= link_to 'Log In', new_session_path %>
-        </li>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+        <li><%= link_to 'Log In', new_session_path %></li>
       <% end %>
-
     </ul>
   </header>
 
   <main>
-
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
         <%= content_tag :div, msg, :class => "flash_#{name} error" %>
       <% end %>
     <% end %>
-
 
     <%= yield %>
   </main>
