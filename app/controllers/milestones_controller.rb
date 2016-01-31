@@ -22,15 +22,16 @@ class MilestonesController < ApplicationController
   end
 
   def edit
-    @milestone.find_by(id: params[:id])
+    @milestone = Milestone.find_by(id: params[:milestone_id])
     @messages = Message.broadcast
   end
 
   def update
     @milestone = Milestone.find_by(id: params[:id])
     @messages = Message.broadcast
-    if @milestone.update_attributes(milestone_params)
-      redirect_to milestone_path
+    @milestone.completed = true
+    if @milestone.save
+      redirect_to goal_path(id: params[:goal_id])
     else
       render :edit
     end

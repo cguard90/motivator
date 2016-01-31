@@ -13,12 +13,14 @@
           </p>
           <p id="charity">Charity: <%= @goal.charity.name %></p>
         </li>
+      <%if current_user == @goal.setter %>
       <nav id="options">
         <ul>
          <li id="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
          <li id="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li>
         </ul>
       </nav>
+      <% end %>
       <% if current_user && @goal.setter_id != current_user.id %>
         <div class="support-button">
           <%= button_to "Support", new_goal_pledge_path(@goal),:method => :get%>
@@ -34,6 +36,9 @@
           <ul>
             <%= milestone.description %>
             <%= milestone.deadline %>
+            <% if @goal.tender == current_user && milestone.completed == false%>
+              <li><%= link_to "Milestone Completed", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></li>
+            <% end %>
           </ul>
         <% end %>
       </div>

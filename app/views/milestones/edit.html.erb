@@ -1,0 +1,7 @@
+<h2>Please confirm the following has been completed:</h2>
+<p><%=@milestone.description%></p>
+<%= form_for @milestone, url: "/goals/#{params[:goal_id]}/milestones/#{params[:milestone_id]}", method: "PATCH" do %>
+  <fieldset>
+    <%= submit_tag "Milestone Complete" %>
+  </fieldset>
+  <% end %>
