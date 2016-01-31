@@ -9,6 +9,7 @@
     <div class="goal label">
       <h4 id="attribute-label"><%= link_to "#{goal.title}", goal_path(goal) %></h4>
       <p id="attribute-label"><b>Goal set by <%= goal.setter.username %></b></p>
+      <p id="attribute-label"><b>Set limit <%= goal.limit %></b></p>
       <% if goal.description != "" %>
         <%= goal.description %>
       <% end %>
