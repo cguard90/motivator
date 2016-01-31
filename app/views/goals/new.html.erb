@@ -12,11 +12,6 @@
     </div>
 
     <div class="input-options">
-        <%= f.label :milestones %>
-        <%= f.text_field :milestones, :value => ""%>
-    </div>
-
-    <div class="input-options">
         <%= f.label :charity %>
         <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name")%>
     </div>
@@ -26,15 +21,21 @@
         <%= f.text_field :tender %>
     </div>
 
-    <div class="input-options">
+    <div class="input-options bottom-line">
         <%= f.label :limit , 'Limit ($)' %>
         <%= f.number_field :limit, min: 1, step: 1%>
     </div>
 
-    <div class="input-options">
-      <%= f.label :deadline %>
-      <input type = "Date", name="Deadline" min = "<%= Date.today %>" >
+    <div class="milestone-form">
+
+        <div id="milestone-partial">
+            <%= render :partial => 'milestones/milestone_form' %>
+        </div>
+
+        <%= button_to "Add Milestone" %>
+
     </div>
+
 
     <%= submit_tag "Create Your Goal!"%>
 
