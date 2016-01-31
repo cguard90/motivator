@@ -11,8 +11,8 @@ class SearchController < ApplicationController
   def search_users
     user_fields = [:id, :username, :email, :provider]
     user_fields.each do |field|
-      if User.find_by(field => params[:q])
-        @results << User.find_by(field => params[:q])
+      if User.find_by(field => params[:q]) || User.find_by(field => params[:q].capitalize) || User.find_by(field => params[:q].upcase) || User.find_by(field => params[:q].downcase)
+        @results.push if User.find_by(field => params[:q]) || @results.push(User.find_by(field => params[:q].capitalize)) || @results.push(User.find_by(field => params[:q].upcase)) || @results.push(User.find_by(field => params[:q].downcase))
       #add method later for partial matches
       end
     end
@@ -45,6 +45,12 @@ class SearchController < ApplicationController
       @results << Charity.find_by(field => params[:q])
       #need partial matches
       end
+    end
+  end
+
+  def search_deeper
+    if params[:q].include?(" ")
+      more_to_check = params[:q].split
     end
   end
 
