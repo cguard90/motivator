@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
   resources :goals do
     resources :milestones, :pledges
+    resources :messages, only: [:create]
   end
   resources :charities, only: [:index, :show]
 
