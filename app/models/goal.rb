@@ -8,8 +8,19 @@ class Goal < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
-  #just a comment
 
   delegate :username, to: :setter, prefix: true
+
+  def self.sort_time
+    order(:created_at)
+  end
+
+  def self.sort_charity
+    order(charity_id: :asc)
+  end
+
+  def self.sort_tender
+    order(tender_id: :asc)
+  end
 
 end

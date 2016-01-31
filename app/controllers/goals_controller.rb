@@ -2,7 +2,15 @@ class GoalsController < ApplicationController
 
   def index
     @messages = Message.broadcast
-    @goals = Goal.all
+    @sorting_method = params[:sort]
+    @goals = Goal.includes(:tender).all
+    if @sorting_method == "Newest"
+      @goals=@goals.sort_time
+    elsif @sorting_method == "Submitted"
+      @goals=@goals.sort_tender
+    elsif @sorting_method == "Charity"
+      @goals=@goals.sort_charity
+    end
     # Maybe apply batch
   end
 
@@ -14,7 +22,7 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.includes(:milestones, :messages).find_by(id: params[:id])
+    @goal = Goal.includes(:milestones, :messages,:pledges).find_by(id: params[:id])
     @messages = @goal.messages
   end
 
@@ -62,6 +70,5 @@ private
   def milestone_params
     {description: params[:goal][:milestones], goal_id: @goal.id, deadline: params[:Deadline] }
   end
-
 
 end
