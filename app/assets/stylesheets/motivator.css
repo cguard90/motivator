@@ -81,6 +81,11 @@ main {
   background-color:#DDDDDD;
 }
 
+.bottom-line {
+  border-bottom: dashed 1px black;
+  margin-bottom: 1em;
+}
+
 
 .styled meter {
   /* Reset the default appearance */
