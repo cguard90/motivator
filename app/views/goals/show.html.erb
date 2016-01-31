@@ -1,10 +1,10 @@
 <div>
-  <p class="titles">Goal</p>
+  <h2 class="titles">Goal</h2>
   <ul>
     <div class="goal-container gbox">
       <li id="goal-info">
         <div class="goal label">
-          <p id="attribute-lable"><%= @goal.title %></p>
+          <p id="attribute-label"><%= @goal.title %></p>
           <% if @goal.description != "" %>
             <%= @goal.description %>
           <% end %>
@@ -13,14 +13,16 @@
           </p>
           <p id="charity">Charity: <%= @goal.charity.name %></p>
         </li>
-      <%if current_user == @goal.setter %>
-      <nav id="options">
-        <ul>
-         <li id="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
-         <li id="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li>
-        </ul>
-      </nav>
+
+      <% if current_user == @goal.setter %>
+        <div id="options">
+          <ul>
+            <li id="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
+            <li id="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li>
+          </ul>
+        </div>
       <% end %>
+
       <% if current_user && @goal.setter_id != current_user.id %>
         <div class="support-button">
           <%= button_to "Support", new_goal_pledge_path(@goal),:method => :get%>
@@ -29,7 +31,7 @@
     </div>
   </ul>
 
-  <p class="titles">Milestones</p>
+  <h3 class="titles">Milestones</h3>
   <ul>
       <div class="milestone-container gbox">
         <% @goal.milestones.each do |milestone| %>
@@ -42,16 +44,20 @@
           </ul>
         <% end %>
       </div>
+
   </ul>
 
-  <p class="titles">Supporters</p>
+  <h3 class="titles">Supporters</h3>
   <ul>
-      <div class="pledges-container mbox">
-        <% @goal.pledges.each do |pledge| %>
-          <li class="pledge"><%= pledge.user.username %> - $<%= pledge.amount %> - <%= std_format_day(pledge.created_at) %> </li>
-        <% end %>
-      </div>
+    <div class="pledges-container mbox">
+      <% @goal.pledges.each do |pledge| %>
+        <li class="pledge"><%= pledge.user.username %> - $<%= pledge.amount %> - <%= std_format_day(pledge.created_at) %> </li>
+      <% end %>
+    </div>
   </ul>
+
+  <h3 class="titles">Post a Comment</h3>
+  <%= render partial: "messages/form" %>
 
 </div>
 
