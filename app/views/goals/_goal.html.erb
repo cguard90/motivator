@@ -1,6 +1,6 @@
-<h4><%= link_to "#{goal.title}", goal_path(goal.id) %></h4>
+<h4><%= link_to "#{goal.title}", goal_path(goal.id) %> - Set limit: $ <%= goal.limit %></h4>
 <p><%=goal.setter.username%></p>
-<h4><%=goal.description%></h4>
+<p><%=goal.description%></p>
 
 <!-- <h4>Milestones:</h4>
 <ul>
