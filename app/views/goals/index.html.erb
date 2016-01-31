@@ -4,28 +4,22 @@
   <%= link_to "Charity", goals_path(sort: "Charity") %>
 </nav>
 
-<ul>
 <% @goals.each do |goal| %>
-
   <div class="goal-container gbox">
-    <li id="goal-info">
-      <div class="goal label">
-        <p id="attribute-lable"><%= link_to "#{goal.title}", goal_path(goal) %></p>
-        <p id="attribute-lable">Description</p>
-          <% if goal.description != "" %>
-            <%= goal.description %>
-          <% end %>
-        <p id="attribute-lable">Posted By <%= goal.tender.username %></p>
-        <p id="charity">Charity To Donate <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
-      </div>
-      <% if current_user && goal.setter_id != current_user.id %>
-        <div class="support-button">
-          <%= button_to "Support", new_goal_pledge_path(goal),:method => :get%>
-        </div>
+    <div class="goal label">
+      <h4 id="attribute-label"><%= link_to "#{goal.title}", goal_path(goal) %></h4>
+      <p id="attribute-label"><b>Goal set by <%= goal.setter.username %></b></p>
+      <% if goal.description != "" %>
+        <%= goal.description %>
       <% end %>
-    </li>
+      <p id="charity">Benefitting <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
+    </div>
+
+    <% if current_user && goal.setter_id != current_user.id %>
+      <div class="support-button">
+        <%= button_to "Support", new_goal_pledge_path(goal),:method => :get%>
+      </div>
+    <% end %>
+
   </div>
 <% end %>
-</ul>
-
-

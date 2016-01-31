@@ -12,7 +12,7 @@ class Goal < ActiveRecord::Base
   delegate :username, to: :setter, prefix: true
 
   def self.sort_time
-    order(:created_at)
+    order(created_at: :desc)
   end
 
   def self.sort_charity

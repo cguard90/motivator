@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def std_format_day date
     return "" unless date
-    date.strftime("on %b %e, %Y")
+    date.strftime("%b %e, %Y")
   end
 
 end
