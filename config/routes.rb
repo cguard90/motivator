@@ -58,7 +58,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [ :new, :create, :destroy ]
 
   resources :goals do
-    resources :milestones, :pledges
+    resources :milestones
+    resources :pledges, only: [ :new, :create ]
     resources :messages, only: [:create]
   end
   resources :charities, only: [:index, :show]
@@ -74,6 +75,6 @@ Rails.application.routes.draw do
 
 
   # Temporary routes for testing:
-  resources :messages, only: [:new, :create, :destroy, :show, :index,]
+  resources :messages, only: [:new, :destroy]
 
 end
