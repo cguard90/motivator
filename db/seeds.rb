@@ -24,7 +24,7 @@ charities_hash.map do |f|
 end
 
 charities.each do |charity|
-  Charity.create!(name:charity['Name'],category:charity['Type'],url:charity['URL'])
+  Charity.create!(name:charity['Name'],category:charity['Type'],url:charity["ContactInfo"]["URL"])
 end
 
 (1..5).to_a.each do |number|
