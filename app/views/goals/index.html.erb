@@ -8,7 +8,7 @@
   <div class="goal-container gbox">
     <div class="goal label">
       <h4 id="attribute-label"><%= link_to "#{goal.title}", goal_path(goal) %></h4>
-      <p id="attribute-label"><b>Goal set by <%= goal.tender.username %></b></p>
+      <p id="attribute-label"><b>Goal set by <%= goal.setter.username %></b></p>
       <% if goal.description != "" %>
         <%= goal.description %>
       <% end %>
