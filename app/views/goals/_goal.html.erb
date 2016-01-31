@@ -1,17 +1,3 @@
 <h4><%= link_to "#{goal.title}", goal_path(goal.id) %> - Set limit: $ <%= goal.limit %></h4>
 <p><%=goal.setter.username%></p>
 <p><%=goal.description%></p>
-
-<!-- <h4>Milestones:</h4>
-<ul>
-  <% goal.milestones.each do |milestone|%>
-    <li><%= milestone.description%>, Deadline: <%=milestone.deadline%></li>
-  <% end %>
-</ul>
-
-<h6>Pledges:</h6>
-<ul>
-  <% goal.pledges.each do |pledge|%>
-    <li><%= pledge.user.username%> pledged: $<%= pledge.amount %> </li>
-  <%end%>
-</ul> -->
