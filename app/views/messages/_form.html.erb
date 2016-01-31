@@ -1,0 +1,6 @@
+<%= form_for [@goal, @message] do |f| %>
+  <fieldset>
+    <%= f.text_area :content %>
+    <%= submit_tag "Post your message" %>
+  </fieldset>
+<% end %>
