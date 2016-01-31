@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20160129160810) do
   end
 
   create_table "milestones", force: :cascade do |t|
-    t.integer  "goal_id",                 null: false
-    t.string   "description", limit: 300, null: false
-    t.date     "deadline",                null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "goal_id",                                 null: false
+    t.string   "description", limit: 300,                 null: false
+    t.date     "deadline",                                null: false
+    t.boolean  "completed",               default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "milestones", ["goal_id"], name: "index_milestones_on_goal_id", using: :btree

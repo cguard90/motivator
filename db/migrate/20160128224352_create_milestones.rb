@@ -4,6 +4,7 @@ class CreateMilestones < ActiveRecord::Migration
       t.integer  :goal_id,     null: false, index: true
       t.string   :description, null: false, limit: 300
       t.date     :deadline,    null: false
+      t.boolean  :completed,   default: false
 
       t.timestamps             null: false
     end
