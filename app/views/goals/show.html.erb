@@ -9,11 +9,11 @@
       <p class="styled">
         <meter min="0" max="100" low="25" high="75" optimum="100" value="20"></meter>
       </p>
-      <p><%= @goal.setter.username %> has pledged $<%= @goal.total_pledges_by(@goal.setter) %> towards completing this goal.</p>
+      <p><%= @goal.setter.username %> has pledged $<%= @goal.setter_pledge %> towards completing this goal.</p>
       <% if @goal.is_fully_funded? %>
         <p>Supporters have made <%= @goal.pledges.count %> pledges to fully match <%= @goal.setter.username %>'s pledge.</p>
       <% else %>
-        <p><%= @goal.setter.username %> will match supporting pledges up to $<%=@goal.limit %>.</p>
+        <p><%= @goal.setter.username %> will match supporting pledges up to $<%=@goal.setter_pledge %>.</p>
       <% end %>
       <% if @goal.tender %>
         <p>Goaltender: <%= @goal.tender.username %></p>

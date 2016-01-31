@@ -26,8 +26,8 @@ class Goal < ActiveRecord::Base
 
   def is_fully_funded?
     pledges = self.pledges.where.not(user: self.setter)
-    limit = self.limit ? self.limit : 0
-    limit <= pledges.map { |pledge| pledge.amount }.reduce(:+)
+    setter_pledge = self.setter_pledge ? self.setter_pledge : 0
+    setter_pledge <= pledges.map { |pledge| pledge.amount }.reduce(:+)
   end
 
   def self.sort_time

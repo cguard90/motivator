@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20160129160810) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.integer  "setter_id",               null: false
-    t.integer  "tender_id",               null: false
-    t.integer  "charity_id",              null: false
-    t.string   "title",                   null: false
-    t.string   "description", limit: 300, null: false
-    t.integer  "limit"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "setter_id",                                         null: false
+    t.integer  "tender_id",                                         null: false
+    t.integer  "charity_id",                                        null: false
+    t.string   "title",         limit: 60,                          null: false
+    t.string   "description",   limit: 300,                         null: false
+    t.decimal  "setter_pledge",             precision: 8, scale: 2, null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   add_index "goals", ["charity_id"], name: "index_goals_on_charity_id", using: :btree
