@@ -11,7 +11,6 @@ class GoalsController < ApplicationController
     elsif @sorting_method == "Charity"
       @goals=@goals.sort_charity
     end
-    # Maybe apply batch
   end
 
   def new
@@ -53,6 +52,7 @@ class GoalsController < ApplicationController
     if @goal.update_attributes(goal_params)
       redirect_to goal_path
     else
+      @errors = @goal.errors.full_messages
       render :edit
     end
   end
