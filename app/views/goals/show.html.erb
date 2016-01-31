@@ -1,5 +1,5 @@
 <div>
-  <p id="titles">Goal</p>
+  <p class="titles">Goal</p>
   <ul>
     <div class="goal-container gbox">
       <li id="goal-info">
@@ -27,9 +27,9 @@
     </div>
   </ul>
 
-  <p id="titles">Milestones</p>
+  <p class="titles">Milestones</p>
   <ul>
-      <div class="milestone-cotainer gbox">
+      <div class="milestone-container gbox">
         <% @goal.milestones.each do |milestone| %>
           <ul>
             <%= milestone.description %>
@@ -39,9 +39,9 @@
       </div>
   </ul>
 
-  <p id="titles">Supporters</p>
+  <p class="titles">Supporters</p>
   <ul>
-      <div class="pledges-cotainer mbox">
+      <div class="pledges-container mbox">
         <% @goal.pledges.each do |pledge| %>
           <li class="pledge"><%= pledge.user.username %> - $<%= pledge.amount %> - <%= std_format_day(pledge.created_at) %> </li>
         <% end %>
