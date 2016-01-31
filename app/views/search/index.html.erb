@@ -14,8 +14,6 @@
 
   <% when Milestone %>
     <p>Milestone: <%= link_to "#{object.description}", goal_path(id: milestone.goal.id)%> </p>
-  <% else %>
-    <p> No results were found. </p>
   <% end %>
 
 
