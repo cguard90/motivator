@@ -1,5 +1,5 @@
 <ul>
 <% @charities.each_with_index do |charity, index| %>
-  <li> <%= index + 1 %>. <%= charity.name %> </li>
+  <li> <%= index + 1 %>. <%= link_to "#{charity.name}", charity_path(id: charity.id) %> </li>
 <% end %>
 </ul>
