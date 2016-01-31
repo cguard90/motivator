@@ -20,15 +20,14 @@ class Goal < ActiveRecord::Base
   end
 
   def total_pledges_by(user)
-    pledges = Pledge.where(user_id: user.id)
+    pledges = self.pledges.where(user_id: user.id)
     pledges.map { |pledge| pledge.amount }.reduce(:+)
   end
 
   def is_fully_funded?
-    binding.pry
-    pledges = Pledge.where(goal_id: self.id)
-    self.limit <= pledges.map { |pledge| pledge.amount }.reduce(:+)
-    binding.pry
+    pledges = self.pledges.where.not(user: self.setter)
+    limit = self.limit ? self.limit : 0
+    limit <= pledges.map { |pledge| pledge.amount }.reduce(:+)
   end
 
   def self.sort_time
