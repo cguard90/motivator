@@ -31,6 +31,7 @@ class MilestonesController < ApplicationController
     @messages = Message.broadcast
     @milestone.completed = true
     if @milestone.save
+      @milestone.announcement(current_user)
       redirect_to goal_path(id: params[:goal_id])
     else
       render :edit
