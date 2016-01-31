@@ -22,7 +22,6 @@ class GoalsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @goal = Goal.includes(:milestones, :messages,:pledges).find_by(id: params[:id])
     @message = Message.new
     @messages = @goal.messages.order(created_at: :desc)
