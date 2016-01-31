@@ -47,5 +47,8 @@ class User < ActiveRecord::Base
     @messages.sort_by! { |message| message.created_at }
   end
 
+  def self.real_users
+    User.where.not(id: 1)
+  end
 end
 

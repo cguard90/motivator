@@ -62,7 +62,7 @@ admin = User.create!(
 
     (3..5).to_a.each do |msg|
       messages = Message.create!(
-        user:User.all.sample,
+        user: User.all.sample,
         goal: goal,
         content: Faker::Hipster.sentence(3, true)
       )
