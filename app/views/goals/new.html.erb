@@ -1,22 +1,43 @@
 <%= form_for @goal  do |f| %>
-  <fieldset>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<fieldset>
 
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-
-    <%= f.label :tender, value: "Goal Tender" %>
-    <%= f.text_field :tender %>
-
-    <%= f.label :charity %>
-    <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name")%>
-
-    <%= f.label :milestones %>
-    <%= f.text_field :milestones, :value => ""%>
-
-    <input type = "Date", name="Deadline" min = "<%= Date.today %>" >
+    <div class="input-options">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
     </div>
+
+    <div class="input-options">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+
+    <div class="input-options">
+        <%= f.label :milestones %>
+        <%= f.text_field :milestones, :value => ""%>
+    </div>
+
+    <div class="input-options">
+        <%= f.label :charity %>
+        <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name")%>
+    </div>
+
+    <div class="input-options">
+        <%= f.label :tender, value: "Goal Tender" %>
+        <%= f.text_field :tender %>
+    </div>
+
+    <div class="input-options">
+        <%= f.label :limit , 'Limit ($)' %>
+        <%= f.number_field :limit, min: 1, step: 1%>
+    </div>
+
+    <div class="input-options">
+      <%= f.label :deadline %>
+      <input type = "Date", name="Deadline" min = "<%= Date.today %>" >
+    </div>
+
     <%= submit_tag "Create Your Goal!"%>
-  </fieldset>
+
+</fieldset>
 <% end %>
+
