@@ -13,7 +13,7 @@
       <% if @goal.tender %>
         <p>Goaltender: <%= @goal.tender.username %></p>
       <% end %>
-      <p id="charity">Charity: <%= @goal.charity.name %></p>
+      <p id="charity">Charity: <%= link_to "#{@goal.charity.name}", charity_path %></p>
     </div>
 
     <% if current_user == @goal.setter %>

@@ -25,6 +25,7 @@ class PledgesController < ApplicationController
       flash[:notice] = "#{@pledge.goal.setter.username} thanks you for the support"
       redirect_to goal_path(@pledge.goal)
     else
+      @errors = @pledge.errors.full_messages
       render :new
     end
   end
