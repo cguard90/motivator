@@ -14,7 +14,14 @@ def charity_data(action, state_name, keyword)
 end
 
 hash = JSON.parse(charity_data("searchCharities", "NY", "animals"))
-charities = hash['give-api']['data']['charities']['charity']
+charities_hash = hash['give-api']['data']['charities']['charity']
+charities = []
+
+charities_hash.map do |f|
+  if f["ContactInfo"]["URL"] != nil && f["Type"] != nil
+    charities.push(f)
+  end
+end
 
 charities.each do |charity|
   Charity.create!(name:charity['Name'],category:charity['Type'])
