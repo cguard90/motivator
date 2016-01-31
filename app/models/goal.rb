@@ -19,6 +19,18 @@ class Goal < ActiveRecord::Base
     )
   end
 
+  def total_pledges_by(user)
+    pledges = Pledge.where(user_id: user.id)
+    pledges.map { |pledge| pledge.amount }.reduce(:+)
+  end
+
+  def is_fully_funded?
+    binding.pry
+    pledges = Pledge.where(goal_id: self.id)
+    self.limit <= pledges.map { |pledge| pledge.amount }.reduce(:+)
+    binding.pry
+  end
+
   def self.sort_time
     order(created_at: :desc)
   end
