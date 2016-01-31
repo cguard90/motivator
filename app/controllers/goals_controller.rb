@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.includes(:milestones, :messages,:pledges).find_by(id: params[:id])
+    @goal = Goal.includes(:setter, :tender, :milestones, :messages,:pledges).find_by(id: params[:id])
     @message = Message.new
     @messages = @goal.messages.order(created_at: :desc)
     @errors = params[:errors]
@@ -67,7 +67,7 @@ class GoalsController < ApplicationController
 private
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :limit)
+    params.require(:goal).permit(:title, :description, :setter_pledge)
   end
 
   def milestone_params
