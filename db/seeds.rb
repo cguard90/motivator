@@ -27,6 +27,12 @@ charities.each do |charity|
   Charity.create!(name:charity['Name'],category:charity['Type'],url:charity["ContactInfo"]["URL"])
 end
 
+admin = User.create!(
+  username: "Motivator",
+  email: "motivator@dbc.com",
+  password: "sam1zack2steven3chris3"
+  )
+
 (1..5).to_a.each do |number|
   user = User.create!(
     username: "Testuser#{number}",
