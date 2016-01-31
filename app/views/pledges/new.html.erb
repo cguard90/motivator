@@ -7,3 +7,9 @@
     <%= f.submit 'Add Pledge' %>
   </fieldset>
 <% end %>
+
+<% if @errors%>
+  <% @errors.each do |error|%>
+    <%= error %>
+  <% end %>
+<% end %>

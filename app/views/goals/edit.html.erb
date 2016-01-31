@@ -1,3 +1,9 @@
 <h2>Edit Your Goal</h2>
 
 <%= render partial: "goal_form" %>
+
+<%if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
