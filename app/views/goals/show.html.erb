@@ -13,7 +13,7 @@
       <% if @goal.is_fully_funded? %>
         <p>Supporters have made <%= @goal.pledges.count %> pledges to fully match <%= @goal.setter.username %>'s pledge.</p>
       <% else %>
-        <p><%= @goal.setter.username %> will match supporting pledges up to $<%=@goal.setter_pledge %>.</p>
+        <p>$<%=@goal.setter_pledge - @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge remains to be matched by supporters.</p>
       <% end %>
       <% if @goal.tender %>
         <p>Goaltender: <%= @goal.tender.username %></p>
@@ -52,13 +52,18 @@
   </div>
 
   <h3 class="titles">Supporters</h3>
-  <ul>
-    <div class="pledges-container mbox">
+  <div class="pledges-container mbox">
+    <% if @goal.is_fully_funded? %>
+      <p><%= @goal.pledges.count %> pledges totalling $<%= @goal.setter_pledge %> have fully-funded this goal.</p>
+    <% else %>
+      <p>So far, supporter pledges have matched $<%= @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge of $<%= @goal.setter_pledge %>.</p>
+    <% end %>
+    <ul>
       <% @goal.pledges.each do |pledge| %>
         <li class="pledge"><%= pledge.user.username %> pledged $<%= pledge.amount %> on <%= std_format_day(pledge.created_at) %></li>
       <% end %>
-    </div>
-  </ul>
+    </ul>
+  </div>
 
   <% if current_user %>
     <h3 class="titles">Post a Comment</h3>
