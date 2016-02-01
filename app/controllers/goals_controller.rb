@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
     @messages = Message.broadcast
     @goal = Goal.new
     @charities = Charity.all
-    @milestones = Milestone.new
+    @milestone = Milestone.new
   end
 
   def show
@@ -29,6 +29,7 @@ class GoalsController < ApplicationController
   end
 
   def create
+    binding.pry
     @messages = Message.broadcast
     @goal = Goal.new(goal_params)
     @goal.setter = current_user
