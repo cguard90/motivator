@@ -3,7 +3,7 @@
 main {
   float: left;
   width: 666px;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   background-color: #eee;
 }
 
@@ -24,7 +24,7 @@ aside nav {
   margin-bottom: 0.75rem;
   background-color: #eee;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   border: 1px solid #bbb;
 }
 
