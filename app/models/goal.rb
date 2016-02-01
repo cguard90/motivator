@@ -8,6 +8,8 @@ class Goal < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :tender, presence: true
+  validates :setter_pledge, presence: true
 
   delegate :username, to: :setter, prefix: true
 
