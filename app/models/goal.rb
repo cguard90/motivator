@@ -29,6 +29,10 @@ class Goal < ActiveRecord::Base
     pledges.count > 0 ? pledges.map { |pledge| pledge.amount }.reduce(:+) : 0
   end
 
+  def left_to_match
+    self.setter_pledge - self.supporter_pledge_total
+  end
+
   def is_fully_funded?
     setter_pledge = self.setter_pledge ? self.setter_pledge : 0
     setter_pledge <= self.supporter_pledge_total

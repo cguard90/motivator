@@ -13,12 +13,12 @@
       <% if @goal.is_fully_funded? %>
         <p>Supporters have made <%= @goal.pledges.count %> pledges to fully match <%= @goal.setter.username %>'s pledge.</p>
       <% else %>
-        <p>$<%=@goal.setter_pledge - @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge remains to be matched by supporters.</p>
+        <p>$<%=@goal.left_to_match %> of <%= @goal.setter.username %>'s pledge remains to be matched by supporters.</p>
       <% end %>
+      <p id="charity">Benefitting <%= link_to "#{@goal.charity.name}", charity_path %></p>
       <% if @goal.tender %>
         <p>Goaltender: <%= @goal.tender.username %></p>
       <% end %>
-      <p id="charity">Benefitting <%= link_to "#{@goal.charity.name}", charity_path %></p>
     </div>
 
     <% if current_user == @goal.setter %>
@@ -40,11 +40,11 @@
   <h3 class="titles">Milestones</h3>
   <div class="milestone-container gbox">
     <ul>
-      <% @goal.milestones.each do |milestone| %>
+      <% @milestones.each do |milestone| %>
         <li>
           <p><%= milestone.description %> by <%= std_format_day milestone.deadline %></p>
           <% if @goal.tender == current_user && milestone.completed == false%>
-            <p><%= link_to "Goaltender: Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p>Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
         </li>
       <% end %>

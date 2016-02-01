@@ -7,16 +7,16 @@
 <% @goals.each do |goal| %>
   <div class="goal-container gbox">
     <div class="goal label">
-      <h4 id="attribute-label"><%= link_to "#{goal.title}", goal_path(goal) %></h4>
-      <p id="attribute-label"><b>Goal set by <%= goal.setter.username %></b></p>
-      <p id="attribute-label"><b>Goalsetter's pledge <%= goal.setter_pledge %></b></p>
+      <h4 class="attribute-label"><%= link_to "#{goal.title}", goal_path(goal) %></h4>
+      <p class="attribute-label">Goal set by <%= goal.setter.username %> &bull; Goalsetter's pledge: $<%= goal.setter_pledge %></p>
+      <p class="attribute-label">Left to match: $<%= goal.left_to_match %></p>
       <% if goal.description != "" %>
         <%= goal.description %>
       <% end %>
-      <p id="charity">Benefitting <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
+      <p class="charity">Benefitting <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
     </div>
 
-    <% if current_user && goal.setter_id != current_user.id %>
+    <% if current_user && goal.setter != current_user && !goal.is_fully_funded? %>
       <div class="support-button">
         <%= button_to "Support", new_goal_pledge_path(goal),:method => :get%>
       </div>
