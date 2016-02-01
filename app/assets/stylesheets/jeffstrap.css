@@ -185,12 +185,12 @@ main input {
   margin-bottom: 0.75rem;
   width: 100%;
   font-size: 1rem;
+  padding: 0.25rem 0.5rem;
 }
 
 main input[type="text"],
 main input[type="email"],
 main input[type="password"] {
-  padding: 0.25rem 0.5rem;
 }
 
 main input[type="submit"] {
