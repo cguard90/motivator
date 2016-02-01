@@ -6,7 +6,7 @@ class CreateGoals < ActiveRecord::Migration
       t.integer  :charity_id,   null: false, index: true
       t.string   :title,        null: false, limit: 60
       t.string   :description,  null: false, limit: 300
-      t.decimal  :setter_pledge,   null: false, precision: 8, scale: 2
+      t.integer  :setter_pledge,   null: false
 
       t.timestamps              null: false
     end
