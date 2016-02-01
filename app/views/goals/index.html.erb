@@ -7,7 +7,7 @@
 <% @goals.each do |goal| %>
   <div class="goal-container gbox">
     <div class="goal label">
-      <h4 class="attribute-title"><%= link_to "#{goal.title}", goal_path(goal) %></h4>
+      <div class="attribute-title"><%= link_to "#{goal.title}", goal_path(goal) %></div>
       <p class="attribute-label">Goal set by <%= goal.setter.username %></p>
       <p class="attribute-match">Goalsetter's pledge: $<%= goal.setter_pledge %> &bull; Left to match: $<%= goal.left_to_match %></p>
       <% if goal.description != "" %>
