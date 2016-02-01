@@ -1,5 +1,26 @@
 html {
   font-family: 'PT Sans Narrow', sans-serif;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  /*margin: 0;
+  padding: 0;*/
+}
+
+a:link,
+a:visited {
+  color: #cc0000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #ff2222;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .testborder {
