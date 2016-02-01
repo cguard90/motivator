@@ -6,7 +6,7 @@
 <% end %>
 </div>
 
-<h2>Active Goals</h2>
+<p class="user-maintitle">Active Goals</p>
 
 <% if @user.active_set_goals.first %>
   <div id="active_goals">
@@ -36,10 +36,10 @@
 <% end %>
 
 <% if @user.completed_set_goals || @user.failed_set_goals %>
-  <h2>Past Goals</h2>
+  <p class="user-maintitle">Past Goals</p>
   <% if @user.completed_set_goals %>
     <div id="completed_goals">
-      <h3>Accomplished Goals</h3>
+      <p class="user-title">Accomplished Goals</p>
       <% @user.completed_set_goals.each do |completed_goal|%>
         <%= render "goals/goal", goal: completed_goal %>
       <%end%>
@@ -48,7 +48,7 @@
 
   <% if @user.failed_set_goals.first %>
     <div id="failed_goals">
-      <p class="user-title">Unsuccessful Goals</h3>
+      <p class="user-title">Unsuccessful Goals</p>
       <% @user.failed_set_goals.each do |failed_goal|%>
         <%= render "goals/goal", goal: failed_goal %>
       <%end%>

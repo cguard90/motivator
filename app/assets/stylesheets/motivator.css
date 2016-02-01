@@ -239,9 +239,14 @@ fieldset input{
 
 .user-title {
   padding-left: 2%;
-  font-size: 35px;
+  font-size: 25px;
   color: #427093;
+}
 
+.user-maintitle {
+  padding-left: 2%;
+  font-size: 35px;
+  color: #256393;
 }
 
 .profile-container .profile-info:last-child {
@@ -352,11 +357,33 @@ main {
   background-color:#DDDDDD;
 }
 
-.bottom-line {
-  border-bottom: dashed 1px black;
-  margin-bottom: 1em;
+.button_submit {
+  width: 12%;
+  margin: 2%;
+  margin-left: 9.4em;
 }
 
+input .button_submit{
+  width: 20em;
+  height: 2em;
+
+}
+
+.bottom-line {
+  border-bottom: dashed 1px black;
+  margin-bottom: 2em;
+  padding-bottom: 3%;
+}
+
+.new_goal fieldset {
+  padding-left: 3%;
+  padding-top: 3%;
+}
+
+.milestone-form fieldset{
+  border: 0;
+  padding-left: 0;
+}
 
 .styled meter {
   /* Reset the default appearance */
