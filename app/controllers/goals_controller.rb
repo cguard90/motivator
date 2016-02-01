@@ -34,11 +34,18 @@ class GoalsController < ApplicationController
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
-    if @goal.save
+    @milestone = Milestone.new(milestone_params)
+    if @milestone.deadline && @milestone.description && @goal.save
       @goal.announcement
-      @milestone = Milestone.new(milestone_params)
-      redirect_to goal_path(id: @goal.id) if @milestone.save
+      @milestone = Milestone.create(milestone_params)
+      redirect_to goal_path(id: @goal.id)
     else
+      @errors = @goal.errors.full_messages
+      @errors.push("Milestones cannot be blank") if @milestone.description == nil
+      @errors.push("Please select a deadline") if @milestone.deadline == nil
+      @errors.push("That User cannot be found, please choose a different Goaltender") if @goal.tender == nil
+      @goal = Goal.new(goal_params)
+      @charities = Charity.all
       render :new
     end
   end

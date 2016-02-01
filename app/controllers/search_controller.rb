@@ -14,7 +14,7 @@ class SearchController < ApplicationController
   private
 
   def search_users(arg)
-    user_fields = [:id, :username, :email, :provider]
+    user_fields = [:id, :username, :email]
     user_fields.each do |field|
       if User.find_by(field => arg) || User.find_by(field => arg.capitalize) || User.find_by(field => arg.upcase) || User.find_by(field => arg.downcase)
 
