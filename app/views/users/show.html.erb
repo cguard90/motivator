@@ -1,14 +1,16 @@
+<div class="welcome">
 <% if current_user && @user == current_user %>
   <h1>Welcome, <%= current_user.username %></h1>
 <% else %>
   <h1>Welcome to <%= @user.username %>'s page</h1>
 <% end %>
+</div>
 
 <h2>Active Goals</h2>
 
 <% if @user.active_set_goals.first %>
   <div id="active_goals">
-    <h3>My Goals</h3>
+    <p class="user-title">My Goals</p>
     <% @user.active_set_goals.each do |active_goal|%>
       <%= render "goals/goal", goal: active_goal %>
     <%end%>
@@ -17,7 +19,7 @@
 
 <% if @pledges.first %>
   <div id="supported_goals">
-    <h3>Supporting Goals</h3>
+    <p class="user-title">Supporting Goals</p>
     <% @pledges.each do |pledge|%>
       <%= render "goals/goal", goal: pledge.goal %>
     <%end%>
@@ -26,7 +28,7 @@
 
 <% if @user.tended_goals.first %>
   <div id="tending_goals">
-    <h3>Tending Goals</h3>
+    <p class="user-title">Tending Goals</p>
     <% @user.tended_goals.each do |tended_goal|%>
       <%= render "goals/goal", goal: tended_goal %>
     <%end%>
@@ -46,7 +48,7 @@
 
   <% if @user.failed_set_goals.first %>
     <div id="failed_goals">
-      <h3>Unsuccessful Goals</h3>
+      <p class="user-title">Unsuccessful Goals</h3>
       <% @user.failed_set_goals.each do |failed_goal|%>
         <%= render "goals/goal", goal: failed_goal %>
       <%end%>

@@ -216,6 +216,7 @@ fieldset input{
 }
 
 .welcome {
+  font-size: 1.5em;
   padding-left: 4%;
 }
 
@@ -225,6 +226,28 @@ fieldset input{
 
 .option-links a{
   text-decoration: none;
+}
+
+.profile-info {
+  padding-left: 2%;
+}
+
+.profile-title {
+  padding-left: 2%;
+  font-size: 20px;
+}
+
+.user-title {
+  padding-left: 2%;
+  font-size: 35px;
+  color: #427093;
+
+}
+
+.profile-container .profile-info:last-child {
+  margin-bottom: 2%;
+  border-bottom: 1px black solid;
+  padding-bottom: 2%;
 }
 
 /*GOAL STYLING*/

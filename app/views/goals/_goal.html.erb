@@ -1,3 +1,5 @@
-<h4><%= link_to "#{goal.title}", goal_path(goal.id) %></h4>
-<h5>Goalsetter: <%= goal.setter.username %> &bull; Pledge: $<%= goal.setter_pledge %></h5>
-<p><%= goal.description %></p>
+<div class="profile-container">
+  <div class="profile-title"><%= link_to "#{goal.title}", goal_path(goal.id) %></div>
+  <p class="profile-info">Goalsetter: <%= goal.setter.username %> &bull; Pledge: $<%= goal.setter_pledge %></p>
+  <p class="profile-info"><%=goal.description%></p>
+</div>
