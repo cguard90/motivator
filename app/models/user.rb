@@ -26,16 +26,16 @@ class User < ActiveRecord::Base
 
   def active_set_goals
     current_goals = self.set_goals.where("? >= ?", :deadline, Date.today)
-    current_goals.map { |goal| goal unless goal.is_complete? }
+    current_goals.map { |goal| goal unless goal.is_complete? }.compact
   end
 
   def completed_set_goals
-    self.set_goals.map { |goal| goal if goal.is_complete? }
+    self.set_goals.map { |goal| goal if goal.is_complete? }.compact
   end
 
-  def failed_goals
+  def failed_set_goals
     current_goals = self.set_goals.where("? < ?", :deadline, Date.today)
-    current_goals.map { |goal| goal unless goal.is_complete? }
+    current_goals.map { |goal| goal unless goal.is_complete? }.compact
   end
 
   def network_messages
