@@ -2,18 +2,20 @@ $(document).ready(function (){
 
   $('.button_to').on('click', function(event){
     event.preventDefault();
-    $.ajax({
-      url:$(this).attr("action"),
-    }).done(function(response){
-      $('#milestone-partial').append(response)
-    });
-  })
+    var snippet = $('.milestone-partial:last').clone();
+    var last = $('.mstone:last').attr('name').substring('mstone_d'.length);
+    console.log(last);
 
-  $(".button_submit").on("click", function(e){
-    e.preventDefault()
-    debugger
-  $("#milestone-partial").trigger("submit")
-  $(".new_goal").trigger("submit");
-  debuuger
+    snippet.find('input').each(function(index, element){
+      var name = $(element).attr('name');
+      console.log(name);
+      var newName = name.replace(last, Number(last)+1);
+      console.log(newName);
+      $(element).attr('name', newName);
+    })
+
+    $('.milestone-form').append(snippet);
+    $('#milestone_count').val(Number(last)+1);
+
   });
 });
