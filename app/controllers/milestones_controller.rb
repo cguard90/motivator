@@ -22,9 +22,9 @@ class MilestonesController < ApplicationController
   end
 
   def edit
-    @messages = Message.broadcast
     @milestone = Milestone.find_by(id: params[:milestone_id])
     @goal = @milestone.goal
+    @messages = @goal.messages
     @setter = @milestone.goal.setter
     @tender = @milestone.goal.tender
   end
