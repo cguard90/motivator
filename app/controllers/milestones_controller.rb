@@ -23,7 +23,10 @@ class MilestonesController < ApplicationController
 
   def edit
     @milestone = Milestone.find_by(id: params[:milestone_id])
-    @messages = Message.broadcast
+    @goal = @milestone.goal
+    @messages = @goal.messages.order(created_at: :desc)
+    @setter = @milestone.goal.setter
+    @tender = @milestone.goal.tender
   end
 
   def update

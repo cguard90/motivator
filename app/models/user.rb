@@ -43,8 +43,8 @@ class User < ActiveRecord::Base
         supported_goals_msgs.push message
       end
     end
-    @messages = set_goals_msgs | tended_goals_msgs | supported_goals_msgs
-    @messages.sort_by! { |message| message.created_at }
+    messages = set_goals_msgs | tended_goals_msgs | supported_goals_msgs
+    messages.sort_by! { |message| message.created_at }.reverse!
   end
 
   def self.real_users
