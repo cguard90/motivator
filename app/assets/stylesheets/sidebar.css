@@ -1,13 +1,5 @@
 /* This file specifically styles the sidebar nav and feed boxes */
 
-main {
-  float: left;
-  width: 666px;
-  border-radius: 10px;
-  background-color: #eee;
-}
-
-
 footer {
   clear: both;
 }
@@ -16,7 +8,7 @@ aside {
   float: right;
   width: 282px;
   color: #222;
-  margin-top: 0.6rem;
+  margin: 0.75rem 0;
 }
 
 aside nav {
@@ -24,7 +16,7 @@ aside nav {
   margin-bottom: 0.75rem;
   background-color: #eee;
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   border: 1px solid #bbb;
 }
 
@@ -49,7 +41,7 @@ aside div.side--news {
 
 aside div.side--feed {
   width: 100%;
-  height: 456px;
+  height: 452px;
   overflow-y: scroll;
   background-color: #fff;
   line-height: 1.0;

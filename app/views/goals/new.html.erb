@@ -1,39 +1,39 @@
 <%= form_for @goal  do |f| %>
-<fieldset>
+    <fieldset>
 
-    <div class="input-options">
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </div>
-
-    <div class="input-options">
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-    </div>
-
-    <div class="input-options">
-        <%= f.label :charity %>
-        <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name")%>
-    </div>
-
-    <div class="input-options">
-        <%= f.label :tender, value: "Goal Tender" %>
-        <%= f.text_field :tender %>
-    </div>
-
-    <div class="input-options bottom-line">
-        <%= f.label :setter_pledge , 'Your pledge ($)' %>
-        <%= f.number_field :setter_pledge, min: 1, step: 1%>
-    </div>
-
-    <div class="milestone-form">
-        <div id="milestone-partial">
-            <%= render :partial => 'milestones/milestone_form' %>
+        <div class="input-options">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
         </div>
-        <%= button_to "Add Milestone" %>
-    </div>
-    <%= submit_tag "Create Your Goal!"%>
 
-</fieldset>
+        <div class="input-options">
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+        </div>
+
+        <div class="input-options">
+            <%= f.label :charity %>
+            <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name")%>
+        </div>
+
+        <div class="input-options">
+            <%= f.label :tender, value: "Goaltender" %>
+            <%= f.text_field :tender %>
+        </div>
+
+        <div class="input-options bottom-line">
+            <%= f.label :setter_pledge , 'Your pledge' %>
+            <%= f.number_field :setter_pledge, min: 1, step: 1, placeholder: "$" %>
+        </div>
+
+        <div class="milestone-form">
+            <div id="milestone-partial">
+                <%= render :partial => 'milestones/milestone_form' %>
+            </div>
+            <%= button_to "Add Milestone" %>
+        </div>
+        <%= submit_tag "Create Your Goal!"%>
+
+    </fieldset>
 <% end %>
 
