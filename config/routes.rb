@@ -62,6 +62,8 @@ Rails.application.routes.draw do
     resources :pledges, only: [ :new, :create ]
     resources :messages, only: [:create]
   end
+
+  resources :milestones
   resources :charities, only: [:index, :show]
 
   root 'welcome#index'
