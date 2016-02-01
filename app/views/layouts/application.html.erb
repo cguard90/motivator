@@ -2,34 +2,38 @@
 <html>
 <head>
   <title>Motivator</title>
-  <link href='https://fonts.googleapis.com/css?family=Bowlby+One+SC|Open+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
-    <% if logged_in? %>
+    <nav class="main-nav">
+      <% if logged_in? %>
       <h1><%= link_to 'Motivator', user_path(id: current_user.id) %></h1>
       <% else %>
       <h1><%= link_to 'Motivator', root_path%></h1>
-    <% end %>
-    <ul>
-      <% if logged_in? %>
-        <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
-        <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
-      <% else %>
-        <li><%= link_to 'Sign Up', new_user_path %></li>
-        <li><%= link_to 'Log In', new_session_path %></li>
       <% end %>
-    </ul>
+      <div class="user-container">
+        <ul>
+          <% if logged_in? %>
+          <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
+          <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
+          <% else %>
+          <li><%= link_to 'Sign Up', new_user_path %></li>
+          <li><%= link_to 'Log In', new_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
   </header>
 
   <main>
     <% flash.each do |name, msg| %>
-      <% if msg.is_a?(String) %>
-        <%= content_tag :div, msg, :class => "flash_#{name} error" %>
-      <% end %>
+    <% if msg.is_a?(String) %>
+    <%= content_tag :div, msg, :class => "flash_#{name} error" %>
+    <% end %>
     <% end %>
 
     <%= yield %>
@@ -55,7 +59,7 @@
       <h4>News Feed</h4>
       <div id="feed" class="side side--feed">
         <% @messages.each do |message| %>
-          <%= render message %>
+        <%= render message %>
         <% end %>
       </div>
     </div>

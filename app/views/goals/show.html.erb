@@ -9,7 +9,7 @@
       <p class="styled">
         <meter min="0" max="100" low="25" high="75" optimum="100" value="20"></meter>
       </p>
-      <p><%= @goal.setter.username %> has pledged $<%= @goal.setter_pledge %> towards completing this goal.</p>
+      <p class="attribute-match"><%= @goal.setter.username %> has pledged $<%= @goal.setter_pledge %> towards completing this goal.</p>
       <% if @goal.is_fully_funded? %>
         <p>Supporters have made <%= @goal.pledges.count %> pledges to fully match <%= @goal.setter.username %>'s pledge.</p>
       <% else %>
@@ -17,28 +17,28 @@
       <% end %>
       <p id="charity">Benefitting <%= link_to "#{@goal.charity.name}", charity_path %></p>
       <% if @goal.tender %>
-        <p>Goaltender: <%= @goal.tender.username %></p>
+        <p class="attribute-tender">Goaltender: <%= @goal.tender.username %></p>
       <% end %>
     </div>
 
     <% if current_user == @goal.setter %>
-      <div id="options">
-        <ul>
-          <li class="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
-          <!-- li class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li -->
-        </ul>
-      </div>
+    <div id="options">
+      <ul>
+        <li class="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
+        <!-- li class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li -->
+      </ul>
+    </div>
     <% end %>
 
     <% if current_user && @goal.setter != current_user && !@goal.is_fully_funded? %>
-      <div class="support-button">
-        <%= button_to "Support", new_goal_pledge_path(@goal),:method => :get%>
-      </div>
+    <div class="support-button">
+      <%= button_to "Support", new_goal_pledge_path(@goal),:method => :get%>
+    </div>
     <% end %>
   </div>
 
   <h3 class="titles">Milestones</h3>
-  <div class="milestone-container gbox">
+  <div class="milestone-container cbox">
     <ul>
       <% @milestones.each do |milestone| %>
         <li>
@@ -65,20 +65,22 @@
   <h3 class="titles">Supporters</h3>
   <div class="pledges-container mbox">
     <% if @goal.is_fully_funded? %>
-      <p class="attribute-label"><%= @goal.pledges.count %> pledges totalling $<%= @goal.setter_pledge %> have fully-funded this goal.</p>
+    <p class="attribute-label"><%= @goal.pledges.count %> pledges totalling $<%= @goal.setter_pledge %> have fully-funded this goal.</p>
     <% else %>
-      <p>So far, supporter pledges have matched $<%= @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge of $<%= @goal.setter_pledge %>.</p>
+    <p>So far, supporter pledges have matched $<%= @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge of $<%= @goal.setter_pledge %>.</p>
     <% end %>
     <ul>
       <% @goal.pledges.each do |pledge| %>
-        <li class="pledge"><%= pledge.user.username %> pledged $<%= pledge.amount %> on <%= std_format_day(pledge.created_at) %></li>
+      <li class="pledge"><%= pledge.user.username %> pledged $<%= pledge.amount %> on <%= std_format_day(pledge.created_at) %></li>
       <% end %>
     </ul>
   </div>
 
   <% if current_user %>
-    <h3 class="titles">Post a Comment</h3>
-    <%= render partial: "messages/form" %>
+    <div class="message-box">
+      <h3 class="titles">Post a Comment</h3>
+      <%= render partial: "messages/form" %>
+    </div>
   <% end %>
 
 </div>
