@@ -26,7 +26,7 @@ class Goal < ActiveRecord::Base
 
   def supporter_pledge_total
     pledges = self.pledges.where.not(user: self.setter)
-    pledges.map { |pledge| pledge.amount }.reduce(:+)
+    pledges.count > 0 ? pledges.map { |pledge| pledge.amount }.reduce(:+) : 0
   end
 
   def is_fully_funded?
