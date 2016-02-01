@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
     @milestone = Milestone.new(milestone_params)
-    if @goal.save && @milestone.deadline && @milestone.description
+    if @milestone.deadline && @milestone.description && @goal.save
       @goal.announcement
       @milestone = Milestone.create(milestone_params)
       redirect_to goal_path(id: @goal.id)
