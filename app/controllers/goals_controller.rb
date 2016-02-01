@@ -21,6 +21,7 @@ class GoalsController < ApplicationController
   end
 
   def show
+    binding.pry
     @goal = Goal.includes(:setter, :tender, :milestones, :messages, :pledges).find_by(id: params[:id])
     @milestones = @goal.milestones.order(:deadline)
     @message = Message.new
@@ -29,17 +30,18 @@ class GoalsController < ApplicationController
   end
 
   def create
-    binding.pry
     @messages = Message.broadcast
     @goal = Goal.new(goal_params)
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
-    @milestone = Milestone.new(milestone_params)
-    if @milestone.deadline && @milestone.description && @goal.save
+    @mile_array = make_milestones(@goal)
+    @mile_array.each do |milestone|
+    if milestone.deadline && milestone.description && @goal.save
       @goal.announcement
-      @milestone = Milestone.create(milestone_params)
-      redirect_to goal_path(id: @goal.id)
+      binding.pry
+      milestone.goal_id = @goal.id
+      milestone.save
     else
       @errors = @goal.errors.full_messages
       @errors.push("Milestones cannot be blank") if @milestone.description == nil
@@ -49,6 +51,8 @@ class GoalsController < ApplicationController
       @charities = Charity.all
       render :new
     end
+    end
+      redirect_to goal_path(id: @goal.id)
   end
 
   def edit
@@ -81,6 +85,17 @@ private
 
   def milestone_params
     {description: params[:goal][:milestones], goal_id: @goal.id, deadline: params[:Deadline] }
+  end
+
+  def make_milestones(goal)
+    milestone_array = []
+    count = params[:milestone_count].to_i
+     1.upto(count) do |n|
+      description = params["mstone_m#{n}"]
+      deadline = params["mstone_d#{n}"]
+      milestone_array.push(Milestone.new(description: description, deadline: deadline))
+    end
+    return milestone_array
   end
 
 end
