@@ -163,6 +163,14 @@ fieldset input{
   padding-left: 4%;
 }
 
+.option-links {
+  list-style: none;
+}
+
+.option-links a{
+  text-decoration: none;
+}
+
 /*GOAL STYLING*/
 
 .gbox {
