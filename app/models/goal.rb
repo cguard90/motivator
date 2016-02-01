@@ -45,15 +45,16 @@ class Goal < ActiveRecord::Base
   end
 
   def self.sort_time
-    order(created_at: :desc)
+    includes(:tender).order(created_at: :desc)
   end
 
   def self.sort_charity
-    order(charity_id: :asc)
+    includes(:tender).order(charity_id: :asc)
   end
 
-  def self.sort_tender
-    order(tender_id: :asc)
+  def self.sort_setter
+    joins(:setter).order('users.username')
+
   end
 
 end
