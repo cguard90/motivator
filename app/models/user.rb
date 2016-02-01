@@ -24,6 +24,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  def active_set_goals
+    current_goals = self.set_goals.where("? >= ?", :deadline, Date.today)
+    current_goals.map { |goal| goal unless goal.is_complete? }.compact
+  end
+
+  def completed_set_goals
+    self.set_goals.map { |goal| goal if goal.is_complete? }.compact
+  end
+
+  def failed_set_goals
+    current_goals = self.set_goals.where("? < ?", :deadline, Date.today)
+    current_goals.map { |goal| goal unless goal.is_complete? }.compact
+  end
+
   def network_messages
     set_goals_msgs = []
     self.set_goals.each do |goal|

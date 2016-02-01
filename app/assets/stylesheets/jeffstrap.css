@@ -40,13 +40,13 @@ for coining the name "jeffstrap".
   /*font-size: 12px;*/
 /*  font-size: 18px;
   line-height: 1.4;
-}*/*/
+}*/
 
-*, *:before, *:after {
+/**, *:before, *:after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-}
+}*/
 
 /*body {
   /*min-width: 320px;
@@ -63,31 +63,38 @@ for coining the name "jeffstrap".
 }
 
 h1, h2, h3 {
-  font-family: 'Bowlby One SC', sans-serif;
-  letter-spacing: 0.075rem;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: bold;
+  /*letter-spacing: 0.075rem;
 }
-*/
-/*h1 {
+
+h1 {
   font-size: 2.5rem;
 }
-*/
-h/*2 {
+
+h2 {
   font-size: 2rem;
+  margin-top: 1rem;
 }
 
 h3 {
   font-size: 1.75rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 h4 {
+  margin-top: 0.5rem;
   font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
 }
 
 p {
   margin: 0.5rem 0;
 }
-*/
+
 a:link,
 a:visited {
   color: #cc0000;
@@ -104,9 +111,9 @@ a:active {
 
 /*fieldset {
   border: none;
-}*/
+}
 
-/* HEADER STYLES */
+HEADER STYLES */
 
 /*header {
   padding: 1rem;
@@ -118,6 +125,7 @@ a:active {
 }
 
 header h1 {
+  font-family: 'Bowlby One SC', sans-serif;
   margin-bottom: 1rem;
   font-size: 2.75rem;
   line-height: 1;
