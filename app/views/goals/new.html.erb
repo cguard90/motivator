@@ -31,6 +31,8 @@
             <%= f.number_field :setter_pledge, min: 1, step: 1, placeholder: "$", :required => true %>
         </div>
 
+        <%= link_to "Add Milestone", new_milestone_path,class:"button_to" %>
+
         <div class="milestone-form">
             <input name="milestone_count" id="milestone_count" value="1" type="hidden">
             <div class="milestone-partial">
@@ -45,10 +47,7 @@
                     <input class="mstone" id="mstone_d1" name="mstone_d1" type="date" min = "<%= Date.today %>" required >
                 </div>
             </div>
-            <%= link_to "Add Milestone", new_milestone_path,class:"button_to" %>
-
         </div>
-
         <%= submit_tag "Create Your Goal!", class:"button_submit" %>
     </fieldset>
 <% end %>
