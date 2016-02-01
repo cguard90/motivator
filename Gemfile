@@ -18,7 +18,9 @@ gem 'awesome_print'
 gem 'factory_girl_rails'
 gem 'launchy'
 gem 'faker'
+
 gem 'responders'
+gem 'stripe'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
