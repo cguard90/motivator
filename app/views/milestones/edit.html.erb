@@ -1,7 +1,19 @@
-<h2>Please confirm the following has been completed:</h2>
-<p><%=@milestone.description%></p>
+<h2>Update Milestone</h2>
+<h4>Goal: <%= @goal.title %></h4>
+<h4>Milestone: <%=@milestone.description%></h4>
+
+<% if current_user == @setter %>
+  <p>Inform your goaltender, <%= @tender.username %>, that you have completed this milestone.</p>
+<% else %>
+  <p>Confirm that goalsetter <%= @setter.username %> has completed this milestone</p>
+<% end %>
+
 <%= form_for @milestone, url: "/goals/#{params[:goal_id]}/milestones/#{params[:milestone_id]}", method: "PATCH" do %>
   <fieldset>
-    <%= submit_tag "Milestone Complete" %>
+    <% if current_user == @setter %>
+      <%= submit_tag "Milestone Complete" %>
+    <% else %>
+      <%= submit_tag "Confirm Milestone" %>
+    <% end %>
   </fieldset>
-  <% end %>
+<% end %>
