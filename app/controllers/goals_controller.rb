@@ -21,7 +21,6 @@ class GoalsController < ApplicationController
   end
 
   def show
-    binding.pry
     @goal = Goal.includes(:setter, :tender, :milestones, :messages, :pledges).find_by(id: params[:id])
     @milestones = @goal.milestones.order(:deadline)
     @message = Message.new
@@ -37,22 +36,21 @@ class GoalsController < ApplicationController
     @goal.tender = User.find_by(username: params[:goal][:tender])
     @mile_array = make_milestones(@goal)
     @mile_array.each do |milestone|
-    if milestone.deadline && milestone.description && @goal.save
-      binding.pry
-      milestone.goal_id = @goal.id
-      milestone.save
-    else
-      @errors = @goal.errors.full_messages
-      @errors.push("Milestones cannot be blank") if @milestone.description == nil
-      @errors.push("Please select a deadline") if @milestone.deadline == nil
-      @errors.push("That User cannot be found, please choose a different Goaltender") if @goal.tender == nil
-      @goal = Goal.new(goal_params)
-      @charities = Charity.all
-      render :new
+      if milestone.deadline && milestone.description && @goal.save
+        milestone.goal_id = @goal.id
+        milestone.save
+      else
+        @errors = @goal.errors.full_messages
+        @errors.push("Milestones cannot be blank") if @milestone.description == nil
+        @errors.push("Please select a deadline") if @milestone.deadline == nil
+        @errors.push("That user cannot be found, please choose a different Goaltender") if @goal.tender == nil
+        @goal = Goal.new(goal_params)
+        @charities = Charity.all
+        render :new
+      end
     end
-    end
-      @goal.announcement
-      redirect_to goal_path(id: @goal.id)
+    @goal.announcement
+    redirect_to goal_path(id: @goal.id)
   end
 
   def edit
