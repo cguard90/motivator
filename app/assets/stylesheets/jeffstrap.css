@@ -63,8 +63,9 @@ for coining the name "jeffstrap".
 }
 
 h1, h2, h3 {
-  font-family: 'Bowlby One SC', sans-serif;
-  letter-spacing: 0.075rem;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: bold;
+  /*letter-spacing: 0.075rem;*/
 }
 */
 /*h1 {
@@ -118,6 +119,7 @@ a:active {
 }
 
 header h1 {
+  font-family: 'Bowlby One SC', sans-serif;
   margin-bottom: 1rem;
   font-size: 2.75rem;
   line-height: 1;
