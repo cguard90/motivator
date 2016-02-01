@@ -38,7 +38,6 @@ class GoalsController < ApplicationController
     @mile_array = make_milestones(@goal)
     @mile_array.each do |milestone|
     if milestone.deadline && milestone.description && @goal.save
-      @goal.announcement
       binding.pry
       milestone.goal_id = @goal.id
       milestone.save
@@ -52,6 +51,7 @@ class GoalsController < ApplicationController
       render :new
     end
     end
+      @goal.announcement
       redirect_to goal_path(id: @goal.id)
   end
 
