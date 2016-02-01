@@ -10,19 +10,19 @@
 <body>
   <header>
     <nav class="main-nav">
-      <% if logged_in? %>
-      <h1><%= link_to 'Motivator', user_path(id: current_user.id) %></h1>
-      <% else %>
-      <h1><%= link_to 'Motivator', root_path%></h1>
+      <% if current_user %>
+        <h1><%= link_to 'Motivator', user_path(id: current_user.id) %></h1>
+        <% else %>
+        <h1><%= link_to 'Motivator', root_path%></h1>
       <% end %>
       <div class="user-container">
         <ul>
-          <% if logged_in? %>
-          <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
-          <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
+          <% if current_user %>
+            <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
+            <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
           <% else %>
-          <li><%= link_to 'Sign Up', new_user_path %></li>
-          <li><%= link_to 'Log In', new_session_path %></li>
+            <li><%= link_to 'Sign Up', new_user_path %></li>
+            <li><%= link_to 'Log In', new_session_path %></li>
           <% end %>
         </ul>
       </div>
@@ -48,7 +48,9 @@
       </form>
 
       <ul>
-        <li><%= link_to 'Create New Goal', new_goal_path %></li>
+        <% if current_user %>
+          <li><%= link_to 'Create New Goal', new_goal_path %></li>
+        <% end %>
         <li><%= link_to "All Goals", goals_path %>  </li>
         <li><%= link_to "All Users", users_path %></li>
         <li><%= link_to "All Charities", charities_path %></li>
