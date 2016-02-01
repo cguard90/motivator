@@ -1,5 +1,3 @@
-<h3>Make a pledge supporting<br><%= @goal.setter.username %>'s goal to<br><%= @goal.title %></h3>
-<p>Your pledge will benefit <%= @goal.charity.name %>.</p>
 <%= form_for(@pledge, url: goal_pledges_path) do |f| %>
   <fieldset>
     <div>
