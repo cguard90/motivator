@@ -1,4 +1,5 @@
 class MilestonesController < ApplicationController
+  respond_to :html, :js
 
   def index
     @milestones =Milestone.joins(:events).where(goal_id: params[:id])
@@ -8,6 +9,10 @@ class MilestonesController < ApplicationController
   def show
     @milestone = Milestone.find_by(id: params[:id])
     @messages = Message.broadcast
+  end
+
+  def new
+    @milestone = Milestone.new
   end
 
   def create

@@ -33,14 +33,14 @@ for coining the name "jeffstrap".
 
 /* GENERAL STYLES */
 
-html {
+/*html {
   box-sizing: border-box;
   background-color: #ddd;
   color: #ddd;
   /*font-size: 12px;*/
-  font-size: 18px;
+/*  font-size: 18px;
   line-height: 1.4;
-}
+}*/*/
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -48,16 +48,16 @@ html {
   padding: 0;
 }
 
-body {
+/*body {
   /*min-width: 320px;
   max-width: 400px;*/
-  width: 960px;
+ /* width: 960px;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   background-color: #ddd;
-}
+}*/*/
 
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -66,12 +66,12 @@ h1, h2, h3 {
   font-family: 'Bowlby One SC', sans-serif;
   letter-spacing: 0.075rem;
 }
-
-h1 {
+*/
+/*h1 {
   font-size: 2.5rem;
 }
-
-h2 {
+*/
+h/*2 {
   font-size: 2rem;
 }
 
@@ -87,7 +87,7 @@ h4 {
 p {
   margin: 0.5rem 0;
 }
-
+*/
 a:link,
 a:visited {
   color: #cc0000;
@@ -102,13 +102,13 @@ a:active {
   text-decoration: none;
 }
 
-fieldset {
+/*fieldset {
   border: none;
-}
+}*/
 
 /* HEADER STYLES */
 
-header {
+/*header {
   padding: 1rem;
   background-color: #222;
   display: block;
@@ -152,11 +152,11 @@ header ul li input[type="submit"]:hover,
 header ul li input[type="submit"]:active {
   color: #f22;
 }
-
+*/
 
 /* MAIN STYLES - within YIELD block */
 
-main {
+/*main {
   color: #222;
   clear: both;
   padding: 1rem;
@@ -232,15 +232,15 @@ main td {
 
 /* FOOTER STYLES */
 
-footer {
+/*footer {
   text-align: center;
   font-size: 0.8rem;
   padding: 1rem;
   background-color: #222;
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
-}
-
+}*/
+/**/*/
 
 /* MEDIA QUERIES for screens larger than phones */
 
