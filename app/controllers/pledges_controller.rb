@@ -13,8 +13,6 @@ class PledgesController < ApplicationController
   def new
     @messages = Message.broadcast
     @pledge = Pledge.new
-    @goal = Goal.find_by(id: params[:goal_id])
-    # binding.pry
   end
 
   def create
