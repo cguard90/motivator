@@ -2,7 +2,7 @@
   <h2 class="titles">Goal: <%= @goal.title %></h2>
   <div class="goal-container gbox">
     <div id="goal-info" class="goal label">
-      <h4 id="attribute-label">Set by <%= @goal.setter.username %></h4>
+      <h4 class="attribute-label">Set by <%= @goal.setter.username %></h4>
       <% if @goal.description != "" %>
         <p><%= @goal.description %></p>
       <% end %>
@@ -24,8 +24,8 @@
     <% if current_user == @goal.setter %>
       <div id="options">
         <ul>
-          <li id="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
-          <li id="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li>
+          <li class="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
+          <li class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li>
         </ul>
       </div>
     <% end %>
