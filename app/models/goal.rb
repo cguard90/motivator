@@ -40,6 +40,10 @@ class Goal < ActiveRecord::Base
     setter_pledge <= self.supporter_pledge_total
   end
 
+  def is_complete?
+    self.milestones.where(confirmed: false).count <= 0
+  end
+
   def self.sort_time
     order(created_at: :desc)
   end
