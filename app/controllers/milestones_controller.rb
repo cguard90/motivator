@@ -13,7 +13,6 @@ class MilestonesController < ApplicationController
 
   def new
     @milestone = Milestone.new
-    render partial: 'milestones/milestone_form'
   end
 
   def create
