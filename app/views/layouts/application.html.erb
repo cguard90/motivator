@@ -12,7 +12,7 @@
     <nav class="main-nav">
       <% if current_user %>
         <h1><%= link_to 'Motivator', user_path(id: current_user.id) %></h1>
-        <% else %>
+      <% else %>
         <h1><%= link_to 'Motivator', root_path%></h1>
       <% end %>
       <div class="user-container">
