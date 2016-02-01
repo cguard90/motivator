@@ -32,15 +32,25 @@
             </div>
 
             <div class="milestone-form">
-                <div id="milestone-partial">
-                    <%= render :partial => 'milestones/milestone_form' %>
+                <input name="milestone_count" id="milestone_count" value="1" type="hidden">
+                <div class="milestone-partial">
+                    <fieldset>
+                      <div class="input-options">
+                          <label for="mstone_m1">Milestone</label>
+                          <input id="mstone_m1" name="mstone_m1">
+                      </div>
+
+                      <div class="input-options">
+                        <label for="mstone_d1">Deadline</label>
+                        <input class="mstone" id="mstone_d1" name="mstone_d1" type="date" min = "<%= Date.today %>" >
+                      </div>
                 </div>
-                <%= button_to "Add Milestone", new_milestone_path %>
+                <%= link_to "Add Milestone", new_milestone_path,class:"button_to" %>
 
             </div>
 
+            <%= submit_tag "Create Your Goal!", class:"button_submit" %>
         </fieldset>
     <% end %>
-<%= submit_tag "Create Your Goal!", class:"button_submit" %>
 </div>
 
