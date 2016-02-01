@@ -1,10 +1,12 @@
 <%= form_tag sessions_path do %>
 <fieldset id="form">
   <div class="input-options">
-    <%= email_field_tag :email, nil, :placeholder => "Email"  %>
+    <%= label_tag 'email' %>
+    <%= email_field_tag :email, nil %>
   </div>
   <div class="input-options">
-    <%= password_field_tag :password, nil, :placeholder => "Password"  %>
+    <%= label_tag 'password' %>
+    <%= password_field_tag :password, nil %>
   </div>
   <div class="form-button">
     <%= submit_tag "Log In" %>

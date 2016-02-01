@@ -184,11 +184,13 @@ main input {
   display: block;
   margin-bottom: 0.75rem;
   width: 100%;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
-main input[type="text"] {
-  padding: 0 0.5rem;
+main input[type="text"],
+main input[type="email"],
+main input[type="password"] {
+  padding: 0.25rem 0.5rem;
 }
 
 main input[type="submit"] {
