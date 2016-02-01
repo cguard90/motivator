@@ -1,12 +1,14 @@
 <% if current_user && @user == current_user %>
-  <h2>Welcome, <%= current_user.username %></h2>
+  <h1>Welcome, <%= current_user.username %></h1>
 <% else %>
-  <h2>Welcome to <%= @user.username %>'s page</h2>
+  <h1>Welcome to <%= @user.username %>'s page</h1>
 <% end %>
+
+<h2>Active Goals</h2>
 
 <% if @user.active_set_goals.first %>
   <div id="active_goals">
-    <h3>Active Goals</h3>
+    <h3>My Goals</h3>
     <% @user.active_set_goals.each do |active_goal|%>
       <%= render "goals/goal", goal: active_goal %>
     <%end%>
@@ -31,20 +33,23 @@
   </div>
 <% end %>
 
-<% if @user.completed_set_goals %>
-  <div id="completed_goals">
-    <h3>Accomplished Goals</h3>
-    <% @user.completed_set_goals.each do |completed_goal|%>
-      <%= render "goals/goal", goal: completed_goal %>
-    <%end%>
-  </div>
-<% end %>
+<% if @user.completed_set_goals || @user.failed_set_goals %>
+  <h2>Past Goals</h2>
+  <% if @user.completed_set_goals %>
+    <div id="completed_goals">
+      <h3>Accomplished Goals</h3>
+      <% @user.completed_set_goals.each do |completed_goal|%>
+        <%= render "goals/goal", goal: completed_goal %>
+      <%end%>
+    </div>
+  <% end %>
 
-<% if @user.failed_set_goals.first %>
-  <div id="failed_goals">
-    <h3>Unsuccessful Goals</h3>
-    <% @user.failed_set_goals.each do |failed_goal|%>
-      <%= render "goals/goal", goal: failed_goal %>
-    <%end%>
-  </div>
+  <% if @user.failed_set_goals.first %>
+    <div id="failed_goals">
+      <h3>Unsuccessful Goals</h3>
+      <% @user.failed_set_goals.each do |failed_goal|%>
+        <%= render "goals/goal", goal: failed_goal %>
+      <%end%>
+    </div>
+  <% end %>
 <% end %>

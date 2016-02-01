@@ -74,15 +74,21 @@ h1, h2, h3 {
 */
 h/*2 {
   font-size: 2rem;
+  margin-top: 1rem;
 }
 
 h3 {
   font-size: 1.75rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 h4 {
+  margin-top: 0.5rem;
   font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
 }
 
 p {
