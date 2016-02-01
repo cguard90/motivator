@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160129160810) do
     t.string   "description", limit: 300,                 null: false
     t.date     "deadline",                                null: false
     t.boolean  "completed",               default: false
+    t.boolean  "confirmed",               default: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end

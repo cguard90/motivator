@@ -27,11 +27,11 @@ class MilestonesController < ApplicationController
   end
 
   def update
-    @milestone = Milestone.find_by(id: params[:id])
     @messages = Message.broadcast
-    @milestone.completed = true
+    @milestone = Milestone.find_by(id: params[:id])
+    @milestone.update_status(current_user)
     if @milestone.save
-      @milestone.announcement(current_user)
+      @milestone.announcement
       redirect_to goal_path(id: params[:goal_id])
     else
       render :edit
