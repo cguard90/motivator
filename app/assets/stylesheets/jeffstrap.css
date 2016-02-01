@@ -102,6 +102,10 @@ a:active {
   text-decoration: none;
 }
 
+fieldset {
+  border: none;
+}
+
 /* HEADER STYLES */
 
 header {

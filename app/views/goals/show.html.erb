@@ -54,7 +54,7 @@
   <h3 class="titles">Supporters</h3>
   <div class="pledges-container mbox">
     <% if @goal.is_fully_funded? %>
-      <p><%= @goal.pledges.count %> pledges totalling $<%= @goal.setter_pledge %> have fully-funded this goal.</p>
+      <p class="attribute-label"><%= @goal.pledges.count %> pledges totalling $<%= @goal.setter_pledge %> have fully-funded this goal.</p>
     <% else %>
       <p>So far, supporter pledges have matched $<%= @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge of $<%= @goal.setter_pledge %>.</p>
     <% end %>
