@@ -43,9 +43,13 @@
       <% @milestones.each do |milestone| %>
         <li>
           <p><%= milestone.description %> by <%= std_format_day milestone.deadline %></p>
-          <% if @goal.tender == current_user && milestone.completed == false%>
+          <% if @goal.setter == current_user && milestone.completed == false %>
+            <p>Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+          <% end %>
+          <% if @goal.tender == current_user && milestone.completed == true && milestone.confirmed == false %>
             <p>Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
+
         </li>
       <% end %>
     </ul>
