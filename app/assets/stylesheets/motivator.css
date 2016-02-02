@@ -358,16 +358,16 @@ main {
 }
 
 .button_submit {
-  width: 12%;
-  margin: 2%;
-  margin-left: 9.4em;
+  width: 10rem;
+/*  margin: 2%;*/
+/*  margin-left: 9.4em;*/
 }
 
-input .button_submit{
+/*input .button_submit{
   width: 20em;
   height: 2em;
 
-}
+}*/
 
 .bottom-line {
   border-bottom: dashed 1px black;
