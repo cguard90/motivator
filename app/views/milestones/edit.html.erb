@@ -8,7 +8,7 @@
   <p>Confirm that goalsetter <%= @setter.username %> has completed this milestone</p>
 <% end %>
 
-<%= form_for @milestone, url: "/goals/#{params[:goal_id]}/milestones/#{params[:milestone_id]}", method: "PATCH" do %>
+<%= form_for [@goal, @milestone], method: "PATCH" do %>
   <fieldset>
     <% if current_user == @setter %>
       <%= submit_tag "Milestone Complete" %>
