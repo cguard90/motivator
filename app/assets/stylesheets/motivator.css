@@ -2,6 +2,7 @@ html {
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
   font-size: 16px;
+  color:#011627;
 }
 
 *, *:before, *:after {
@@ -49,14 +50,14 @@ p {
 
 a:link,
 a:visited {
-  color: #cc0000;
+  color: #E71D36;
   font-weight: bold;
   text-decoration: none;
 }
 
 a:hover,
 a:active {
-  color: #ff2222;
+  color: #96091A;
   font-weight: bold;
   text-decoration: none;
 }
@@ -101,7 +102,7 @@ nav.main-nav h1 a{
   color: #FDFFFC;
   position: absolute;
   top: 6px;
-  left: 38px;
+  padding-left: 1.5%;
   padding-top: 20px;
 }
 
@@ -116,22 +117,26 @@ nav.main-nav ul{
 nav.main-nav ul li{
   text-decoration: none;
   display: inline-block;
-  margin: 2em;
 }
-
 
 nav.main-nav ul li a {
   text-decoration: none;
   color: #FDFFFC;
 }
 
-.user-container li:hover a {
+.user-container ul li:hover{
   background-color: #E71D36;
 }
 
 .user-container {
   width: 100%;
   text-align: right;
+}
+
+.nav-menu {
+  padding: 2em;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 /*BODY STYLING*/
@@ -153,11 +158,36 @@ body main {
 footer {
   clear: both;
   text-align: center;
-  background-color: #E71D36;
+  background-color: #153F60;
   color: #FDFFFC;
   height: 60px;
   padding-top: 1%;
   margin-top: 10px;
+}
+
+.motivator-man {
+  height: 17em;
+  width: 30em;
+  margin-left: 0em;
+  margin-top: 2em;
+  margin-right:0;
+  background: url("http://i.imgur.com/N1ziRw2.png?2");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 1em;
+}
+
+.welcome-banner {
+  display: flex;
+  margin-top: 1em;
+}
+
+.welcome-info{
+  margin-top: 2em;
+}
+
+.welcome-info p{
+  padding-bottom: 1em;
 }
 
 p.facebook-user {
@@ -185,7 +215,24 @@ label {
   font-weight: bold;
 }
 
+#sorting a:hover{
+  color:#427093;
+}
+
 /*---------------*/
+
+.user-title:before {
+  content: "";
+  border-color: transparent #FF9F1C;
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
+}
 
 #milestone-partial fieldset{
   border:none;
@@ -217,7 +264,9 @@ fieldset input{
 
 .welcome {
   font-size: 1.5em;
-  padding-left: 4%;
+  padding-left: 1.4em;
+  margin-bottom: 3%;
+  margin-top: 3%;
 }
 
 .option-links {
@@ -248,13 +297,17 @@ fieldset input{
 .user-maintitle {
   padding-left: 2%;
   font-size: 35px;
-  color: #256393;
+  color: #001627;
 }
 
 .profile-container .profile-info:last-child {
   margin-bottom: 2%;
-  border-bottom: 1px black solid;
+  border-bottom: 0.12em #011627 solid;
   padding-bottom: 2%;
+}
+
+.index-links {
+  margin-bottom: 1em;
 }
 
 /*GOAL STYLING*/
@@ -263,9 +316,7 @@ fieldset input{
   padding: 10px;
   text-align: center;
   background-color: #FDFFFC;
-  border-radius: 10px;
-  border-bottom: 5px #2EC4B6 solid;
-  border-top: 5px #2EC4B6 solid;
+  border-bottom: 0.12em #011627 solid;
   margin:10px;
 }
 
@@ -281,6 +332,11 @@ fieldset input{
   text-decoration: none;
 }
 
+.attribute-title a:hover{
+  color:#427093;
+}
+
+
 .attribute-match {
   color:#FF9F1C;
 }
@@ -292,21 +348,34 @@ fieldset input{
 
 .cbox {
   padding: 10px;
-  text-align: center;
   background-color: #FDFFFC;
-  border-top: 5px #011627 solid;
+  border-bottom: 0.12em #011627 solid;
   margin:10px;
 }
 
-.cbox li {
-  list-style: upper-roman;
+.cbox ul {
+  list-style: none;
+  text-align: center;
+}
+
+.cbox li p:before {
+  content: "";
+  border-color: transparent #FF9F1C;
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
 }
 
 .mbox {
   padding: 10px;
   text-align: center;
   background-color: #FDFFFC;
-  border-top: 5px #011627 solid;
+  border-bottom: 0.12em #011627 solid;
   margin:10px;
 }
 
@@ -361,81 +430,81 @@ main {
 
 .button_submit {
   width: 10rem;
-/*  margin: 2%;*/
-/*  margin-left: 9.4em;*/
+  /*  margin: 2%;*/
+  /*  margin-left: 9.4em;*/
 }
 
 /*input .button_submit{
   width: 20em;
   height: 2em;
 
-}*/
+  }*/
 
-.bottom-line {
-  border-bottom: dashed 1px black;
-  margin-bottom: 2em;
-  padding-bottom: 3%;
-}
+  .bottom-line {
+    border-bottom: dashed 1px black;
+    margin-bottom: 2em;
+    padding-bottom: 3%;
+  }
 
-.new_goal fieldset {
-  padding-left: 3%;
-  padding-top: 3%;
-}
+  .new_goal fieldset {
+    padding-left: 3%;
+    padding-top: 3%;
+  }
 
-.milestone-form fieldset {
-  border: 0;
-  padding-left: 0;
-}
+  .milestone-form fieldset {
+    border: 0;
+    padding-left: 0;
+  }
 
-.fl-left {
-  float: left;
-}
+  .fl-left {
+    float: left;
+  }
 
-.fl-right {
-  float: right;
-}
+  .fl-right {
+    float: right;
+  }
 
-.milestone-partial {
-  margin-bottom: 0.5rem;
-}
+  .milestone-partial {
+    margin-bottom: 0.5rem;
+  }
 
-.styled meter {
-  /* Reset the default appearance */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  .styled meter {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
-  width: 85%;
-  height: 30px;
-  margin-bottom:10px;
+    width: 85%;
+    height: 30px;
+    margin-bottom:10px;
 
-  /* For Firefox */
-  background: #EEE;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
-  border-radius: 3px;
-}
+    /* For Firefox */
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+  }
 
-/* WebKit */
-.styled meter::-webkit-meter-bar {
-  background: #EEE;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
-  border-radius: 3px;
-}
+  /* WebKit */
+  .styled meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+  }
 
-.styled meter::-webkit-meter-optimum-value,
-.styled meter::-webkit-meter-suboptimum-value,
-.styled meter::-webkit-meter-even-less-good-value {
-  border-radius: 3px;
-}
+  .styled meter::-webkit-meter-optimum-value,
+  .styled meter::-webkit-meter-suboptimum-value,
+  .styled meter::-webkit-meter-even-less-good-value {
+    border-radius: 3px;
+  }
 
-.styled meter::-webkit-meter-optimum-value {
-  background: #86CC00;
-}
+  .styled meter::-webkit-meter-optimum-value {
+    background: #86CC00;
+  }
 
-.styled meter::-webkit-meter-suboptimum-value {
-  background: #FFDB1A;
-}
+  .styled meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A;
+  }
 
-.styled meter::-webkit-meter-even-less-good-value  {
-  background: #CC4600;
-}
+  .styled meter::-webkit-meter-even-less-good-value  {
+    background: #CC4600;
+  }

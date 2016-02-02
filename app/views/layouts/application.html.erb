@@ -9,6 +9,7 @@
 </head>
 <body>
   <header>
+
     <nav class="main-nav">
       <% if current_user %>
         <h1><%= link_to 'Motivator', user_path(id: current_user.id) %></h1>
@@ -18,11 +19,11 @@
       <div class="user-container">
         <ul>
           <% if current_user %>
-            <li>Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
-            <li><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
+            <li class="nav-menu">Welcome, <%= link_to current_user.username, user_path(current_user) %>!</li>
+            <li class="nav-menu"><%= link_to 'Log Out', session_path(current_user), method: :delete %> </li>
           <% else %>
-            <li><%= link_to 'Sign Up', new_user_path %></li>
-            <li><%= link_to 'Log In', new_session_path %></li>
+            <li class="nav-menu"><%= link_to 'Sign Up', new_user_path %></li>
+            <li class="nav-menu"><%= link_to 'Log In', new_session_path %></li>
           <% end %>
         </ul>
       </div>
@@ -37,6 +38,7 @@
     <% end %>
 
     <%= yield %>
+
   </main>
 
   <aside>

@@ -1,5 +1,6 @@
+<h1> Charities:</h1>
 <ol>
   <% @charities.each do |charity| %>
-    <li><%= link_to "#{charity.name}", charity_path(id: charity.id) %> </li>
+    <li class="index-links"><%= link_to "#{charity.name}", charity_path(id: charity.id) %> </li>
   <% end %>
 </ol>
