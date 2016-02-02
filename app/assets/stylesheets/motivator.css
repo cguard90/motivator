@@ -222,9 +222,11 @@ fieldset input{
 
 .option-links {
   list-style: none;
+  margin-left: -3%;
 }
 
 .option-links a{
+  padding-left: 1px;
   text-decoration: none;
 }
 
