@@ -22,8 +22,6 @@ class PledgesController < ApplicationController
     @pledge.user = current_user
     if @pledge.save
       @pledge.announce
-      redirect_to goal_path(@pledge.goal)
-      @pledge.announce(current_user)
       flash[:notice] = "#{@pledge.goal.setter.username} thanks you for the support"
       redirect_to goal_path(@pledge.goal, amount: @pledge.amount)
     else
