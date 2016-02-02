@@ -6,6 +6,7 @@ class CreateMilestones < ActiveRecord::Migration
       t.date     :deadline,    null: false
       t.boolean  :completed,   default: false
       t.boolean  :confirmed,   default: false
+      t.integer  :value
 
       t.timestamps             null: false
     end
