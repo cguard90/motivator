@@ -7,7 +7,7 @@
         <p><%= @goal.description %></p>
       <% end %>
       <p class="styled">
-        <meter min="0" max="100" low="25" high="75" optimum="100" value="20"></meter>
+        <meter min="0" max="100" low="25" high="75" optimum="100" value="0"></meter>
       </p>
       <p class="attribute-match"><%= @goal.setter.username %> has pledged $<%= @goal.setter_pledge %> towards completing this goal.</p>
       <% if @goal.is_fully_funded? %>
