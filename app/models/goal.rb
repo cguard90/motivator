@@ -13,10 +13,9 @@ class Goal < ActiveRecord::Base
 
   delegate :username, to: :setter, prefix: true
 
-  def announcement
-    Message.create(
-      user_id: 1,
-      goal_id: self.id,
+  def announce
+    self.messages.create(
+      user: User.system_user,
       content: "#{self.setter.username} has set a goal to '#{self.title}'."
     )
   end
