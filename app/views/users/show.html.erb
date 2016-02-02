@@ -6,7 +6,7 @@
 <% end %>
 </div>
 
-<% if current_user.has_active_goals? %>
+<% if @user.has_active_goals? %>
   <p class="user-maintitle">Active Goals</p>
   <% if @user.active_set_goals.first %>
     <div id="active_goals">
@@ -36,7 +36,7 @@
   <% end %>
 <% end %>
 
-<% if current_user.has_past_goals? %>
+<% if @user.has_past_goals? %>
   <p class="user-maintitle">Past Goals</p>
   <% if @user.completed_set_goals.first %>
     <div id="completed_goals">
