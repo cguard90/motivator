@@ -1,7 +1,10 @@
 class ChargesController < ApplicationController
   def new
+    if request.xhr?
+      @amount = 100 * params[:amount].to_i
+      render layout: false
+    end
     @messages = Message.broadcast
-
   end
 
   def button
