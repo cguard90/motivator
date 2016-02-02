@@ -1,6 +1,6 @@
 $(document).ready(function (){
 
-  $('.button_to').on('click', function(event){
+  $('.milestone-btn').on('click', function(event){
     event.preventDefault();
     var snippet = $('.milestone-partial:last').clone();
     var last = $('.mstone:last').attr('name').substring('mstone_d'.length);

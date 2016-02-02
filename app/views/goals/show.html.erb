@@ -22,18 +22,16 @@
     </div>
 
     <% if current_user == @goal.setter %>
-    <div id="options">
-      <ul>
-        <li class="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
-        <!-- li class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li -->
-      </ul>
-    </div>
+      <div id="options">
+        <p class="option-links"><%= link_to "Edit Goal", edit_goal_path %></p>
+        <!-- p class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></p -->
+      </div>
     <% end %>
 
     <% if current_user && @goal.setter != current_user && !@goal.is_fully_funded? %>
-    <div class="support-button">
-      <%= button_to "Support", new_goal_pledge_path(@goal),:method => :get%>
-    </div>
+      <div class="support-button">
+        <%= button_to "Support", new_goal_pledge_path(@goal), method: :get %>
+      </div>
     <% end %>
   </div>
 

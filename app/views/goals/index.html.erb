@@ -5,16 +5,19 @@
 </nav>
 
 <% @goals.each do |goal| %>
-  <div class="goal-container gbox">
-    <div class="goal label">
-      <div class="attribute-title"><%= link_to "#{goal.title}", goal_path(goal) %></div>
-      <p class="attribute-label">Goal set by <%= goal.setter.username %></p>
-      <p class="attribute-match">Goalsetter's pledge: $<%= goal.setter_pledge %> &bull; Left to match: $<%= goal.left_to_match %></p>
-      <% if goal.description != "" %>
-        <p><%= goal.description %></p>
-      <% end %>
-      <p class="charity">Benefitting <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
+  <% if goal.is_active? %>
+    <div class="goal-container gbox">
+      <div class="goal label">
+        <div class="attribute-title">
+          <%= link_to "#{goal.title}", goal_path(goal) %>
+        </div>
+        <p class="attribute-label">Goal set by <%= goal.setter.username %></p>
+        <p class="attribute-match">Goalsetter's pledge: $<%= goal.setter_pledge %> &bull; Left to match: $<%= goal.left_to_match %></p>
+        <% if goal.description != "" %>
+          <p><%= goal.description %></p>
+        <% end %>
+        <p class="charity">Benefitting <%= link_to "#{goal.charity.name}", charity_path(goal.charity) %></p>
+      </div>
     </div>
-
-  </div>
+  <% end %>
 <% end %>

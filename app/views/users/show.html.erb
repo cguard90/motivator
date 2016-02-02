@@ -6,40 +6,41 @@
 <% end %>
 </div>
 
+<% if @user.active_set_goals.first || @user.active_tended_goals.first || @user.active_supported_goals.first %>
 <p class="user-maintitle">Active Goals</p>
+  <% if @user.active_set_goals.first %>
+    <div id="active_goals">
+      <p class="user-title">Goals <%= @user.username %> has set</p>
+      <% @user.active_set_goals.each do |active_goal|%>
+        <%= render "goals/goal", goal: active_goal %>
+      <%end%>
+    </div>
+  <% end %>
 
-<% if @user.active_set_goals.first %>
-  <div id="active_goals">
-    <p class="user-title">My Goals</p>
-    <% @user.active_set_goals.each do |active_goal|%>
-      <%= render "goals/goal", goal: active_goal %>
-    <%end%>
-  </div>
+  <% if @user.active_tended_goals.first %>
+    <div id="tending_goals">
+      <p class="user-title">Goals <%= @user.username %> tends</p>
+      <% @user.active_tended_goals.each do |tended_goal|%>
+        <%= render "goals/goal", goal: tended_goal %>
+      <%end%>
+    </div>
+  <% end %>
+
+  <% if @user.active_supported_goals.first %>
+    <div id="supported_goals">
+      <p class="user-title">Goals <%= @user.username %> supports</p>
+      <% @user.active_supported_goals.each do |goal|%>
+        <%= render "goals/goal", goal: goal %>
+      <%end%>
+    </div>
+  <% end %>
 <% end %>
 
-<% if @pledges.first %>
-  <div id="supported_goals">
-    <p class="user-title">Supporting Goals</p>
-    <% @pledges.each do |pledge|%>
-      <%= render "goals/goal", goal: pledge.goal %>
-    <%end%>
-  </div>
-<% end %>
-
-<% if @user.tended_goals.first %>
-  <div id="tending_goals">
-    <p class="user-title">Tending Goals</p>
-    <% @user.tended_goals.each do |tended_goal|%>
-      <%= render "goals/goal", goal: tended_goal %>
-    <%end%>
-  </div>
-<% end %>
-
-<% if @user.completed_set_goals || @user.failed_set_goals %>
+<% if @user.completed_set_goals.first || @user.failed_set_goals.first %>
   <p class="user-maintitle">Past Goals</p>
-  <% if @user.completed_set_goals %>
+  <% if @user.completed_set_goals.first %>
     <div id="completed_goals">
-      <p class="user-title">Accomplished Goals</p>
+      <p class="user-title">Goals <%= @user.username %> accomplished</p>
       <% @user.completed_set_goals.each do |completed_goal|%>
         <%= render "goals/goal", goal: completed_goal %>
       <%end%>
@@ -48,7 +49,7 @@
 
   <% if @user.failed_set_goals.first %>
     <div id="failed_goals">
-      <p class="user-title">Unsuccessful Goals</p>
+      <p class="user-title">Goals <%= @user.username %> attempted</p>
       <% @user.failed_set_goals.each do |failed_goal|%>
         <%= render "goals/goal", goal: failed_goal %>
       <%end%>

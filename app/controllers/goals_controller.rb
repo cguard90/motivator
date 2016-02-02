@@ -3,12 +3,12 @@ class GoalsController < ApplicationController
   def index
     @messages = Message.broadcast
     @sorting_method = params[:sort]
-    if @sorting_method == "Newest"
-      @goals = Goal.sort_time
-    elsif @sorting_method == "Submitted"
+    if @sorting_method == "Submitted"
       @goals = Goal.sort_setter
     elsif @sorting_method == "Charity"
       @goals = Goal.sort_charity
+    else # @sorting_method == "Newest"
+      @goals = Goal.sort_time
     end
   end
 

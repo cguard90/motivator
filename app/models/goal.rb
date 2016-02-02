@@ -40,8 +40,21 @@ class Goal < ActiveRecord::Base
     setter_pledge <= self.supporter_pledge_total
   end
 
+  def is_active?
+    final_milestone = self.milestones.order(:deadline).last
+    final_milestone.deadline > Date.today && final_milestone.confirmed == false
+  end
+
   def is_complete?
     self.milestones.where(confirmed: false).count <= 0
+  end
+
+  def is_failed?
+    self.milestones.where("deadline < ? AND confirmed = ?", Date.today, false).count > 0
+  end
+
+  def is_resolved?
+    self.is_complete? || self.is_failed?
   end
 
   def self.sort_time

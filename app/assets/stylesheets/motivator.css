@@ -358,16 +358,16 @@ main {
 }
 
 .button_submit {
-  width: 12%;
-  margin: 2%;
-  margin-left: 9.4em;
+  width: 10rem;
+/*  margin: 2%;*/
+/*  margin-left: 9.4em;*/
 }
 
-input .button_submit{
+/*input .button_submit{
   width: 20em;
   height: 2em;
 
-}
+}*/
 
 .bottom-line {
   border-bottom: dashed 1px black;
@@ -380,9 +380,21 @@ input .button_submit{
   padding-top: 3%;
 }
 
-.milestone-form fieldset{
+.milestone-form fieldset {
   border: 0;
   padding-left: 0;
+}
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
+
+.milestone-partial {
+  margin-bottom: 0.5rem;
 }
 
 .styled meter {
