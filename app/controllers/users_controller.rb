@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
+
     @pledges = @user.pledges.includes(:goal)
     @messages = @user.network_messages
   end

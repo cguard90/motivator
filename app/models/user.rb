@@ -25,8 +25,15 @@ class User < ActiveRecord::Base
   end
 
   def active_set_goals
-    current_goals = self.set_goals.where("? >= ?", :deadline, Date.today)
-    current_goals.map { |goal| goal unless goal.is_complete? }.compact
+    self.set_goals.map { |goal| goal if goal.is_active? }.compact
+  end
+
+  def active_tended_goals
+    self.tended_goals.map { |goal| goal if goal.is_active? }.compact
+  end
+
+  def active_supported_goals
+    self.pledges.map { |pledge| pledge.goal if pledge.goal.is_active? }.compact
   end
 
   def completed_set_goals
