@@ -1,4 +1,4 @@
-<%= form_for(@pledge, url: goal_pledges_path) do |f| %>
+<%= form_for [@goal, @pledge] do |f| %>
   <fieldset>
     <div>
       <%= f.label :amount %>

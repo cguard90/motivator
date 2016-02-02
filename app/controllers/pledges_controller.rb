@@ -12,6 +12,7 @@ class PledgesController < ApplicationController
 
   def new
     @messages = Message.broadcast
+    @goal = Goal.find_by(id: params[:goal_id])
     @pledge = Pledge.new
     if request.xhr?
       render layout: false
