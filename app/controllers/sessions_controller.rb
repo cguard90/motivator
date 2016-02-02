@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    @messages = Message.broadcast
   end
 
   def create
