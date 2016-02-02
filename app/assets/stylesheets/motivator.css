@@ -169,6 +169,8 @@ footer {
   height: 25em;
   margin-left: 0em;
   margin-top: 2em;
+  background: url("http://i.imgur.com/N1ziRw2.png");
+  background-repeat: no-repeat;
 }
 
 p.facebook-user {
