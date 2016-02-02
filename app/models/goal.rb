@@ -20,6 +20,10 @@ class Goal < ActiveRecord::Base
     )
   end
 
+  def load_news_feed
+    self.messages.order(created_at: :desc)
+  end
+
   def total_milestone_value
     milestones.sum(:value)
   end

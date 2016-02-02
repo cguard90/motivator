@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
     @total_value = @goal.total_milestone_value
     @completed = @goal.total_milestone_value_completed
     @message = Message.new
-    @messages = @goal.messages.order(created_at: :desc)
+    @messages = @goal.load_news_feed
     @errors = params[:errors]
   end
 
@@ -55,7 +55,7 @@ class GoalsController < ApplicationController
 
   def edit
     @goal = Goal.find_by(id: params[:id])
-    @messages = @goal.messages.order(created_at: :desc)
+    @messages = @goal.load_news_feed
   end
 
   def update
