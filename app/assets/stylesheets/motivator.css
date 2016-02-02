@@ -380,9 +380,21 @@ input .button_submit{
   padding-top: 3%;
 }
 
-.milestone-form fieldset{
+.milestone-form fieldset {
   border: 0;
   padding-left: 0;
+}
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
+
+.milestone-partial {
+  margin-bottom: 0.5rem;
 }
 
 .styled meter {
