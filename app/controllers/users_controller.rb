@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @messages = Message.broadcast
     @users = User.real_users
   end
 
   def new
-    @messages = Message.broadcast
     @user = User.new
   end
 
@@ -18,7 +16,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    @messages = Message.broadcast
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id

@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @messages = Message.broadcast
     @results = []
     @secondary_search = []
     search_users(params[:q])

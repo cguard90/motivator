@@ -1,7 +1,6 @@
 class GoalsController < ApplicationController
 
   def index
-    @messages = Message.broadcast
     @sorting_method = params[:sort]
     @goals = Goal.all
     if @sorting_method == "Newest"
@@ -16,7 +15,6 @@ class GoalsController < ApplicationController
   end
 
   def new
-    @messages = Message.broadcast
     @goal = Goal.new
     @charities = Charity.all
     @milestone = Milestone.new
@@ -33,7 +31,6 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @messages = Message.broadcast
     @goal = Goal.new(goal_params)
     # CHECK THIS TOMORROW
     mile_value = (100/(params[:milestone_count].to_i).round)
@@ -57,12 +54,11 @@ class GoalsController < ApplicationController
   end
 
   def edit
-    @messages = Message.broadcast
     @goal = Goal.find_by(id: params[:id])
+    @messages = @goal.messages.order(created_at: :desc)
   end
 
   def update
-    @messages = Message.broadcast
     @goal = Goal.find_by(id: params[:id])
     if @goal.update_attributes(goal_params)
       redirect_to goal_path

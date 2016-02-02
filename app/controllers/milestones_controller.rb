@@ -13,7 +13,6 @@ class MilestonesController < ApplicationController
   end
 
   def update
-    @messages = Message.broadcast
     @milestone = Milestone.find_by(id: params[:id])
     @milestone.update_status(current_user)
     if @milestone.save

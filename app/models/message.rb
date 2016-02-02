@@ -7,8 +7,4 @@ class Message < ActiveRecord::Base
   delegate :title, to: :goal, prefix: true
   delegate :username, to: :user
 
-  def self.broadcast
-    Message.includes(:user, goal: :setter).order(created_at: :desc).limit(20)
-  end
-
 end
