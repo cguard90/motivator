@@ -5,11 +5,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if params[:goal_id]
-      goal = Goal.find_by(id: params[:goal_id])
-    else
-      goal = Pledge.find_by(id: params[:pledge_id]).goal
-    end
+    goal = Goal.find_by(id: params[:goal_id])
     @message = goal.messages.new(user: current_user, content: params[:message][:content])
     if @message.save
       @messages = goal.messages
