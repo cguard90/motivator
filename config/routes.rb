@@ -65,6 +65,11 @@ Rails.application.routes.draw do
 
   resources :milestones
   resources :charities, only: [:index, :show]
+  resources :charges do
+    collection do
+      get 'button'
+    end
+  end
 
   root 'welcome#index'
 
@@ -78,5 +83,4 @@ Rails.application.routes.draw do
 
   # Temporary routes for testing:
   resources :messages, only: [:new, :destroy]
-
 end

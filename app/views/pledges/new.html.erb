@@ -4,9 +4,12 @@
       <%= f.label :amount %>
       <%= f.number_field :amount, min:1, :placeholder => "$" %>
     </div>
-    <%= f.submit 'Add Pledge' %>
+    <%= f.submit 'Add Pledge'%>
   </fieldset>
 <% end %>
+
+
+
 
 <% if @errors%>
   <% @errors.each do |error|%>
