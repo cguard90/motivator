@@ -9,7 +9,7 @@ class GoalsController < ApplicationController
       @goals = Goal.sort_setter
     elsif @sorting_method == "Charity"
       @goals = Goal.sort_charity
-    else # @sorting_method == "Newest"
+    else
       @goals = Goal.sort_time
     end
   end
@@ -66,12 +66,6 @@ class GoalsController < ApplicationController
       @errors = @goal.errors.full_messages
       render :edit
     end
-  end
-
-  def destroy
-    @goal = Goal.find_by(id: params[:id])
-    @goal.destroy
-    redirect_to user_path(current_user)
   end
 
 private
