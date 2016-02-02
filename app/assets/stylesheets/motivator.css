@@ -166,11 +166,28 @@ footer {
 }
 
 .motivator-man {
-  height: 25em;
+  height: 17em;
+  width: 30em;
   margin-left: 0em;
   margin-top: 2em;
-  background: url("http://i.imgur.com/N1ziRw2.png");
+  margin-right:0;
+  background: url("http://i.imgur.com/N1ziRw2.png?2");
   background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 1em;
+}
+
+.welcome-banner {
+  display: flex;
+  margin-top: 1em;
+}
+
+.welcome-info{
+  margin-top: 2em;
+}
+
+.welcome-info p{
+  padding-bottom: 1em;
 }
 
 p.facebook-user {
