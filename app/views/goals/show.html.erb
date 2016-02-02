@@ -3,7 +3,7 @@
   <div class="goal-container gbox">
     <div id="goal-info" class="goal label">
       <h4 class="attribute-label">Set by <%= @goal.setter.username %></h4>
-      <% if @goal.description != "" %>
+      <% if @goal.has_description? %>
         <p><%= @goal.description %></p>
       <% end %>
       <p class="styled">
@@ -24,11 +24,10 @@
     <% if current_user == @goal.setter %>
       <div id="options">
         <p class="option-links"><%= link_to "Edit Goal", edit_goal_path %></p>
-        <!-- p class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></p -->
       </div>
     <% end %>
 
-    <% if current_user && @goal.setter != current_user && !@goal.is_fully_funded? %>
+    <% if current_user && @goal.is_supportable_by?(current_user) %>
       <div class="support-button">
         <%= button_to "Support", new_goal_pledge_path(@goal), method: :get %>
       </div>
@@ -48,13 +47,12 @@
               &bull; Deadline <%= std_format_day milestone.deadline %>
             <% end %>
           </p>
-          <% if @goal.setter == current_user && milestone.completed == false %>
+          <% if milestone.is_completable_by? current_user %>
             <p>Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
-          <% if @goal.tender == current_user && milestone.completed == true && milestone.confirmed == false %>
+          <% if milestone.is_confirmable_by? current_user %>
             <p>Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
-
         </li>
       <% end %>
     </ul>

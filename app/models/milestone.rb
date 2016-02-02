@@ -27,4 +27,13 @@ class Milestone < ActiveRecord::Base
       )
     end
   end
+
+  def is_completable_by?(user)
+    self.goal.setter == user && self.completed == false
+  end
+
+  def is_confirmable_by?(user)
+    self.goal.tender == user && self.completed == true && self.confirmed == false
+  end
+
 end

@@ -20,6 +20,14 @@ class Goal < ActiveRecord::Base
     )
   end
 
+  def has_description?
+    self.description != ""
+  end
+
+  def is_supportable_by?(user)
+    user != self.setter && !self.is_fully_funded?
+  end
+
   def load_news_feed
     self.messages.order(created_at: :desc)
   end
