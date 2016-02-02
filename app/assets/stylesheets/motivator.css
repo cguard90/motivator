@@ -165,6 +165,12 @@ footer {
   margin-top: 10px;
 }
 
+.motivator-man {
+  height: 25em;
+  margin-left: 0em;
+  margin-top: 2em;
+}
+
 p.facebook-user {
   text-align: right;
 }

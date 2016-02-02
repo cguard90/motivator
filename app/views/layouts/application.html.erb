@@ -9,6 +9,7 @@
 </head>
 <body>
   <header>
+
     <nav class="main-nav">
       <% if current_user %>
         <h1><%= link_to 'Motivator', user_path(id: current_user.id) %></h1>
@@ -37,6 +38,7 @@
     <% end %>
 
     <%= yield %>
+
   </main>
 
   <aside>
