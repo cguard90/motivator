@@ -13,6 +13,9 @@ class PledgesController < ApplicationController
   def new
     @messages = Message.broadcast
     @pledge = Pledge.new
+    if request.xhr?
+      render layout: false
+    end
   end
 
   def create
@@ -23,7 +26,7 @@ class PledgesController < ApplicationController
     if @pledge.save
       @pledge.announce
       flash[:notice] = "#{@pledge.goal.setter.username} thanks you for the support"
-      redirect_to goal_path(@pledge.goal, amount: @pledge.amount)
+      redirect_to new_charge_path(goal: @pledge.goal, amount: @pledge.amount)
     else
       @errors = @pledge.errors.full_messages
       render :new
