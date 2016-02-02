@@ -23,10 +23,8 @@
 
     <% if current_user == @goal.setter %>
     <div id="options">
-      <ul>
-        <li class="option-links"><%= link_to "Edit Goal", edit_goal_path %></li>
-        <!-- li class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></li -->
-      </ul>
+      <p class="option-links"><%= link_to "Edit Goal", edit_goal_path %></p>
+      <!-- p class="option-links"><%= link_to "Delete Goal", goal_path, :method => :delete %></p -->
     </div>
     <% end %>
 
