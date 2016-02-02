@@ -46,6 +46,9 @@
                     <label for="mstone_d1">Deadline</label>
                     <input class="mstone" id="mstone_d1" name="mstone_d1" type="date" min = "<%= Date.today %>" required >
                 </div>
+
+                <%= link_to "Add Milestone", new_milestone_path, class:"milestone-btn" %>
+
             </div>
         </div>
         <%= submit_tag "Create Your Goal!", class:"button_submit" %>
