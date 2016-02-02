@@ -23,6 +23,10 @@ class GoalsController < ApplicationController
   end
 
   def show
+    binding.pry
+    if params[:amount]
+      @amount = params[:amount]
+    end
     @goal = Goal.includes(:setter, :tender, :milestones, :messages, :pledges).find_by(id: params[:id])
     @milestones = @goal.milestones.order(:deadline)
     @total_value = @goal.total_milestone_value

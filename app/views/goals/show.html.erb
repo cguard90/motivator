@@ -1,3 +1,12 @@
+<% if @amount %>
+    <script id="stripe_script" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Complete your pledge:"
+          data-amount= "<%= @amount %>"
+          data-locale="auto"></script>
+<% end %>
+
+
 <div>
   <h2 class="titles">Goal: <%= @goal.title %></h2>
   <div class="goal-container gbox">
