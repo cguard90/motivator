@@ -32,7 +32,6 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    # CHECK THIS TOMORROW
     mile_value = (100/(params[:milestone_count].to_i).round)
     mile_array = make_milestones(@goal,mile_value)
     mile_array.each do |milestone|
@@ -54,13 +53,14 @@ class GoalsController < ApplicationController
   end
 
   def edit
-    @goal = Goal.find_by(id: params[:id])
+    @goal = Goal.includes(:tender).find_by(id: params[:id])
     @messages = @goal.load_news_feed
   end
 
   def update
+    binding.pry
     @goal = Goal.find_by(id: params[:id])
-    if @goal.update_attributes(goal_params)
+    if @goal.update_attributes(title: params[:goal][:title], description: params[:goal][:description])
       redirect_to goal_path
     else
       @errors = @goal.errors.full_messages
