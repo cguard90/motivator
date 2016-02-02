@@ -224,7 +224,19 @@ label {
   font-family: 'PT Sans Narrow', sans-serif;
   color: #011627;
   font-weight: bold;
-  font-size: initial;
+  font-size: 1em;
+}
+
+.button-user {
+  border-radius: 1em;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #011627;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 1em;
+  display: inline;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 /*---------------*/
