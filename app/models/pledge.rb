@@ -4,11 +4,11 @@ class Pledge < ActiveRecord::Base
 
   validates  :amount, presence: true, length: { minimum:1 }
 
-  def announcement(current_user)
-    Message.create(
-      user_id: 1,
-      goal_id: self.goal_id,
-      content: "#{current_user.username} has pledged $#{self.amount} in support of #{self.goal.setter.username}'s goal to '#{self.goal.title}'."
+  def announce
+    self.goal.messages.create(
+      user: User.system_user,
+      goal: self.goal,
+      content: "#{self.user.username} has pledged $#{self.amount} in support of #{self.goal.setter.username}'s goal to '#{self.goal.title}'."
     )
   end
 

@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
       u.email = hash[:info][:email]
       u.username = hash[:info][:name]
       u.save
-      return u
     end
   end
 
@@ -71,5 +70,10 @@ class User < ActiveRecord::Base
   def self.real_users
     User.where.not(id: 1)
   end
+
+  def self.system_user
+    User.find(1)
+  end
+
 end
 

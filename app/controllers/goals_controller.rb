@@ -46,9 +46,10 @@ class GoalsController < ApplicationController
         render :new
       end
     end
+    # What happens if goal doesn't save? No else case...
     if @goal.save
-    @goal.announcement
-    redirect_to goal_path(id: @goal.id)
+      @goal.announce
+      redirect_to goal_path(id: @goal.id)
     end
   end
 

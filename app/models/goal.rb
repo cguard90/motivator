@@ -13,10 +13,9 @@ class Goal < ActiveRecord::Base
 
   delegate :username, to: :setter, prefix: true
 
-  def announcement
-    Message.create(
-      user_id: 1,
-      goal_id: self.id,
+  def announce
+    self.messages.create(
+      user: User.system_user,
       content: "#{self.setter.username} has set a goal to '#{self.title}'."
     )
   end
@@ -35,8 +34,7 @@ class Goal < ActiveRecord::Base
   end
 
   def supporter_pledge_total
-    pledges = self.pledges.where.not(user: self.setter)
-    pledges.count > 0 ? pledges.map { |pledge| pledge.amount }.reduce(:+) : 0
+    pledges.count > 0 ? self.pledges.where.not(user: self.setter).sum(:amount) : 0
   end
 
   def left_to_match
