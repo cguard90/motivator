@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     current_goals.map { |goal| goal unless goal.is_complete? }.compact
   end
 
-  def network_messages
+  def load_news_feed
     set_goals_msgs = []
     self.set_goals.each do |goal|
       goal.messages.each do |message|
