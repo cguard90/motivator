@@ -1,10 +1,9 @@
 class ChargesController < ApplicationController
   def new
-    if request.xhr?
-      @amount = 100 * params[:amount].to_i
-      render layout: false
-    end
+    @amount = (params[:amount].to_i * 100)
+    @goal = Goal.find(params[:goal])
     @messages = Message.broadcast
+
   end
 
   def button
