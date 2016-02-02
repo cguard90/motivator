@@ -385,7 +385,7 @@ milestone_3_edna = Milestone.create!(
 
 milestone_4_edna = Milestone.create!(
   goal: goal_edna,
-  description: "Stop watching 'Pit Bulls and Parolees",
+  description: "Stop watching 'Pit Bulls and Parolees'",
   deadline: Date.today+28
   value:25
   )
