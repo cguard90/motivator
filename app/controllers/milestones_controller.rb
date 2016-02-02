@@ -7,13 +7,12 @@ class MilestonesController < ApplicationController
   def edit
     @milestone = Milestone.find_by(id: params[:milestone_id])
     @goal = @milestone.goal
-    @messages = @goal.messages.order(created_at: :desc)
     @setter = @milestone.goal.setter
     @tender = @milestone.goal.tender
+    @messages = @goal.load_news_feed
   end
 
   def update
-    @messages = Message.broadcast
     @milestone = Milestone.find_by(id: params[:id])
     @milestone.update_status(current_user)
     if @milestone.save

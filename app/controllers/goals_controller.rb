@@ -1,19 +1,20 @@
 class GoalsController < ApplicationController
 
   def index
-    @messages = Message.broadcast
     @sorting_method = params[:sort]
-    if @sorting_method == "Submitted"
+    @goals = Goal.all
+    if @sorting_method == "Newest"
+      @goals = Goal.sort_time
+    elsif @sorting_method == "Submitted"
       @goals = Goal.sort_setter
     elsif @sorting_method == "Charity"
       @goals = Goal.sort_charity
-    else # @sorting_method == "Newest"
+    else
       @goals = Goal.sort_time
     end
   end
 
   def new
-    @messages = Message.broadcast
     @goal = Goal.new
     @charities = Charity.all
     @milestone = Milestone.new
@@ -25,12 +26,11 @@ class GoalsController < ApplicationController
     @total_value = @goal.total_milestone_value
     @completed = @goal.total_milestone_value_completed
     @message = Message.new
-    @messages = @goal.messages.order(created_at: :desc)
+    @messages = @goal.load_news_feed
     @errors = params[:errors]
   end
 
   def create
-    @messages = Message.broadcast
     @goal = Goal.new(goal_params)
     # CHECK THIS TOMORROW
     mile_value = (100/(params[:milestone_count].to_i).round)
@@ -54,12 +54,11 @@ class GoalsController < ApplicationController
   end
 
   def edit
-    @messages = Message.broadcast
     @goal = Goal.find_by(id: params[:id])
+    @messages = @goal.load_news_feed
   end
 
   def update
-    @messages = Message.broadcast
     @goal = Goal.find_by(id: params[:id])
     if @goal.update_attributes(goal_params)
       redirect_to goal_path
@@ -67,12 +66,6 @@ class GoalsController < ApplicationController
       @errors = @goal.errors.full_messages
       render :edit
     end
-  end
-
-  def destroy
-    @goal = Goal.find_by(id: params[:id])
-    @goal.destroy
-    redirect_to user_path(current_user)
   end
 
 private

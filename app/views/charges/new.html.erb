@@ -1,0 +1,20 @@
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      Please complete your pledge below:
+    </label>
+  </article>
+<% end %>
+
+  <script id="stripe_script" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Complete your pledge:"
+          data-amount= "<%= @amount %>"
+          data-locale="auto"></script>
+
+<p> <%= link_to "Return to the Goal", goal_path(id: @goal.id) %> </p>

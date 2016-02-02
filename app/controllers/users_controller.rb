@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @messages = Message.broadcast
     @users = User.real_users
   end
 
   def new
-    @messages = Message.broadcast
     @user = User.new
   end
 
@@ -14,11 +12,10 @@ class UsersController < ApplicationController
     @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
 
     @pledges = @user.pledges.includes(:goal)
-    @messages = @user.network_messages
+    @messages = @user.load_news_feed
   end
 
   def create
-    @messages = Message.broadcast
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id

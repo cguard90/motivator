@@ -57,14 +57,19 @@ Rails.application.routes.draw do
   resources :users, only: [ :new, :show, :create, :index ]
   resources :sessions, only: [ :new, :create, :destroy ]
 
-  resources :goals do
-    resources :milestones
+  resources :goals, except: [ :destroy ] do
+    resources :milestones, only: [ :edit, :update ]
     resources :pledges, only: [ :new, :create ]
-    resources :messages, only: [:create]
+    resources :messages, only: [ :create ]
   end
 
-  resources :milestones
+  resources :milestones, only: :new
   resources :charities, only: [:index, :show]
+  resources :charges do
+    collection do
+      get 'button'
+    end
+  end
 
   root 'welcome#index'
 
@@ -74,9 +79,5 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'register' => 'users#new'
   get '/auth/:provider/callback', to: 'sessions#oauth_create'
-
-
-  # Temporary routes for testing:
-  resources :messages, only: [:new, :destroy]
 
 end
