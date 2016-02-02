@@ -22,6 +22,8 @@ class GoalsController < ApplicationController
   def show
     @goal = Goal.includes(:setter, :tender, :milestones, :messages, :pledges).find_by(id: params[:id])
     @milestones = @goal.milestones.order(:deadline)
+    @total_value = @goal.total_milestone_value
+    @completed = @goal.total_milestone_value_completed
     @message = Message.new
     @messages = @goal.messages.order(created_at: :desc)
     @errors = params[:errors]
@@ -30,31 +32,24 @@ class GoalsController < ApplicationController
   def create
     @messages = Message.broadcast
     @goal = Goal.new(goal_params)
-    @goal.setter = current_user
-    @goal.charity = Charity.find_by(name: params[:charity_selector])
-    @goal.tender = User.find_by(username: params[:goal][:tender])
     # CHECK THIS TOMORROW
-    @value = (@goal.milestones.count)+1
-    mile_value = (100/@value).round
-    @mile_array = make_milestones(@goal)
-    @mile_array.each do |milestone|
-      if milestone.deadline && milestone.description && @goal.save
-        milestone.goal_id = @goal.id
-        milestone.value = @value
-        milestone.save
-      else
+    mile_value = (100/(params[:milestone_count].to_i).round)
+    mile_array = make_milestones(@goal,mile_value)
+    mile_array.each do |milestone|
+      unless milestone.deadline && milestone.description
         @errors = @goal.errors.full_messages
-        @errors.push("Milestones cannot be blank") if @milestone.description == nil
-        @errors.push("Please select a deadline") if @milestone.deadline == nil
+        @errors.push("Milestones cannot be blank") if milestone.description == nil
+        @errors.push("Please select a deadline") if milestone.deadline == nil
         @errors.push("That user cannot be found, please choose a different Goaltender") if @goal.tender == nil
         @goal = Goal.new(goal_params)
         @charities = Charity.all
         render :new
       end
     end
+    if @goal.save
     @goal.announcement
-
     redirect_to goal_path(id: @goal.id)
+    end
   end
 
   def edit
@@ -82,20 +77,20 @@ class GoalsController < ApplicationController
 private
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :setter_pledge)
+    params.require(:goal).permit(:title, :description, :setter_pledge).merge(
+      setter:current_user,
+      charity: Charity.find_by(name: params[:charity_selector]),
+      tender: User.find_by(username: params[:goal][:tender])
+      )
   end
 
-  def milestone_params
-    {description: params[:goal][:milestones], goal_id: @goal.id, deadline: params[:Deadline] }
-  end
-
-  def make_milestones(goal)
+  def make_milestones(goal,value)
     milestone_array = []
     count = params[:milestone_count].to_i
      1.upto(count) do |n|
       description = params["mstone_m#{n}"]
       deadline = params["mstone_d#{n}"]
-      milestone_array.push(Milestone.new(description: description, deadline: deadline))
+      milestone_array.push(goal.milestones.build(description: description, deadline: deadline, value: value))
     end
     return milestone_array
   end
