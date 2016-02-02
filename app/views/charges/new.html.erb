@@ -6,7 +6,7 @@
       </div>
     <% end %>
     <label class="amount">
-      Amount: <input id="entered_amount">
+      Please complete your pledge below:
     </label>
   </article>
 <% end %>
@@ -16,3 +16,5 @@
           data-description="Complete your pledge:"
           data-amount= "<%= @amount %>"
           data-locale="auto"></script>
+
+<p> <%= link_to "Return to the Goal", goal_path(id: @goal.id) %> </p>
