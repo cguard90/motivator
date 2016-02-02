@@ -1,9 +1,5 @@
 class MessagesController < ApplicationController
 
-  def index
-    @messages = Message.broadcast
-  end
-
   def create
     goal = Goal.find_by(id: params[:goal_id])
     @message = goal.messages.new(user: current_user, content: params[:message][:content])
