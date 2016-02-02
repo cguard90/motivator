@@ -33,10 +33,14 @@ class GoalsController < ApplicationController
     @goal.setter = current_user
     @goal.charity = Charity.find_by(name: params[:charity_selector])
     @goal.tender = User.find_by(username: params[:goal][:tender])
+    # CHECK THIS TOMORROW
+    @value = (@goal.milestones.count)+1
+    mile_value = (100/@value).round
     @mile_array = make_milestones(@goal)
     @mile_array.each do |milestone|
       if milestone.deadline && milestone.description && @goal.save
         milestone.goal_id = @goal.id
+        milestone.value = @value
         milestone.save
       else
         @errors = @goal.errors.full_messages
@@ -49,6 +53,7 @@ class GoalsController < ApplicationController
       end
     end
     @goal.announcement
+
     redirect_to goal_path(id: @goal.id)
   end
 
