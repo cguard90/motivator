@@ -79,28 +79,28 @@ goal_al = Goal.create!(
 milestone_1_al = Milestone.create!(
   goal: goal_al,
   description: "A pack and a half a day.",
-  deadline: Date.today+7
+  deadline: Date.today+7,
   value:25
   )
 
 milestone_2_al = Milestone.create!(
   goal: goal_al,
   description: "A pack a day.",
-  deadline: Date.today+14
+  deadline: Date.today+14,
   value:25
   )
 
 milestone_3_al = Milestone.create!(
   goal: goal_al,
   description: "Half a pack a day.",
-  deadline: Date.today+21
+  deadline: Date.today+21,
   value:25
   )
 
 milestone_4_al = Milestone.create!(
   goal: goal_al,
   description: "No more smoking!",
-  deadline: Date.today+28
+  deadline: Date.today+28,
   value:25
   )
 
@@ -154,21 +154,21 @@ goal_bob = Goal.create!(
 milestone_1_bob = Milestone.create!(
   goal: goal_bob,
   description: "Lose 5 pounds.",
-  deadline: Date.today+10
+  deadline: Date.today+10,
   value:33
   )
 
 milestone_2_bob = Milestone.create!(
   goal: goal_bob,
   description: "Lose 10 pounds",
-  deadline: Date.today+20
+  deadline: Date.today+20,
   value:33
   )
 
 milestone_3_bob = Milestone.create!(
   goal: goal_bob,
   description: "Lose 15 pounds",
-  deadline: Date.today+30
+  deadline: Date.today+30,
   value:33
   )
 
@@ -222,21 +222,21 @@ goal_cathy = Goal.create!(
 milestone_1_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Limit Facebook checks to 5 per day.",
-  deadline: Date.today+14
+  deadline: Date.today+14,
   value:33
   )
 
 milestone_2_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Spend no more than 30 minutes a day on Facebook.",
-  deadline: Date.today+14
+  deadline: Date.today+14,
   value:33
   )
 
 milestone_3_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Quit playing Farmville.",
-  deadline: Date.today+14
+  deadline: Date.today+14,
   value:33
   )
 
@@ -290,28 +290,28 @@ goal_dana = Goal.create!(
 milestone_1_dana = Milestone.create!(
   goal: goal_dana,
   description: "Cut out French Fries.",
-  deadline: Date.today+7
+  deadline: Date.today+7,
   value:25
   )
 
 milestone_2_dana = Milestone.create!(
   goal: goal_dana,
   description: "Eat veggies at every meal.",
-  deadline: Date.today+14
+  deadline: Date.today+14,
   value:25
   )
 
 milestone_3_dana = Milestone.create!(
   goal: goal_dana,
   description: "Eat fish 3 times a week.",
-  deadline: Date.today+21
+  deadline: Date.today+21,
   value:25
   )
 
 milestone_4_dana = Milestone.create!(
   goal: goal_dana,
   description: "Drink 8 glasses of water a day",
-  deadline: Date.today+28
+  deadline: Date.today+28,
   value:25
   )
 
@@ -365,28 +365,28 @@ goal_edna = Goal.create!(
 milestone_1_edna = Milestone.create!(
   goal: goal_edna,
   description: "Go to bed by 11pm every night.",
-  deadline: Date.today+7
+  deadline: Date.today+7,
   value:25
   )
 
 milestone_2_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Kate Plus 8'.",
-  deadline: Date.today+14
+  deadline: Date.today+14,
   value:25
   )
 
 milestone_3_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Breaking Amish'.",
-  deadline: Date.today+21
+  deadline: Date.today+21,
   value:25
   )
 
 milestone_4_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Pit Bulls and Parolees'",
-  deadline: Date.today+28
+  deadline: Date.today+28,
   value:25
   )
 
