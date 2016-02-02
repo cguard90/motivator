@@ -21,6 +21,14 @@ class Goal < ActiveRecord::Base
     )
   end
 
+  def total_milestone_value
+    milestones.sum(:value)
+  end
+
+  def total_milestone_value_completed
+    milestones.where(confirmed: true).sum(:value)
+  end
+
   def total_pledges_by(user)
     pledges = self.pledges.where(user_id: user.id)
     pledges.map { |pledge| pledge.amount }.reduce(:+)
