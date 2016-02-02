@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160129160810) do
     t.date     "deadline",                                null: false
     t.boolean  "completed",               default: false
     t.boolean  "confirmed",               default: false
+    t.integer  "value"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end
