@@ -1,0 +1,11 @@
+<h2>Your friend <b><%= @setter.username %></b> has asked for your help achieving a new goal at <b>Motivator</b>!</h2>
+
+<p>
+  <%= @setter.username %> invites you to serve as Goaltender for a new goal, <b><%= @goal.charity.title %></b>, set at <b>Motivator.com</b>. As a Goaltender, you will be responsible for confirming <%= @setter.username %>'s completion of each milestone toward the goal.
+</p>
+<p>
+  <%= @setter.username %> has pledged a donation of $<%= @goal.setter_pledge %> to <%= @charity.name %> if the goal is not completed, so your role as Goaltender is very important.
+</p>
+<p>To accept the role of Goaltender of this goal, go to <%= @goal_url %>.</p>
+<p>If you haven't created a free <b>Motivator</b> account yet, go to <%= @register_url %> to sign up.</p>
+<p><b>Motivator</b> and <%= @setter.username %> thank you for your help in achieving this goal!</p>
