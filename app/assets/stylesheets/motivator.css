@@ -504,6 +504,11 @@ main {
   padding-left: 0;
 }
 
+.pledge_amount input {
+  width: 8em;
+  margin-bottom: 2em;
+}
+
 .fl-left {
   float: left;
 }
