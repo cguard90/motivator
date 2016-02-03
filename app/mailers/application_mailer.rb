@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "notifications@motivator.com"
+  default from: "motivator.dbc@gmail.com"
   layout 'mailer'
 end
