@@ -3,3 +3,8 @@
   <p class="profile-info">Goalsetter: <%= goal.setter.username %> &bull; Pledge: $<%= goal.setter_pledge %></p>
   <p class="profile-info"><%=goal.description%></p>
 </div>
+
+<% if current_user == goal.tender && goal.notification %>
+  <p><%= link_to "Click to be the goaltender", goal_path(id: goal.id, notification: false, accepted: true) %></p>
+  <p><%= link_to "Click to decline to be the goaltender", user_path(id: current_user.id, notification: false, goal: goal.id)%></p>
+<% end %>
