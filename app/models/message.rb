@@ -7,4 +7,6 @@ class Message < ActiveRecord::Base
   delegate :title, to: :goal, prefix: true
   delegate :username, to: :user
 
+  private
+
 end
