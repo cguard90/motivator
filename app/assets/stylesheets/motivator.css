@@ -456,6 +456,11 @@ fieldset input{
   text-align: center;
 }
 
+.selector {
+  display: flex;
+  margin-top: 0.5em;
+}
+
 .titles {
   text-align: center
 }
@@ -495,6 +500,11 @@ select{
 
 main {
   background-color:#DDDDDD;
+}
+
+.input-options{
+  display: flex;
+  margin-bottom: 0.5em;
 }
 
 .button_submit {
