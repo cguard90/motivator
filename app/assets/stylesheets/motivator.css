@@ -170,7 +170,7 @@ footer {
   width: 30em;
   margin-left: 0em;
   margin-top: 2em;
-  margin-right:0;
+  margin-right:2em;
   background: url("http://i.imgur.com/N1ziRw2.png?2");
   background-repeat: no-repeat;
   background-size: contain;
@@ -217,6 +217,26 @@ label {
 
 #sorting a:hover{
   color:#427093;
+}
+
+.button {
+  border-radius: 1em;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #011627;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.button-user {
+  border-radius: 1em;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #011627;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 1em;
+  display: inline;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 /*---------------*/
@@ -344,6 +364,18 @@ fieldset input{
 .attribute-tender {
   color:#011627;
   font-weight:bolder;
+}
+
+.charity-title{
+  font-size: 32px;
+  color: #011627;
+  text-decoration: none;
+}
+
+.charity-label{
+  font-size: 17px;
+  color: #011627;
+  text-decoration: none;
 }
 
 .cbox {
