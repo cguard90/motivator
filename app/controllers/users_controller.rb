@@ -21,7 +21,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(id: @user.id)
     else
-      flash[:notice] = "Invalid email or password"
+      @errors = @user.errors.full_messages
+      binding.pry
       render new_user_path
     end
   end

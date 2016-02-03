@@ -21,6 +21,7 @@ gem 'faker'
 
 gem 'responders'
 gem 'stripe'
+gem 'ultrahook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -20,3 +20,10 @@
 </fieldset>
 <% end %>
 <p class="facebook-user">Or sign up with your <a href="/auth/facebook" >Facebook</a> account</p>
+
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
