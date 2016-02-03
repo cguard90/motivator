@@ -44,7 +44,7 @@ class GoalsController < ApplicationController
         @charities = Charity.all
       end
     end
-    # What happens if goal doesn't save? No else case...
+
     if @goal.save
       @goal.announce
       GoalMailer.invite_tender_email(@goal).deliver_now
