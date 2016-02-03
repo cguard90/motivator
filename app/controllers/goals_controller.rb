@@ -42,13 +42,14 @@ class GoalsController < ApplicationController
         @errors.push("That user cannot be found, please choose a different Goaltender") if @goal.tender == nil
         @goal = Goal.new(goal_params)
         @charities = Charity.all
-        render :new
       end
     end
     # What happens if goal doesn't save? No else case...
     if @goal.save
       @goal.announce
       redirect_to goal_path(id: @goal.id)
+    else
+      render :new
     end
   end
 
@@ -58,7 +59,6 @@ class GoalsController < ApplicationController
   end
 
   def update
-    binding.pry
     @goal = Goal.find_by(id: params[:id])
     if @goal.update_attributes(title: params[:goal][:title], description: params[:goal][:description])
       redirect_to goal_path
