@@ -521,6 +521,10 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.styled .index-meter {
+  height: 1em;
+}
+
 .styled meter {
   /* Reset the default appearance */
   -webkit-appearance: none;
