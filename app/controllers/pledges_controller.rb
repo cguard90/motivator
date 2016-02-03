@@ -15,7 +15,8 @@ class PledgesController < ApplicationController
     @pledge.user = current_user
     if @pledge.save
       @pledge.announce
-      flash[:notice] = "#{@pledge.goal.setter.username} thanks you for the support"
+      PledgeMailer.setter_notification_email(@pledge).deliver_now
+      flash[:notice] = "#{@pledge.goal.setter.username} thanks you for your support."
       redirect_to new_charge_path(goal: @pledge.goal, amount: @pledge.amount)
     else
       @errors = @pledge.errors.full_messages

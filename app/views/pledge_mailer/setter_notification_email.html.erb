@@ -1,0 +1,13 @@
+<h2><%= @pledge.user.username %> has supported your goal!</h2>
+
+<h4>Hello, <%= @setter.username %></h4>
+
+<p>
+  You'll be glad to learn that <b><%= @pledge.user.username %></b> has supported your goal to <%= @goal.title %> with a pledge! If you succeed in achieving your goal, <%= @pledge.user.username %>'s pledge of $<%= @pledge.amount %> will be donated to your chosen charity, <%= @goal.charity.name %>.
+</p>
+
+<p>
+  <b>Motivator</b> and <%= @pledge.user.username %> wish you the best of success as you pursue this goal. Don't forget to update your progress on your goal's page, at <%= @goal_url %>.
+</p>
+
+<h4>Keep up the good work!</h4>
