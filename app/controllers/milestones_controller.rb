@@ -17,7 +17,7 @@ class MilestonesController < ApplicationController
     @milestone.update_status(current_user)
     if @milestone.save
       @milestone.announce
-      MilestoneMailer.announce_milestone_email(@milestone)
+      MilestoneMailer.announce_milestone_email(@milestone).deliver_now
       redirect_to goal_path(id: params[:goal_id])
     else
       render :edit
