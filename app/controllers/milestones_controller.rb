@@ -16,7 +16,8 @@ class MilestonesController < ApplicationController
     @milestone = Milestone.find_by(id: params[:id])
     @milestone.update_status(current_user)
     if @milestone.save
-      @milestone.announcement
+      @milestone.announce
+      MilestoneMailer.announce_milestone_email(@milestone)
       redirect_to goal_path(id: params[:goal_id])
     else
       render :edit

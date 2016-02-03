@@ -12,7 +12,7 @@ class Milestone < ActiveRecord::Base
     end
   end
 
-  def announcement
+  def announce
     if self.confirmed == true
       Message.create(
         user_id: 1,
