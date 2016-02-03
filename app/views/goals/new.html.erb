@@ -1,6 +1,6 @@
 <% if @errors %>
   <% @errors.each do |error| %>
-    <p><%= errors %></p>
+    <p class="error"><%= error %></p>
   <% end %>
 <% end %>
 
@@ -20,7 +20,7 @@
 
     <div class="input-options">
       <%= f.label :charity %>
-      <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name"), :required => true %>
+      <%= select_tag "charity_selector", options_from_collection_for_select(@charities,"name","name"),:include_blank => true, :required => true %>
     </div>
 
     <div class="input-options">

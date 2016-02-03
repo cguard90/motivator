@@ -489,6 +489,10 @@ select{
   margin-bottom: 0.5em;
 }
 
+.error {
+  color:#E71D36
+}
+
 main {
   background-color:#DDDDDD;
 }
