@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @messages = Message.broadcast
     @search_results = []
     search_deeper
     @search_results = @search_results.select { |thing| thing.class == User || thing.class == Goal || thing.class == Milestone || thing.class == Charity }

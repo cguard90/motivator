@@ -2,8 +2,6 @@ class ChargesController < ApplicationController
   def new
     @amount = (params[:amount].to_i * 100)
     @goal = Goal.find(params[:goal])
-    @messages = Message.broadcast
-
   end
 
   def button
