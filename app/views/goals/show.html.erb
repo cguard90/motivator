@@ -39,7 +39,7 @@
     <ul>
       <% @milestones.each do |milestone| %>
         <li>
-          <p>
+          <p class="milestone_info">
             <%= milestone.description %>
             <% if milestone.confirmed %>
               &bull; <b>Completed <%= std_format_day milestone.updated_at %></b>
@@ -48,10 +48,10 @@
             <% end %>
           </p>
           <% if milestone.is_completable_by? current_user %>
-            <p id="no_list">Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p>Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
           <% if milestone.is_confirmable_by? current_user %>
-            <p id="no_list">Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p>Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
         </li>
       <% end %>

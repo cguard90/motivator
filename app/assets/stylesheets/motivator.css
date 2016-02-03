@@ -338,8 +338,7 @@ fieldset input{
   margin-bottom: 1em;
 }
 
-#no_list:before {
-  list-style: none;
+.no_list:before {
   border: none;
 }
 
@@ -403,7 +402,7 @@ fieldset input{
   text-align: center;
 }
 
-.cbox li p:before {
+.cbox li p.milestone_info:before {
   content: "";
   border-color: transparent #FF9F1C;
   border-style: solid;
