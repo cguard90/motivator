@@ -7,6 +7,8 @@ class CreateGoals < ActiveRecord::Migration
       t.string   :title,        null: false, limit: 60
       t.string   :description,  null: false, limit: 300
       t.integer  :setter_pledge,   null: false
+      t.boolean  :notification,   default: false
+      t.boolean  :accepted,   default: false
 
       t.timestamps              null: false
     end
