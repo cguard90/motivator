@@ -16,8 +16,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts Rails.application.config.action_mailer.smtp_settings
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver_now
       session[:user_id] = @user.id
       redirect_to user_path(id: @user.id)
     else

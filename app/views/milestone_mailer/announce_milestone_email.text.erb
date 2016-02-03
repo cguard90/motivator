@@ -1,0 +1,21 @@
+<% if @milestone.completed %>
+
+Hello, <%= @tender.username %>!
+
+<%= @setter.username %> has reported the completion of a milestone toward the goal, <%= @goal.title %> at Motivator.com. Please confirm that <%= @setter.username %> has successfully completed '<%= @milestone.description %>.' Then log into the goal page at Motivator, <%= @goal_url %>, to record that confirmation.
+
+<%= @setter.username %> will be notified by email when you have confirmed the milestone, and all supporters of the goal will see an announcement in the News Feed on the Motivator website.
+
+Thanks again for helping <%= @setter.username %> achieve this goal!
+
+<% else %>
+
+CONGRATULATIONS, <%= @setter.username %>!
+
+<%= @tender.username %> has confirmed that you have successfully completed the milestone, '<%= @milestone.description %>.' This puts you one step closer to completing your goal, '<%= @goal.title %>. Well done!'
+
+The supporters of your goal have been notified of your success through the News Feed at Motivator.com.
+
+Thanks again for working toward your goal with the help of MOTIVATOR!
+
+<% end %>
