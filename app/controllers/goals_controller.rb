@@ -32,6 +32,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @charities = Charity.all
     mile_value = (100/(params[:milestone_count].to_i).round)
     mile_array = make_milestones(@goal,mile_value)
     mile_array.each do |milestone|
@@ -39,17 +40,16 @@ class GoalsController < ApplicationController
         @errors = @goal.errors.full_messages
         @errors.push("Milestones cannot be blank") if milestone.description == nil
         @errors.push("Please select a deadline") if milestone.deadline == nil
-        @errors.push("That user cannot be found, please choose a different Goaltender") if @goal.tender == nil
-        @goal = Goal.new(goal_params)
-        @charities = Charity.all
       end
     end
-
     if @goal.save
       @goal.announce
       GoalMailer.invite_tender_email(@goal).deliver_now
       redirect_to goal_path(id: @goal.id)
     else
+      @errors = @goal.errors.full_messages
+      @errors.push("That user cannot be found, please choose a different Goaltender") if !goal_params[:tender]
+      binding.pry
       render :new
     end
   end
