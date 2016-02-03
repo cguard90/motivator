@@ -11,9 +11,9 @@
 <%= form_for [@goal, @milestone], method: "PATCH" do %>
   <fieldset>
     <% if current_user == @setter %>
-      <%= submit_tag "Milestone Complete" %>
+      <%= submit_tag "Milestone Complete", class: 'button-user' %>
     <% else %>
-      <%= submit_tag "Confirm Milestone" %>
+      <%= submit_tag "Confirm Milestone", class: 'button-user' %>
     <% end %>
   </fieldset>
 <% end %>

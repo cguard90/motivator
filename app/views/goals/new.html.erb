@@ -6,6 +6,8 @@
 
 <%= form_for @goal do |f| %>
   <fieldset>
+  <h1 class="form-title"> New Goal Form</h1>
+
     <div class="input-options">
       <%= f.label :title %>
       <%= f.text_field :title, :required => true %>
@@ -49,6 +51,6 @@
     </div>
     <%= link_to "Add Milestone", new_milestone_path, class:"milestone-btn fl-left" %>
 
-    <%= submit_tag "Create Your Goal!", class:"button_submit fl-right" %>
+    <%= submit_tag "Create Your Goal!", class:"button_submit fl-right button-form" %>
   </fieldset>
 <% end %>

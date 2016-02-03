@@ -29,7 +29,7 @@
 
     <% if current_user && @goal.is_supportable_by?(current_user) %>
       <div class="support-button">
-        <%= button_to "Support", new_goal_pledge_path(@goal), method: :get %>
+        <%= button_to "Support", new_goal_pledge_path(@goal), method: :get, class: 'button-user' %>
       </div>
     <% end %>
   </div>
@@ -39,7 +39,7 @@
     <ul>
       <% @milestones.each do |milestone| %>
         <li>
-          <p>
+          <p class="milestone_info">
             <%= milestone.description %>
             <% if milestone.confirmed %>
               &bull; <b>Completed <%= std_format_day milestone.updated_at %></b>

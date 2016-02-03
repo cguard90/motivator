@@ -2,7 +2,7 @@ html {
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
   font-size: 16px;
-  color:#011627;
+  background-color: #FDFFFC;
 }
 
 *, *:before, *:after {
@@ -239,6 +239,14 @@ label {
   padding-right: 1em;
 }
 
+.button-form {
+  border-radius: 1em;
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: #011627;
+  font-weight: bold;
+  font-size: 1em;
+}
+
 /*---------------*/
 
 .user-title:before {
@@ -330,6 +338,10 @@ fieldset input{
   margin-bottom: 1em;
 }
 
+.no_list:before {
+  border: none;
+}
+
 /*GOAL STYLING*/
 
 .gbox {
@@ -390,7 +402,7 @@ fieldset input{
   text-align: center;
 }
 
-.cbox li p:before {
+.cbox li p.milestone_info:before {
   content: "";
   border-color: transparent #FF9F1C;
   border-style: solid;
@@ -409,6 +421,11 @@ fieldset input{
   background-color: #FDFFFC;
   border-bottom: 0.12em #011627 solid;
   margin:10px;
+}
+
+.edit_milestone fieldset{
+  border: none;
+  padding-left: 0;
 }
 
 .mbox li{
@@ -456,6 +473,11 @@ select{
   margin-bottom: 10px;
 }
 
+.form-title {
+  margin:0;
+  margin-bottom: 0.5em;
+}
+
 main {
   background-color:#DDDDDD;
 }
@@ -466,77 +488,71 @@ main {
   /*  margin-left: 9.4em;*/
 }
 
-/*input .button_submit{
-  width: 20em;
-  height: 2em;
+.bottom-line {
+  border-bottom: dashed 1px black;
+  margin-bottom: 2em;
+  padding-bottom: 3%;
+}
 
-  }*/
+.new_goal fieldset {
+  padding-left: 3%;
+  padding-top: 3%;
+}
 
-  .bottom-line {
-    border-bottom: dashed 1px black;
-    margin-bottom: 2em;
-    padding-bottom: 3%;
-  }
+.milestone-form fieldset {
+  border: 0;
+  padding-left: 0;
+}
 
-  .new_goal fieldset {
-    padding-left: 3%;
-    padding-top: 3%;
-  }
+.fl-left {
+  float: left;
+}
 
-  .milestone-form fieldset {
-    border: 0;
-    padding-left: 0;
-  }
+.fl-right {
+  float: right;
+}
 
-  .fl-left {
-    float: left;
-  }
+.milestone-partial {
+  margin-bottom: 0.5rem;
+}
 
-  .fl-right {
-    float: right;
-  }
+.styled meter {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-  .milestone-partial {
-    margin-bottom: 0.5rem;
-  }
+  width: 85%;
+  height: 30px;
+  margin-bottom:10px;
 
-  .styled meter {
-    /* Reset the default appearance */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  /* For Firefox */
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+}
 
-    width: 85%;
-    height: 30px;
-    margin-bottom:10px;
+/* WebKit */
+.styled meter::-webkit-meter-bar {
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+}
 
-    /* For Firefox */
-    background: #EEE;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
-    border-radius: 3px;
-  }
+.styled meter::-webkit-meter-optimum-value,
+.styled meter::-webkit-meter-suboptimum-value,
+.styled meter::-webkit-meter-even-less-good-value {
+  border-radius: 3px;
+}
 
-  /* WebKit */
-  .styled meter::-webkit-meter-bar {
-    background: #EEE;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
-    border-radius: 3px;
-  }
+.styled meter::-webkit-meter-optimum-value {
+  background: #86CC00;
+}
 
-  .styled meter::-webkit-meter-optimum-value,
-  .styled meter::-webkit-meter-suboptimum-value,
-  .styled meter::-webkit-meter-even-less-good-value {
-    border-radius: 3px;
-  }
+.styled meter::-webkit-meter-suboptimum-value {
+  background: #FFDB1A;
+}
 
-  .styled meter::-webkit-meter-optimum-value {
-    background: #86CC00;
-  }
-
-  .styled meter::-webkit-meter-suboptimum-value {
-    background: #FFDB1A;
-  }
-
-  .styled meter::-webkit-meter-even-less-good-value  {
-    background: #CC4600;
-  }
+.styled meter::-webkit-meter-even-less-good-value  {
+  background: #CC4600;
+}
