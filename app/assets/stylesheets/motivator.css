@@ -98,12 +98,18 @@ nav.main-nav h1{
 
 nav.main-nav h1 a{
   text-decoration: none;
-  /*font-size: 40px;*/
   color: #FDFFFC;
-  position: absolute;
-  top: 6px;
-  padding-left: 1.5%;
-  padding-top: 20px;
+  padding: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  margin-left: 0em;
+}
+
+nav.main-nav h1 a:hover{
+  background-color: #E71D36;
 }
 
 nav.main-nav ul{
@@ -260,6 +266,11 @@ label {
   left: -1em;
   top: 0.9em;
   position: relative;
+}
+
+.new-user-title {
+  margin-left: 1.3em;
+  margin-top: 2em;
 }
 
 #milestone-partial fieldset{
@@ -504,6 +515,11 @@ main {
   padding-left: 0;
 }
 
+.pledge_amount input {
+  width: 8em;
+  margin-bottom: 2em;
+}
+
 .fl-left {
   float: left;
 }
@@ -514,6 +530,10 @@ main {
 
 .milestone-partial {
   margin-bottom: 0.5rem;
+}
+
+.styled .index-meter {
+  height: 1em;
 }
 
 .styled meter {

@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_goals?
+    self.has_active_goals? || self.has_past_goals?
+  end
+
   def has_active_goals?
     self.active_set_goals.first || self.active_tended_goals.first || self.active_supported_goals.first
   end

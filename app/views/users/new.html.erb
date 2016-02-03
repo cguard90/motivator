@@ -2,7 +2,7 @@
 <fieldset id="form">
   <div class="input-options">
     <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :minlength => 8 %>
   </div>
   <div class="input-options">
     <%= f.label :email %>

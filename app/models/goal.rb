@@ -25,7 +25,7 @@ class Goal < ActiveRecord::Base
   end
 
   def is_supportable_by?(user)
-    user != self.setter && !self.is_fully_funded?
+    user != self.setter && !self.is_fully_funded? && !self.is_complete?
   end
 
   def load_news_feed

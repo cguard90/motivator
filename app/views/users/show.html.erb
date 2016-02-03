@@ -6,6 +6,12 @@
 <% end %>
 </div>
 
+<% unless @user.has_goals? %>
+  <p class="user-maintitle">You have not set or supported any goals yet.</p>
+  <p class="new-user-title">Click the "Create New Goal" link on the right hand menu to create a new goal or click <%= link_to 'here',new_goal_path %>.</p>
+  <p class="new-user-title">Or browse through other user's current <%= link_to "goals", goals_path %> and choose one to support.</p>
+<% end %>
+
 <% if @user.has_active_goals? %>
   <p class="user-maintitle">Active Goals</p>
   <% if @user.active_set_goals.first %>
