@@ -29,7 +29,7 @@
 
     <% if current_user && @goal.is_supportable_by?(current_user) %>
       <div class="support-button">
-        <%= button_to "Support", new_goal_pledge_path(@goal), method: :get %>
+        <%= button_to "Support", new_goal_pledge_path(@goal), method: :get, class: 'button-user' %>
       </div>
     <% end %>
   </div>
@@ -48,10 +48,10 @@
             <% end %>
           </p>
           <% if milestone.is_completable_by? current_user %>
-            <p>Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p id="no_list">Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
           <% if milestone.is_confirmable_by? current_user %>
-            <p>Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p id="no_list">Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
         </li>
       <% end %>
