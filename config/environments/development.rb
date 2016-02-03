@@ -35,8 +35,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: 'motivator.dbc@gmail.com',
-    password: 'sam1zack2steven3'
+    user_name: ENV['MOTIVATOR_GMAIL_USERNAME'],
+    password: ENV['MOTIVATOR_GMAIL_PASSWORD']
   }
 
   config.action_mailer.perform_deliveries = true
