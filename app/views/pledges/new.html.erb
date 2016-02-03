@@ -1,15 +1,12 @@
 <%= form_for [@goal, @pledge] do |f| %>
   <fieldset>
-    <div>
+    <div class="pledge_amount">
       <%= f.label :amount %>
-      <%= f.number_field :amount, min:1, :placeholder => "$" %>
+      <%= f.number_field :amount, min:1,max:@max_amount, :placeholder => "$" %>
     </div>
     <%= f.submit 'Add Pledge' ,class: 'button-user'%>
   </fieldset>
 <% end %>
-
-
-
 
 <% if @errors%>
   <% @errors.each do |error|%>

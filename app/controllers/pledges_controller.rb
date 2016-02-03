@@ -2,6 +2,7 @@ class PledgesController < ApplicationController
 
   def new
     @goal = Goal.find_by(id: params[:goal_id])
+    @max_amount = @goal.left_to_match
     @pledge = Pledge.new
     if request.xhr?
       render layout: false
