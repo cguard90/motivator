@@ -22,6 +22,9 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.includes(:setter, :tender, :milestones, :messages, :pledges).find_by(id: params[:id])
+    if params[:notification]
+      @goal.update_attributes(notification: params[:notification], accepted: params[:accepted])
+    end
     @milestones = @goal.milestones.order(:deadline)
     @total_value = @goal.total_milestone_value
     @completed = @goal.total_milestone_value_completed
@@ -45,6 +48,7 @@ class GoalsController < ApplicationController
       end
     end
     # What happens if goal doesn't save? No else case...
+      @goal.notification = true
     if @goal.save
       @goal.announce
       redirect_to goal_path(id: @goal.id)
@@ -60,7 +64,13 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find_by(id: params[:id])
-    if @goal.update_attributes(title: params[:goal][:title], description: params[:goal][:description])
+    if params[:tender_name] == @goal.tender.username
+      @errors = ["That user declined to be your goaltender, please identify a new user."]
+      render :edit
+    elsif @goal.update_attributes(title: params[:goal][:title], description: params[:goal][:description])
+      if @goal.update_attributes(tender: User.find_by(username: params[:tender_name]))
+        @goal.update_attributes(notification: true)
+      end
       redirect_to goal_path
     else
       @errors = @goal.errors.full_messages
