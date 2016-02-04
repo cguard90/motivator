@@ -22,6 +22,9 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.includes(:setter, :tender, :milestones, :messages, :pledges).find_by(id: params[:id])
+    if params[:notification]
+      @goal.update_attributes(notification: params[:notification], accepted: params[:accepted])
+    end
     @milestones = @goal.milestones.order(:deadline)
     @total_value = @goal.total_milestone_value
     @completed = @goal.total_milestone_value_completed
@@ -42,6 +45,7 @@ class GoalsController < ApplicationController
         @errors.push("Please select a deadline") if milestone.deadline == nil
       end
     end
+      @goal.notification = true
     if @goal.save
       @goal.announce
       GoalMailer.invite_tender_email(@goal).deliver_now
@@ -49,7 +53,6 @@ class GoalsController < ApplicationController
     else
       @errors = @goal.errors.full_messages
       @errors.push("That user cannot be found, please choose a different Goaltender") if !goal_params[:tender]
-      binding.pry
       render :new
     end
   end
@@ -61,7 +64,13 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find_by(id: params[:id])
-    if @goal.update_attributes(title: params[:goal][:title], description: params[:goal][:description])
+    if params[:tender_name] == @goal.tender.username
+      @errors = ["That user declined to be your goaltender, please identify a new user."]
+      render :edit
+    elsif @goal.update_attributes(title: params[:goal][:title], description: params[:goal][:description])
+      if @goal.update_attributes(tender: User.find_by(username: params[:tender_name]))
+        @goal.update_attributes(notification: true)
+      end
       redirect_to goal_path
     else
       @errors = @goal.errors.full_messages

@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 require 'date'
 
 def charity_data(action, state_name, keyword)
@@ -75,7 +67,8 @@ goal_al = Goal.create!(
   charity: Charity.all.sample,
   title: "Stop smoking",
   description: "I'm smoking 2 packs a day. I want to cut down by half a pack a week, so in a month, I'm through with cigarettes!",
-  setter_pledge: 100
+  setter_pledge: 100,
+  accepted: true
   )
 
 milestone_1_al = Milestone.create!(
@@ -150,7 +143,8 @@ goal_bob = Goal.create!(
   charity: Charity.all.sample,
   title: "Lose weight",
   description: "I need to get rid of this beer gut. Help me get back into something other than sweat pants!",
-  setter_pledge: 50
+  setter_pledge: 50,
+  accepted: true
   )
 
 milestone_1_bob = Milestone.create!(
@@ -218,7 +212,8 @@ goal_cathy = Goal.create!(
   charity: Charity.all.sample,
   title: "Cut down on Facebook",
   description: "I'm checking my status like 20 times a day, and I can't stop replying to everyone who pokes me.",
-  setter_pledge: 100
+  setter_pledge: 100,
+  accepted: true
   )
 
 milestone_1_cathy = Milestone.create!(
@@ -286,7 +281,8 @@ goal_dana = Goal.create!(
   charity: Charity.all.sample,
   title: "Eat healthier",
   description: "Everyone says I need to stop eating so much junk. I'm going to try to do better.",
-  setter_pledge: 75
+  setter_pledge: 75,
+  accepted: true
   )
 
 milestone_1_dana = Milestone.create!(
@@ -361,7 +357,8 @@ goal_edna = Goal.create!(
   charity: Charity.all.sample,
   title: "Stop watching junk TV",
   description: "I'm staying up all night watching reruns of crappy reality TV shows, and I keep falling asleep at my desk. I've got to stop it and get some sleep before I lose my job.",
-  setter_pledge: 150
+  setter_pledge: 150,
+  accepted: true
   )
 
 milestone_1_edna = Milestone.create!(
@@ -427,41 +424,3 @@ message_3_edna = Message.create!(
     goal: goal_edna,
     content: Faker::Hipster.sentence
   )
-
-# (1..5).to_a.each do |number|
-#   user = User.create!(
-#     username: "Testuser#{number}",
-#     email: Faker::Internet.safe_email,
-#     password: "password"
-#     )
-
-#   goal = Goal.create!(
-#     setter_id: user.id,
-#     tender: User.real_users.sample,
-#     charity: Charity.all.sample,
-#     title: Faker::Hacker.verb.capitalize + " " + Faker::Hacker.noun,
-#     description: Faker::Hacker.say_something_smart.capitalize,
-#     pledge: Faker::Number.between(1, 100)
-#   )
-
-#   (1..3).to_a.each do |milestones_number|
-#     milestone = Milestone.create!(
-#       goal: goal, description: Faker::Name.title ,
-#       deadline: Faker::Time.forward(50, :evening)
-#     )
-
-#     pledge = Pledge.create!(
-#       user:user,
-#       goal: goal,
-#       amount: Faker::Number.between(1, 100)
-#     )
-
-#     (3..5).to_a.each do |msg|
-#       messages = Message.create!(
-#         user: User.real_users.sample,
-#         goal: goal,
-#         content: Faker::Hipster.sentence(3, true)
-#       )
-#     end
-#   end
-# end

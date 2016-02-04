@@ -85,7 +85,6 @@ class Goal < ActiveRecord::Base
 
   def self.sort_setter
     joins(:setter).order('users.username')
-
   end
 
 end

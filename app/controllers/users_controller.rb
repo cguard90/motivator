@@ -9,8 +9,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
+    if params[:notification]
+      @goal = Goal.find_by(id: params[:goal])
+      @goal.update_attributes(notification: params[:notification])
+    end
 
+    @user = User.includes(:set_goals, :tended_goals).find_by(id: params[:id])
     @pledges = @user.pledges.includes(:goal)
     @messages = @user.load_news_feed
   end
@@ -24,7 +28,6 @@ class UsersController < ApplicationController
       redirect_to user_path(id: @user.id)
     else
       @errors = @user.errors.full_messages
-      binding.pry
       render new_user_path
     end
   end

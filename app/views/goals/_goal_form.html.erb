@@ -11,7 +11,15 @@
       <%= f.text_area :description %>
     </div>
 
-    <%= f.submit 'Save Your Changes', class: 'button-user'  %>
+    <% if params[:notification] || @errors[0].include?("goaltender") %>
+      <div class="input-options">
+        <%= f.label :tender %>
+        <%= text_field_tag :tender_name, @goal.tender.username  %>
+      </div>
+      <%= f.hidden_field :notification, notification: true %>
+    <% end %>
+
+    <%= f.submit 'Save Your Changes', class: 'button-user'%>
 
   </fieldset>
 <% end %>
