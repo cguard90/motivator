@@ -1,3 +1,5 @@
+/*GENERAL STYLING*/
+
 html {
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
@@ -358,7 +360,7 @@ fieldset input {
 
 .index-links {
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 .no_list:before {
@@ -522,8 +524,6 @@ select {
 .error {
   color:#E71D36
 }
-
-
 
 .input-options{
   display: flex;
