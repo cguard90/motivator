@@ -8,7 +8,6 @@ def charity_data(action, state_name, keyword)
 end
 
 api_data = charity_data("searchCharities", "NY", "animals")
-puts api_data
 hash = JSON.parse(api_data)
 charities_hash = hash['give-api']['data']['charities']['charity']
 charities = []

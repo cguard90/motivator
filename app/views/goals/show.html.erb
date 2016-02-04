@@ -36,9 +36,9 @@
 
   <h3 class="titles">Milestones</h3>
   <div class="milestone-container cbox">
-    <ul>
+    <ul class="milestone_list">
       <% @milestones.each do |milestone| %>
-        <li>
+        <li class="<%= milestone.completed ? 'milestone_bullet_complete' : 'milestone_bullet' %>" >
           <p class="milestone_info">
             <%= milestone.description %>
             <% if milestone.confirmed %>
@@ -47,12 +47,14 @@
               &bull; Deadline <%= std_format_day milestone.deadline %>
             <% end %>
           </p>
+          <li>
           <% if milestone.is_completable_by? current_user %>
-            <p>Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p class="notify">Goalsetter: <%= link_to "Notify goaltender of milestone completion", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
           <% if milestone.is_confirmable_by? current_user %>
-            <p>Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
+            <p class="notify">Goaltender: <%= link_to "Confirm completion of milestone", edit_goal_milestone_path(goal_id: @goal.id, milestone_id: milestone.id) %></p>
           <% end %>
+        </li>
         </li>
       <% end %>
     </ul>

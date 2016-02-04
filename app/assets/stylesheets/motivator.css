@@ -257,9 +257,9 @@ label {
 
 .user-title:before {
   content: "";
-  border-color: transparent #FF9F1C;
+  border-color: #FF9F1C;
   border-style: solid;
-  border-width: 0.35em 0 0.35em 0.45em;
+  border-width: 0.2em 0 0.35em 0.4em;
   display: block;
   height: 0;
   width: 0;
@@ -381,7 +381,7 @@ fieldset input{
 
 
 .attribute-match {
-  color:#FF9F1C;
+  color:#1C67A5;
 }
 
 .attribute-tender {
@@ -410,20 +410,40 @@ fieldset input{
 
 .cbox ul {
   list-style: none;
-  text-align: center;
+}
+
+.milestone_info{
+  margin-left: 4em;
+}
+
+.milestone_list {
+  margin-left: 19em;
 }
 
 .cbox li p.milestone_info:before {
   content: "";
-  border-color: transparent #FF9F1C;
+/*  border-color: transparent #FF9F1C;
   border-style: solid;
-  border-width: 0.35em 0 0.35em 0.45em;
+  border-width: 0.35em 0 0.35em 0.45em;*/
   display: block;
   height: 0;
   width: 0;
   left: -1em;
   top: 0.9em;
   position: relative;
+}
+
+.milestone_bullet
+{
+  background: url(http://i.imgur.com/XPma8DL.png?2) left center no-repeat;
+}
+
+.milestone_bullet_complete {
+  background: url(http://i.imgur.com/JB8x1Ti.png?2) left center no-repeat;
+}
+
+.notify {
+  margin-left: 4em;
 }
 
 .mbox {
