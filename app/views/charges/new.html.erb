@@ -1,3 +1,4 @@
+<div class="payment">
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -17,4 +18,5 @@
           data-amount= "<%= @amount %>"
           data-locale="auto"></script>
 
-<p> <%= link_to "Return to the Goal", goal_path(id: @goal.id) %> </p>
+<p class="goal_return"> <%= link_to "Return to the Goal", goal_path(id: @goal.id) %> </p>
+</div>

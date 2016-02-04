@@ -1,3 +1,5 @@
+/*GENERAL STYLING*/
+
 html {
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
@@ -14,7 +16,6 @@ body {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
@@ -170,6 +171,8 @@ footer {
   height: 3.625rem;
   padding-top: 0.75rem;
   margin-top: 0.75rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 .motivator-man {
@@ -357,7 +360,7 @@ fieldset input {
 
 .index-links {
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 .no_list:before {
@@ -522,8 +525,6 @@ select {
   color:#E71D36
 }
 
-
-
 .input-options{
   display: flex;
   margin-bottom: 0.5rem;
@@ -565,6 +566,21 @@ select {
 .milestone-partial {
   margin-bottom: 0.5rem;
 }
+
+/*PAYMNET STYLING*/
+
+.payment{
+  margin:auto 0;
+  text-align: center;
+  margin-top: 6rem
+}
+
+.amount {
+  width: 20rem;
+  text-align: center;
+}
+
+/*METER STYLING*/
 
 .styled .index-meter {
   height: 1rem;
