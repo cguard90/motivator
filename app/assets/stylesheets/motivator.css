@@ -617,3 +617,7 @@ select {
 .styled meter::-webkit-meter-even-less-good-value  {
   background: #CC4600;
 }
+
+.search_result {
+  border-bottom: 1px solid black;
+}

@@ -3,17 +3,25 @@
 <% @search_results.each do |object| %>
   <% case object %>
   <% when User %>
+  <div class="search_result"
     <p>User: <%= link_to "#{object.username}", user_path(id: object.id) %> </p>
+  </div>
 
   <% when Charity %>
+  <div class="search_result">
     <p>Charity: <%= link_to "#{object.name}", charity_path(id: object.id) %></p>
+  </div>
 
   <% when Goal %>
+  <div class="search_result">
     <p>Goal Title: <%= link_to "#{object.title}", goal_path(id: object.id) %></p>
     <p>Goal Setter: <%= object.setter.username %></p>
+  </div>
 
   <% when Milestone %>
+  <div class="search_result">
     <p>Milestone: <%= link_to "#{object.description}", goal_path(id: object.goal.id)%> </p>
     <p>Goal Setter: <%= object.goal.setter.username %></p>
+  </div>
   <% end %>
 <% end %>
