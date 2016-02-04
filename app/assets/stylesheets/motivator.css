@@ -419,17 +419,16 @@ fieldset input {
   margin:0.5rem;
 }
 
-.milestone-container {
-
-}
-
 .cbox ul {
   list-style: none;
 }
 
+ul.pledge_info {
+  padding: 0;
+}
+
 .milestone_list {
-  border: 1px green dotted;
-  margin: 0.75rem auto;
+  margin: 0 auto;
   width: 100%;
   padding-left: 0.5rem;
 }
@@ -448,7 +447,7 @@ fieldset input {
 }
 
 .notify {
-  margin-left: 4em;
+  padding-left: 2.5rem;
 }
 
 .mbox {
@@ -457,6 +456,12 @@ fieldset input {
   background-color: #FDFFFC;
   border-bottom: 0.12em #011627 solid;
   margin:10px;
+}
+
+.milestone-main-container {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 2rem;
 }
 
 .edit_milestone fieldset{
@@ -494,7 +499,6 @@ fieldset input {
 #charity {
   font-size: 1rem;
 }
-
 
 .currencyinput {
   border: 1px inset #ccc;
@@ -567,7 +571,22 @@ select {
   margin-bottom: 0.5rem;
 }
 
-/*PAYMNET STYLING*/
+/*NOTIFICATION STYLING*/
+
+.tender_notifications ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notification{
+  font-size: 1rem;
+}
+
+.notification a{
+  font-weight: normal;
+}
+
+/*PAYMENT STYLING*/
 
 .payment{
   margin:auto 0;
