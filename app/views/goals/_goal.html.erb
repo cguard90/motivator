@@ -5,5 +5,5 @@
 </div>
 
 <% if current_user == goal.tender && goal.notification %>
-  <p>I <%= link_to "AGREE", goal_path(id: goal.id, notification: false, accepted: true) %> / <%= link_to "DECLINE", user_path(id: current_user.id, notification: false, goal: goal.id)%> to serve as Goaltender for <%= @goal.setter.username %>'s goal.</p>
+  <p>I <%= link_to "AGREE", goal_path(id: goal.id, notification: false, accepted: true) %> / <%= link_to "DECLINE", user_path(id: current_user.id, notification: false, goal: goal.id)%> to serve as Goaltender for <%= goal.setter.username %>'s goal.</p>
 <% end %>

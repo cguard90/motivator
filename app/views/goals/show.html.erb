@@ -15,7 +15,7 @@
       <% else %>
         <p>$<%=@goal.left_to_match %> of <%= @goal.setter.username %>'s pledge remains to be matched by supporters.</p>
       <% end %>
-      <p id="charity">Benefitting <%= link_to "#{@goal.charity.name}", charity_path %></p>
+      <p id="charity">Benefitting <%= link_to "#{@goal.charity.name}", charity_path(id: @goal.charity.id) %></p>
       <% if @goal.tender %>
         <p class="attribute-tender">Goaltender: <%= @goal.tender.username %></p>
       <% end %>
