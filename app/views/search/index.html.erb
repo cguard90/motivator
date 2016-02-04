@@ -14,5 +14,6 @@
 
   <% when Milestone %>
     <p>Milestone: <%= link_to "#{object.description}", goal_path(id: object.goal.id)%> </p>
+    <p>Goal Setter: <%= object.goal.setter.username %></p>
   <% end %>
 <% end %>
