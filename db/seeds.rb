@@ -91,6 +91,8 @@ goal_al = Goal.create!(
 milestone_1_al = Milestone.create!(
   goal: goal_al,
   description: "A pack and a half a day.",
+  completed: true,
+  complete: true,
   deadline: Date.today+7,
   value:25
   )
@@ -167,6 +169,8 @@ goal_bob = Goal.create!(
 milestone_1_bob = Milestone.create!(
   goal: goal_bob,
   description: "Lose 5 pounds.",
+  completed: true,
+  confirmed: true
   deadline: Date.today+10,
   value:33
   )
@@ -236,6 +240,8 @@ goal_cathy = Goal.create!(
 milestone_1_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Limit Facebook checks to 5 per day.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
   value:33
   )
@@ -305,6 +311,8 @@ goal_dana = Goal.create!(
 milestone_1_dana = Milestone.create!(
   goal: goal_dana,
   description: "Cut out French Fries.",
+  completed: true
+  confirmed: true
   deadline: Date.today+7,
   value:25
   )
@@ -312,6 +320,8 @@ milestone_1_dana = Milestone.create!(
 milestone_2_dana = Milestone.create!(
   goal: goal_dana,
   description: "Eat veggies at every meal.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
   value:25
   )
@@ -381,6 +391,8 @@ goal_edna = Goal.create!(
 milestone_1_edna = Milestone.create!(
   goal: goal_edna,
   description: "Go to bed by 11pm every night.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+7,
   value:25
   )
@@ -388,6 +400,8 @@ milestone_1_edna = Milestone.create!(
 milestone_2_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Kate Plus 8'.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
   value:25
   )
@@ -395,6 +409,8 @@ milestone_2_edna = Milestone.create!(
 milestone_3_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Breaking Amish'.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+21,
   value:25
   )
@@ -402,6 +418,8 @@ milestone_3_edna = Milestone.create!(
 milestone_4_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Pit Bulls and Parolees'",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+28,
   value:25
   )
@@ -533,6 +551,7 @@ goal_chris = Goal.create!(
 milestone_1_chris = Milestone.create!(
   goal: goal_chris,
   description: "Present this project.",
+  completed: true,
   deadline: Date.today+1,
   value:25
   )
