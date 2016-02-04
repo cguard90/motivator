@@ -1,18 +1,20 @@
 html {
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
-  font-size: 16px;
+  /*font-size: 16px;*/
   background-color: #FDFFFC;
+}
+
+body {
+  background-color: #FDFFFC;
+  width: 98%;
+  margin: 0 auto;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-body{
-  width: 98%;
-  margin: 0 auto;
-}
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
@@ -78,7 +80,7 @@ header nav {
 
 header nav.main-nav {
   background-color:#011627;
-  height:100px;
+  height: 5.5rem;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   clear:both;
@@ -91,7 +93,7 @@ header nav.main-nav {
 
 nav.main-nav h1{
   text-decoration: none;
-  font-size: 40px;
+  font-size: 2.5rem;
   color: #FDFFFC;
   vertical-align: middle;
 }
@@ -99,13 +101,13 @@ nav.main-nav h1{
 nav.main-nav h1 a{
   text-decoration: none;
   color: #FDFFFC;
-  padding: 2em;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 0.5em;
-  border-bottom-left-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
-  margin-left: 0em;
+  padding: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin-left: 0;
 }
 
 nav.main-nav h1 a:hover{
@@ -114,7 +116,7 @@ nav.main-nav h1 a:hover{
 
 nav.main-nav ul{
   width:100%;
-  margin:0;
+  margin: 0;
   padding: 0;
   text-decoration: none;
   list-style: none;
@@ -140,21 +142,20 @@ nav.main-nav ul li a {
 }
 
 .nav-menu {
-  padding: 2em;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  padding: 2rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 /*BODY STYLING*/
 
-body main {
-  width: 62%;
+main {
+  /*width: 62%;*/
   float:left;
-  background-color: #FDFFFC;
-  border-bottom-left-radius:10px;
-  margin-top: 10px;
+  margin-top: 0.5rem;
   padding: 0 0.75rem;
 }
+
 
 .attribute-label {
   text-align: center;
@@ -166,34 +167,34 @@ footer {
   text-align: center;
   background-color: #153F60;
   color: #FDFFFC;
-  height: 60px;
-  padding-top: 1%;
-  margin-top: 10px;
+  height: 3.625rem;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .motivator-man {
-  height: 17em;
-  width: 30em;
-  margin-left: 0em;
-  margin-top: 2em;
-  margin-right:2em;
+  height: 17rem;
+  width: 30rem;
+  margin-left: 0;
+  margin-top: 2rem;
+  margin-right:2rem;
   background: url("http://i.imgur.com/N1ziRw2.png?2");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .welcome-banner {
   display: flex;
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 
 .welcome-info{
-  margin-top: 2em;
+  margin-top: 2rem;
 }
 
-.welcome-info p{
-  padding-bottom: 1em;
+.welcome-info p {
+  padding-bottom: 1rem;
 }
 
 p.facebook-user {
@@ -202,9 +203,10 @@ p.facebook-user {
 
 label {
   display: inline-block;
-  width: 100px;
+  width: 7rem;
   text-align: left;
-  padding: 2px;
+  padding: 0.33rem;
+  font-size: 1.25rem;
 }
 
 #title {
@@ -212,63 +214,57 @@ label {
 }
 
 #sorting {
-  padding-left: 3%;
+  padding-left: 1rem;
 }
 
-#sorting a{
+#sorting a {
   text-decoration: none;
   color:#011627;
   font-weight: bold;
 }
 
-#sorting a:hover{
+#sorting a:hover {
   color:#427093;
 }
 
 .button {
-  border-radius: 1em;
+  border-radius: 1rem;
   font-family: 'PT Sans Narrow', sans-serif;
   color: #011627;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
+.button-form,
 .button-user {
-  border-radius: 1em;
+  border-radius: 1.25rem;
+  height: 2.5rem;
   font-family: 'PT Sans Narrow', sans-serif;
   color: #011627;
   font-weight: bold;
-  font-size: 1em;
-  margin-top: 1em;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: inline;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 0.35rem 1rem;
+}
+
+.support-button input {
+  margin: 0.5rem auto;
 }
 
 .button-form {
-  border-radius: 1em;
+ /* border-radius: 1em;
   font-family: 'PT Sans Narrow', sans-serif;
   color: #011627;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1em;*/
 }
 
 /*---------------*/
 
-.user-title:before {
-  content: "";
-  border-color: #FF9F1C;
-  border-style: solid;
-  border-width: 0.2em 0 0.35em 0.4em;
-  display: block;
-  height: 0;
-  width: 0;
-  left: -1em;
-  top: 0.9em;
-  position: relative;
-}
-
 .new-user-title {
+  font-size: 1.2rem;
   margin-left: 1.3em;
   margin-top: 2em;
 }
@@ -289,12 +285,13 @@ label {
 }
 
 fieldset #message_content{
-  width:100%;
-  height:8em;
+  width: 100%;
+  height: 8rem;
 }
 
-fieldset input{
-  text-align: center;
+fieldset input {
+  padding-left: 0.25rem;
+  font-size: 1.25rem;
 }
 
 .message {
@@ -327,26 +324,40 @@ fieldset input{
   font-size: 20px;
 }
 
+.user-title:before {
+  content: "";
+  border-color: #FF9F1C;
+  border-style: solid;
+  border-width: 0.2rem 0 0.35rem 0.4rem;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1rem;
+  top: 1.4rem;
+  position: relative;
+}
+
 .user-title {
-  padding-left: 2%;
-  font-size: 25px;
+  padding-left: 1rem;
+  font-size: 1.75rem;
   color: #427093;
 }
 
 .user-maintitle {
-  padding-left: 2%;
-  font-size: 35px;
+  padding-left: 1.5rem;
+  font-size: 2rem;
   color: #001627;
 }
 
 .profile-container .profile-info:last-child {
-  margin-bottom: 2%;
-  border-bottom: 0.12em #011627 solid;
-  padding-bottom: 2%;
+  margin-bottom: 1rem;
+  border-bottom: 0.12rem #011627 solid;
+  padding-bottom: 1rem;
 }
 
 .index-links {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
 .no_list:before {
@@ -356,29 +367,27 @@ fieldset input{
 /*GOAL STYLING*/
 
 .gbox {
-  padding: 10px;
+  padding: 0.625rem;
   text-align: center;
   background-color: #FDFFFC;
-  border-bottom: 0.12em #011627 solid;
-  margin:10px;
+  border-bottom: 0.12rem #011627 solid;
+  margin: 0.625rem;
 }
 
 .attribute-title {
-  font-size: 32px;
+  font-size: 2rem;
   color:#E71D36;
   text-decoration: none;
 }
 
 .attribute-title a {
-  font-size: 32px;
   color:#011627;
   text-decoration: none;
 }
 
-.attribute-title a:hover{
+.attribute-title a:hover {
   color:#427093;
 }
-
 
 .attribute-match {
   color:#1C67A5;
@@ -386,7 +395,7 @@ fieldset input{
 
 .attribute-tender {
   color:#011627;
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
 .charity-title{
@@ -485,16 +494,11 @@ fieldset input{
   text-align: center
 }
 
-#topline {
-  border-top: solid 5px black;
-}
 
 #charity {
-  font-size: 15px;
+  font-size: 1rem;
 }
-.support-button input {
-  margin:0 auto;
-}
+
 
 .currencyinput {
   border: 1px inset #ccc;
@@ -503,45 +507,48 @@ fieldset input{
   border: 0;
 }
 
-select{
+#charity_selector {
+  padding: 0.25rem;
+}
+
+select {
+  /*height: 1.75rem;*/
+  /*line-height: 1.75rem;*/
+  width: 85%;
+  background: #fff;
   display: block;
-  right:0;
-  margin-bottom: 10px;
+  right: 0;
 }
 
 .form-title {
   margin:0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 
 .error {
   color:#E71D36
 }
 
-main {
-  background-color:#DDDDDD;
-}
+
 
 .input-options{
   display: flex;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 
 .button_submit {
   width: 10rem;
-  /*  margin: 2%;*/
-  /*  margin-left: 9.4em;*/
 }
 
 .bottom-line {
   border-bottom: dashed 1px black;
-  margin-bottom: 2em;
-  padding-bottom: 3%;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .new_goal fieldset {
-  padding-left: 3%;
-  padding-top: 3%;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 .milestone-form fieldset {
@@ -550,8 +557,8 @@ main {
 }
 
 .pledge_amount input {
-  width: 8em;
-  margin-bottom: 2em;
+  width: 8rem;
+  margin-bottom: 2rem;
 }
 
 .fl-left {
@@ -567,7 +574,7 @@ main {
 }
 
 .styled .index-meter {
-  height: 1em;
+  height: 1rem;
 }
 
 .styled meter {

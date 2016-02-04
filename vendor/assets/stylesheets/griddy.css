@@ -1,0 +1,483 @@
+/*
+*   GRIDDY: a light, responsive CSS grid
+*   by Jeff George
+*   @webdevjeffus
+*   https://github.com/webdevjeffus
+*   version: 0.1
+*
+*   GRIDDY is available for use under the GNU General Public License, Version 3.
+*/
+
+
+/**** RESET CLASSES ****/
+
+/* Reset: from http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/* Reset: from HTML5Boilerplate */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Reset: Griddy resets */
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+article,
+aside,
+section,
+aside,
+header,
+main,
+footer,
+nav {
+  padding: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+
+p {
+  line-height: 1.4;
+}
+
+
+img {
+  margin: 0 0 0.75rem 0;
+  width: 100%;
+}
+
+/**** END RESETS ****/
+
+
+
+/**** GRID SYSTEM CLASSES (Mobile First) ****/
+
+/* PHONE - fluid 320-400px */
+
+html {
+  font-size: 12px;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Insert block (e.g. image, quote) into text */
+
+.ph-ins-25,
+.ph-ins-33,
+.ph-ins-50 {
+  float: right;
+  margin-left: 1.2rem;
+}
+
+.ph-ins-25 { width: 25%; }
+.ph-ins-33 { width: 33%; }
+.ph-ins-50 { width: 50%; }
+
+/* Column-width classes; specify columns to span at phone width */
+
+.ph-col-1  { width:   8.333%; float: left; }
+.ph-col-2  { width:  16.667%; float: left; }
+.ph-col-3  { width:  25%;     float: left; }
+.ph-col-4  { width:  33.333%; float: left; }
+.ph-col-5  { width:  41.667%; float: left; }
+.ph-col-6  { width:  50%;     float: left; }
+.ph-col-7  { width:  58.333%; float: left; }
+.ph-col-8  { width:  66.667%; float: left; }
+.ph-col-9  { width:  75%;     float: left; }
+.ph-col-10 { width:  83.333%; float: left; }
+.ph-col-11 { width:  91.667%; float: left; }
+.ph-col-12 { width: 100%;     float: left; }
+
+.box.ph-col-1  { width:   6.333%; float: left; }
+.box.ph-col-2  { width:  14.667%; float: left; }
+.box.ph-col-3  { width:  23%;     float: left; }
+.box.ph-col-4  { width:  31.333%; float: left; }
+.box.ph-col-5  { width:  39.667%; float: left; }
+.box.ph-col-6  { width:  48%;     float: left; }
+.box.ph-col-7  { width:  56.333%; float: left; }
+.box.ph-col-8  { width:  64.667%; float: left; }
+.box.ph-col-9  { width:  73%;     float: left; }
+.box.ph-col-10 { width:  81.333%; float: left; }
+.box.ph-col-11 { width:  89.667%; float: left; }
+.box.ph-col-12 { width:  98%;     float: left; }
+
+
+/* Hide element at phone width */
+
+.ph-hide-inl,
+.ph-hide-blk,
+.ph-hide-ib {
+  display: none;
+}
+
+
+
+/* TABLET - 680px */
+
+@media only screen and (min-width: 680px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 680px;
+    max-width: 680px;
+  }
+
+
+/* Deactivate insert element at phone width */
+
+  .ph-ins-25,
+  .ph-ins-33,
+  .ph-ins-50 {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+
+
+/* Insert block (e.g. image, quote) into text */
+
+  .tab-ins-12,
+  .tab-ins-17,
+  .tab-ins-25,
+  .tab-ins-33,
+  .tab-ins-42,
+  .tab-ins-50,
+  .tab-ins-62,
+  .tab-ins-67,
+  .tab-ins-75 {
+    float: right;
+    margin-left: 1.2rem;
+  }
+
+  .tab-ins-12 { width: 12.5%; }
+  .tab-ins-17 { width: 16.7%; }
+  .tab-ins-25 { width: 25%;   }
+  .tab-ins-33 { width: 33%;   }
+  .tab-ins-42 { width: 42%;   }
+  .tab-ins-50 { width: 50%;   }
+  .tab-ins-62 { width: 62.5%; }
+  .tab-ins-67 { width: 66.7%; }
+  .tab-ins-75 { width: 75%;   }
+
+
+/* Column-width classes; specify columns to span at phone width */
+
+  .tab-col-1  { width:   8.333%; float: left; }
+  .tab-col-2  { width:  16.667%; float: left; }
+  .tab-col-3  { width:  25%;     float: left; }
+  .tab-col-4  { width:  33.333%; float: left; }
+  .tab-col-5  { width:  41.667%; float: left; }
+  .tab-col-6  { width:  50%;     float: left; }
+  .tab-col-7  { width:  58.333%; float: left; }
+  .tab-col-8  { width:  66.667%; float: left; }
+  .tab-col-9  { width:  75%;     float: left; }
+  .tab-col-10 { width:  83.333%; float: left; }
+  .tab-col-11 { width:  91.667%; float: left; }
+  .tab-col-12 { width: 100%;     float: left; }
+
+  .box.tab-col-1  { width:   6.333%; float: left; }
+  .box.tab-col-2  { width:  14.667%; float: left; }
+  .box.tab-col-3  { width:  23%;     float: left; }
+  .box.tab-col-4  { width:  31.333%; float: left; }
+  .box.tab-col-5  { width:  39.667%; float: left; }
+  .box.tab-col-6  { width:  48%;     float: left; }
+  .box.tab-col-7  { width:  56.333%; float: left; }
+  .box.tab-col-8  { width:  64.667%; float: left; }
+  .box.tab-col-9  { width:  73%;     float: left; }
+  .box.tab-col-10 { width:  81.333%; float: left; }
+  .box.tab-col-11 { width:  89.667%; float: left; }
+  .box.tab-col-12 { width:  98%;     float: left; }
+
+
+/* Restore elements hidden at phone width */
+
+  .ph-hide-inl  { display: inline; }
+  .ph-hide-blk  { display: block;  }
+  .ph-hide-ib   { display: inline-block;   }
+
+/* Hide elements at tablet width */
+
+  .tab-hide-inl,
+  .tab-hide-blk,
+  .tab-hide-ib {
+    display: none;
+  }
+
+
+}
+
+
+/* COMPUTER (small monitor) - 960px */
+
+@media only screen and (min-width: 960px) {
+
+  html {
+    font-size: 16px;
+  }
+
+  .container {
+    width: 960px;
+    max-width: 960px;
+  }
+
+  .ph-ins-25,
+  .ph-ins-33,
+  .ph-ins-50,
+  .tab-ins-12,
+  .tab-ins-17,
+  .tab-ins-25,
+  .tab-ins-33,
+  .tab-ins-42,
+  .tab-ins-50,
+  .tab-ins-62,
+  .tab-ins-67,
+  .tab-ins-75 {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+
+  .cmp-ins-12,
+  .cmp-ins-17,
+  .cmp-ins-25,
+  .cmp-ins-33,
+  .cmp-ins-42,
+  .cmp-ins-50,
+  .cmp-ins-62,
+  .cmp-ins-67,
+  .cmp-ins-75 {
+    float: right;
+    margin-left: 1.2rem;
+  }
+
+  .cmp-ins-12 { width: 12.5%; }
+  .cmp-ins-17 { width: 16.7%; }
+  .cmp-ins-25 { width: 25%;   }
+  .cmp-ins-33 { width: 33%;   }
+  .cmp-ins-42 { width: 42%;   }
+  .cmp-ins-50 { width: 50%;   }
+  .cmp-ins-62 { width: 62.5%; }
+  .cmp-ins-67 { width: 66.7%; }
+  .cmp-ins-75 { width: 75%;   }
+
+
+  .cmp-col-1  { width:   8.333%; float: left; }
+  .cmp-col-2  { width:  16.667%; float: left; }
+  .cmp-col-3  { width:  25%;     float: left; }
+  .cmp-col-4  { width:  33.333%; float: left; }
+  .cmp-col-5  { width:  41.667%; float: left; }
+  .cmp-col-6  { width:  50%;     float: left; }
+  .cmp-col-7  { width:  58.333%; float: left; }
+  .cmp-col-8  { width:  66.667%; float: left; }
+  .cmp-col-9  { width:  75%;     float: left; }
+  .cmp-col-10 { width:  83.333%; float: left; }
+  .cmp-col-11 { width:  91.667%; float: left; }
+  .cmp-col-12 { width: 100%;     float: left; }
+
+  .box.cmp-col-1  { width:   6.333%; float: left; }
+  .box.cmp-col-2  { width:  14.667%; float: left; }
+  .box.cmp-col-3  { width:  23%;     float: left; }
+  .box.cmp-col-4  { width:  31.333%; float: left; }
+  .box.cmp-col-5  { width:  39.667%; float: left; }
+  .box.cmp-col-6  { width:  48%;     float: left; }
+  .box.cmp-col-7  { width:  56.333%; float: left; }
+  .box.cmp-col-8  { width:  64.667%; float: left; }
+  .box.cmp-col-9  { width:  73%;     float: left; }
+  .box.cmp-col-10 { width:  81.333%; float: left; }
+  .box.cmp-col-11 { width:  89.667%; float: left; }
+  .box.cmp-col-12 { width:  98%;     float: left;}
+
+/* Restore elements hidden at phone width */
+
+  .ph-hide-inl, .tab-hide-inl  { display: inline; }
+  .ph-hide-blk, .tab-hide-blk  { display: block;  }
+  .ph-hide-ib,  .tab-hide-ib   { display: inline-block; }
+
+/* Hide elements at tablet width */
+
+  .cmp-hide-inl,
+  .cmp-hide-blk,
+  .cmp-hide-ib {
+    display: none;
+  }
+
+}
+
+
+
+/* COMPUTER (desktop) - 1120px */
+
+@media only screen and (min-width: 1200px) {
+
+  html {
+    font-size: 19px;
+  }
+
+  .container {
+    width: 1200px;
+    max-width: 1200px;
+  }
+}
+
+/**** END GRID SYSTEM CLASSES ****/
+
+
+
+/**** HELPER CLASSES ****/
+
+/* Bleed - For elements with no margin, such as full-panel images */
+.bleed {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+/* Icon Link - apply to all <a> links made with FontAwesome or Glyphicon icon fonts */
+.icon-link:hover,
+.icon-link:active { text-decoration: none; }
+
+
+/* Reference Point - Makes parent element reference point for child with position: absolute; */
+.ref-pt { position: relative; }
+
+
+/* Gutters */
+/* Under normal circumstances, apply .gtr to parent.row and all child.col elements */
+.gtr-l {padding-left: 0.6rem; }
+.gtr-r {padding-right: 0.6rem; }
+
+.gtr {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+.gtr-l-2x {padding-left: 1.2rem; }
+.gtr-r-2x {padding-right: 1.2rem; }
+
+.gtr-2x {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+}
+
+
+/* Boxed Element - Handles gutters and padding for boxed elements, such as sidebars. */
+/* Use in place of .gtr on child elements within row. */
+.box {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  margin: 1rem 1%;
+}
+
+
+/* Add or remove space above element - usually <h_> or <p> */
+.headroom-2x    { padding-top: 2rem; }
+.headroom-more  { padding-top: 1.5rem; }
+.headroom       { padding-top: 1rem; }
+.headroom-half  { padding-top: 0.5rem; }
+.no-headroom    {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Increase or decrease MARGIN space above element - usually a .box-item */
+
+.headroom-bx-more { margin-top: 1.5rem; }
+.headroom-bx      { margin-top: 1rem;}
+.headroom-bx-less { margin-top: 0.5rem; }
+
+/* Add or remove space below element - usually <h_> or <p> */
+.footroom-more { margin-bottom: 1.5rem; }
+.footroom    { margin-bottom: 1rem; }
+.footroom-half { margin-bottom: 0.5rem; }
+.no-footroom {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.hidden { display: none; }
+
+.txt-ctr { text-align: center; }
+
+
+/* Clearfix included in .row, above; included here for use on other elements */
+/* from: https://css-tricks.com/snippets/css/clear-fix/ */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* From H5BP */
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
