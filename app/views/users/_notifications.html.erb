@@ -1,11 +1,17 @@
-  <% @user.tended_goals.each do |goal| %>
-    <% if goal.notification == true %>
-      <p><%= link_to "#{goal.setter.username} would like you to assist with the goal: #{goal.title}, as the goaltender.", edit_goal_path(id: goal.id)%></p>
+  <div class="tender_notifications">
+    <% @user.tended_goals.each do |goal| %>
+      <% if goal.notification == true %>
+        <ul>
+          <li class="notification"><%= link_to "#{goal.setter.username} would like you to assist with the goal: #{goal.title}, as the goaltender.", edit_goal_path(id: goal.id)%></li>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% @user.set_goals.each do |goal| %>
-    <% if goal.accepted == false && goal.notification == false %>
-      <p><%= link_to "Your selected goaltender is unable to assist you with #{goal.title}, please select a new one", edit_goal_path(id: goal.id, notification: true) %></p>
+    <% @user.set_goals.each do |goal| %>
+      <% if goal.accepted == false && goal.notification == false %>
+        <ul>
+          <li class="notification"><%= link_to "Your selected goaltender is unable to assist you with #{goal.title}, please select a new one", edit_goal_path(id: goal.id, notification: true) %></li>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
