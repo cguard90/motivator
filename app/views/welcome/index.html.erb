@@ -1,17 +1,14 @@
 <div class="welcome">
-<h2>Welcome to Motivator!</h2>
-
-<p>Click the links above to register or log in!</p>
+<h1>Welcome to Motivator!</h1>
 
 <div class="welcome-banner">
 <div class="motivator-man"></div>
-<div class="welcome-info">We are a site dedicated to self improvement and raising money for <%= link_to "charity", charities_path %>. Our site is social, interactive, and doesn't cost anything to start using! Our premise is simple, set a <%= link_to "goal", goals_path %> that you want to complete, and whether or not you make it to that goal, money gets donated to your charity of choice.
-</p>
-<p>
-Your <%= link_to "supporters", users_path %> aim to match the amount you want to raise, and if you complete your goal, the money they have pledged goes to charity, and you get your money back. If you do not make your goal, instead your money goes to charity and your supporters receive their money back.
-</p>
-<p>
-Click the links above to register or log in, so you can get started!</p>
+<div class="welcome-info">
+  <p>We are a site dedicated to self improvement and raising money for <%= link_to "charity", charities_path %>. Our site is social, interactive, and doesn't cost anything to start using! Our premise is simple, set a <%= link_to "goal", goals_path %> that you want to complete, and whether or not you make it to that goal, money gets donated to your charity of choice.</p>
+
+  <p>  Your <%= link_to "supporters", users_path %> aim to match the amount you want to raise, and if you complete your goal, the money they have pledged goes to charity, and you get your money back. If you do not make your goal, instead your money goes to charity and your supporters receive their money back.
+  </p>
+  <p><%= link_to 'Register', new_user_path %> or <%= link_to 'Log In', new_session_path %> to start achieving your goals at <b>Motivator</b>!</p>
 </div>
 </div>
 

@@ -1,7 +1,8 @@
 <% if current_user == @goal.setter %>
-<h2>Edit Your Goal</h2>
+  <h2>Edit Your Goal</h2>
   <%= render partial: "goal_form" %>
 <% elsif current_user == @goal.tender %>
+  <h2>Confirm Goaltender Request</h2>
   <%= render partial: 'goal', locals: {goal: @goal} %>
 <% end %>
 
