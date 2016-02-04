@@ -92,21 +92,7 @@ h6 {
 
 p {
   line-height: 1.4;
-  margin: 0 0 0.75rem 0;
 }
-
-/*
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-h6:first-child,
- p:first-child {
-  margin-top: 0.75rem;
-}
-*/
-
 
 
 img {
