@@ -11,7 +11,7 @@
       <%= f.text_area :description %>
     </div>
 
-    <% if params[:notification] || @errors[0].include?("goaltender") %>
+    <% if params.include?("notification") || @errors && @errors[0].include?("goaltender") %>
       <div class="input-options">
         <%= f.label :tender %>
         <%= text_field_tag :tender_name, @goal.tender.username  %>
