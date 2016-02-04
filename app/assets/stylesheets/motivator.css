@@ -1,7 +1,11 @@
 html {
   font-family: 'PT Sans Narrow', sans-serif;
   box-sizing: border-box;
-  font-size: 16px;
+  /*font-size: 16px;*/
+  background-color: #FDFFFC;
+}
+
+body {
   background-color: #FDFFFC;
 }
 
@@ -147,14 +151,15 @@ nav.main-nav ul li a {
 
 /*BODY STYLING*/
 
-body main {
+main {
   width: 62%;
   float:left;
-  background-color: #FDFFFC;
+  /*background-color: #FDFFFC;*/
   border-bottom-left-radius:10px;
   margin-top: 10px;
   padding: 0 0.75rem;
 }
+
 
 .attribute-label {
   text-align: center;
@@ -518,9 +523,7 @@ select{
   color:#E71D36
 }
 
-main {
-  background-color:#DDDDDD;
-}
+
 
 .input-options{
   display: flex;
