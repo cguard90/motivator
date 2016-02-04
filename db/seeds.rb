@@ -243,22 +243,44 @@ milestone_1_cathy = Milestone.create!(
   completed: true,
   confirmed: true,
   deadline: Date.today+14,
-  value:33
+  value:20
   )
 
 milestone_2_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Spend no more than 30 minutes a day on Facebook.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
-  value:33
+  value:20
   )
 
 milestone_3_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Quit playing Farmville.",
   deadline: Date.today+14,
-  value:33
+  completed: true,
+  confirmed: true,
+  value:20
   )
+
+milestone_4_cathy = Milestone.create!(
+  goal: goal_cathy,
+  description: "Stop checking Facebook on my phone.",
+  deadline: Date.today+14,
+  completed: true,
+  confirmed: true,
+  value:20
+  )
+
+milestone_5_cathy = Milestone.create!(
+  goal: goal_cathy,
+  description: "check facebook once per day, after work.",
+  deadline: Date.today+14,
+  value:20
+  )
+
+
 
 pledge_1_cathy = Pledge.create!(
   user: bob,
@@ -550,16 +572,15 @@ goal_chris = Goal.create!(
 
 milestone_1_chris = Milestone.create!(
   goal: goal_chris,
-  description: "Present this project.",
-  completed: true,
-  deadline: Date.today+1,
+  description: "Complete Presentation of this project.",
+  deadline: Date.today,
   value:25
   )
 
 milestone_2_chris = Milestone.create!(
   goal: goal_chris,
   description: "Go to Ulysses.",
-  deadline: Date.today+1,
+  deadline: Date.today+1.5,
   value:25
   )
 
