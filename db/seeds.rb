@@ -58,6 +58,24 @@ edna = User.create!(
   password: "password"
   )
 
+jeff = User.create!(
+  username: "Jeff George",
+  email: "webdevjeffus@gmail.com",
+  password: "password"
+  )
+
+chris = User.create!(
+  username: "Chris Guard",
+  email: "cguard90@gmail.com",
+  password: "password"
+  )
+
+luis = User.create!(
+  username: "Luis Plaz",
+  email: "luisplaz@hotmail.com",
+  password: "password"
+  )
+
 # Begin Al's goal
 
 goal_al = Goal.create!(
@@ -73,6 +91,8 @@ goal_al = Goal.create!(
 milestone_1_al = Milestone.create!(
   goal: goal_al,
   description: "A pack and a half a day.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+7,
   value:25
   )
@@ -149,6 +169,8 @@ goal_bob = Goal.create!(
 milestone_1_bob = Milestone.create!(
   goal: goal_bob,
   description: "Lose 5 pounds.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+10,
   value:33
   )
@@ -218,23 +240,47 @@ goal_cathy = Goal.create!(
 milestone_1_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Limit Facebook checks to 5 per day.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
-  value:33
+  value:20
   )
 
 milestone_2_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Spend no more than 30 minutes a day on Facebook.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
-  value:33
+  value:20
   )
 
 milestone_3_cathy = Milestone.create!(
   goal: goal_cathy,
   description: "Quit playing Farmville.",
   deadline: Date.today+14,
-  value:33
+  completed: true,
+  confirmed: true,
+  value:20
   )
+
+milestone_4_cathy = Milestone.create!(
+  goal: goal_cathy,
+  description: "Stop checking Facebook on my phone.",
+  deadline: Date.today+14,
+  completed: true,
+  confirmed: true,
+  value:20
+  )
+
+milestone_5_cathy = Milestone.create!(
+  goal: goal_cathy,
+  description: "check facebook once per day, after work.",
+  deadline: Date.today+14,
+  value:20
+  )
+
+
 
 pledge_1_cathy = Pledge.create!(
   user: bob,
@@ -287,6 +333,8 @@ goal_dana = Goal.create!(
 milestone_1_dana = Milestone.create!(
   goal: goal_dana,
   description: "Cut out French Fries.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+7,
   value:25
   )
@@ -294,6 +342,8 @@ milestone_1_dana = Milestone.create!(
 milestone_2_dana = Milestone.create!(
   goal: goal_dana,
   description: "Eat veggies at every meal.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
   value:25
   )
@@ -363,6 +413,8 @@ goal_edna = Goal.create!(
 milestone_1_edna = Milestone.create!(
   goal: goal_edna,
   description: "Go to bed by 11pm every night.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+7,
   value:25
   )
@@ -370,6 +422,8 @@ milestone_1_edna = Milestone.create!(
 milestone_2_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Kate Plus 8'.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+14,
   value:25
   )
@@ -377,6 +431,8 @@ milestone_2_edna = Milestone.create!(
 milestone_3_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Breaking Amish'.",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+21,
   value:25
   )
@@ -384,6 +440,8 @@ milestone_3_edna = Milestone.create!(
 milestone_4_edna = Milestone.create!(
   goal: goal_edna,
   description: "Stop watching 'Pit Bulls and Parolees'",
+  completed: true,
+  confirmed: true,
   deadline: Date.today+28,
   value:25
   )
@@ -422,4 +480,232 @@ message_3_edna = Message.create!(
     user: User.real_users.sample,
     goal: goal_edna,
     content: Faker::Hipster.sentence
+  )
+
+#Jeff
+
+goal_jeff = Goal.create!(
+  setter: jeff,
+  tender: luis,
+  charity: Charity.all.sample,
+  title: "Take a nap",
+  description: "After this final project is completed, I am going to take an entire day to recover the amount of sleep I have lost while working on this project. I also need to take the recovery day because I was here for over 12 hours a day while sick.",
+  setter_pledge: 70,
+  accepted: true
+  )
+
+milestone_1_jeff = Milestone.create!(
+  goal: goal_jeff,
+  description: "Get home before 11pm Friday.",
+  deadline: Date.today+1,
+  value:25
+  )
+
+milestone_2_jeff = Milestone.create!(
+  goal: goal_jeff,
+  description: "Go to sleep before midnight.",
+  deadline: Date.today+1,
+  value:25
+  )
+
+milestone_3_jeff = Milestone.create!(
+  goal: goal_jeff,
+  description: "Wake up and eat breakfast on Saturday. Then take a nap.",
+  deadline: Date.today+2,
+  value:25
+  )
+
+milestone_4_jeff = Milestone.create!(
+  goal: goal_jeff,
+  description: "After that nap, take another nap.",
+  deadline: Date.today+2,
+  value:25
+  )
+
+pledge_1_jeff = Pledge.create!(
+  user: al,
+  goal: goal_jeff,
+  amount: 10
+  )
+
+pledge_2_jeff = Pledge.create!(
+  user: cathy,
+  goal: goal_jeff,
+  amount: 15
+  )
+
+pledge_3_jeff = Pledge.create!(
+  user: dana,
+  goal: goal_jeff,
+  amount: 20
+  )
+
+message_1_jeff = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_jeff,
+    content: "WOOHOO FINAL PROJECT!!!!"
+  )
+
+message_2_jeff = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_jeff,
+    content: "Still going strong on that final project!"
+  )
+
+message_3_jeff = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_jeff,
+    content: "Nice goal! I hope you feel well rested after!"
+  )
+
+#chris
+
+goal_chris = Goal.create!(
+  setter: chris,
+  tender: jeff,
+  charity: Charity.all.sample,
+  title: "Don't leave the house on Sunday",
+  description: "After this project is presented today, I want to go have a good time with the DBC cohorts and staff, do a few touristy things on Saturday, and then spend Sunday resting.",
+  setter_pledge: 90,
+  accepted: true
+  )
+
+milestone_1_chris = Milestone.create!(
+  goal: goal_chris,
+  description: "Complete Presentation of this project.",
+  deadline: Date.today,
+  value:25
+  )
+
+milestone_2_chris = Milestone.create!(
+  goal: goal_chris,
+  description: "Go to Ulysses.",
+  deadline: Date.today+1.5,
+  value:25
+  )
+
+milestone_3_chris = Milestone.create!(
+  goal: goal_chris,
+  description: "Wake up Saturday and figure out a touristy thing to do.",
+  deadline: Date.today+2,
+  value:25
+  )
+
+milestone_4_chris = Milestone.create!(
+  goal: goal_chris,
+  description: "Wake up Sunday, and stay withing a block of the house.",
+  deadline: Date.today+2,
+  value:25
+  )
+
+pledge_1_chris = Pledge.create!(
+  user: al,
+  goal: goal_chris,
+  amount: 10
+  )
+
+pledge_2_chris = Pledge.create!(
+  user: cathy,
+  goal: goal_chris,
+  amount: 15
+  )
+
+pledge_3_chris = Pledge.create!(
+  user: dana,
+  goal: goal_chris,
+  amount: 15
+  )
+
+message_1_chris = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_chris,
+    content: "Ulysses is awesome!"
+  )
+
+message_2_chris = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_chris,
+    content: "Island Foxes are the best!"
+  )
+
+message_3_chris = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_chris,
+    content: "Baby don't like being done with DBC"
+  )
+
+#Luis
+
+goal_luis = Goal.create!(
+  setter: luis,
+  tender: chris,
+  charity: Charity.all.sample,
+  title: "Complete Grad School applications",
+  description: "Now that I'm presenting this project, I need to finish all of my applications for the Grad School programs I'm applying to.",
+  setter_pledge: 200,
+  accepted: true
+  )
+
+milestone_1_luis = Milestone.create!(
+  goal: goal_luis,
+  description: "Complete and submit 1 application on Saturday morning.",
+  deadline: Date.today+2,
+  value:25
+  )
+
+milestone_2_luis = Milestone.create!(
+  goal: goal_luis,
+  description: "Complete and submit another application on Saturday evening. ",
+  deadline: Date.today+2,
+  value:25
+  )
+
+milestone_3_luis = Milestone.create!(
+  goal: goal_luis,
+  description: "Sunday morning complete and submit 1 more application.",
+  deadline: Date.today+3,
+  value:25
+  )
+
+milestone_4_luis = Milestone.create!(
+  goal: goal_luis,
+  description: "Text all the Island Foxes so they know I completed all of my applications.",
+  deadline: Date.today+3,
+  value:25
+  )
+
+pledge_1_luis = Pledge.create!(
+  user: al,
+  goal: goal_luis,
+  amount: 20
+  )
+
+pledge_2_luis = Pledge.create!(
+  user: cathy,
+  goal: goal_luis,
+  amount: 35
+  )
+
+pledge_3_luis = Pledge.create!(
+  user: dana,
+  goal: goal_luis,
+  amount: 45
+  )
+
+message_1_luis = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_luis,
+    content: "Good luck Luis Plaz!"
+  )
+
+message_2_luis = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_luis,
+    content: "Don't have any merge conflicts left unresolved for your presentation"
+  )
+
+message_3_luis = Message.create!(
+    user: User.real_users.sample,
+    goal: goal_luis,
+    content: "I <3 the Island Foxes"
   )
