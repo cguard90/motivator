@@ -73,6 +73,7 @@ a:active {
 
 header {
   width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 header nav {
@@ -154,7 +155,7 @@ main {
   /*width: 62%;*/
   float:left;
   margin-top: 0.5rem;
-  padding: 0 0.75rem;
+  padding: 0rem;
 }
 
 
@@ -164,7 +165,6 @@ main {
 }
 
 footer {
-  clear: both;
   text-align: center;
   background-color: #153F60;
   color: #FDFFFC;
