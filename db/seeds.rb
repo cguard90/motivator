@@ -92,7 +92,7 @@ milestone_1_al = Milestone.create!(
   goal: goal_al,
   description: "A pack and a half a day.",
   completed: true,
-  complete: true,
+  confirmed: true,
   deadline: Date.today+7,
   value:25
   )
@@ -170,7 +170,7 @@ milestone_1_bob = Milestone.create!(
   goal: goal_bob,
   description: "Lose 5 pounds.",
   completed: true,
-  confirmed: true
+  confirmed: true,
   deadline: Date.today+10,
   value:33
   )
@@ -311,8 +311,8 @@ goal_dana = Goal.create!(
 milestone_1_dana = Milestone.create!(
   goal: goal_dana,
   description: "Cut out French Fries.",
-  completed: true
-  confirmed: true
+  completed: true,
+  confirmed: true,
   deadline: Date.today+7,
   value:25
   )
