@@ -192,12 +192,18 @@ footer {
   margin-top: 1rem;
 }
 
+.welcome {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 .welcome-info{
   margin-top: 2rem;
 }
 
 .welcome-info p {
   padding-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
 p.facebook-user {
@@ -297,34 +303,12 @@ fieldset input {
   font-size: 1.25rem;
 }
 
-.message {
-  font-size: 15px;
-}
-
-.welcome {
-  font-size: 1.5em;
-  padding-left: 1.4em;
-  margin-bottom: 3%;
-  margin-top: 3%;
-}
-
-.option-links {
-  list-style: none;
-  margin-left: -3%;
-}
-
-.option-links a{
-  padding-left: 1px;
-  text-decoration: none;
+.profile-title {
+  padding: 0 1rem;
 }
 
 .profile-info {
-  padding-left: 2%;
-}
-
-.profile-title {
-  padding-left: 2%;
-  font-size: 20px;
+  padding: 0 1rem;
 }
 
 .user-title:before {
@@ -428,7 +412,7 @@ ul.pledge_info {
 }
 
 .milestone_list {
-  margin: 0 auto;
+  margin: 0.75rem auto;
   width: 100%;
   padding-left: 0.5rem;
 }
@@ -451,11 +435,11 @@ ul.pledge_info {
 }
 
 .mbox {
-  padding: 10px;
+  padding: 0.5rem;
   text-align: center;
   background-color: #FDFFFC;
   border-bottom: 0.12em #011627 solid;
-  margin:10px;
+  margin: 0.5rem;
 }
 
 .milestone-main-container {
@@ -473,14 +457,6 @@ ul.pledge_info {
   list-style: none;
 }
 
-#attribute {
-  font-size: 20px;
-}
-
-#option-links {
-  display:inline-block;
-  font-size: 15px;
-}
 
 #options {
   text-align: center;
@@ -507,14 +483,8 @@ ul.pledge_info {
   border: 0;
 }
 
-#charity_selector {
-  padding: 0.25rem;
-}
-
 select {
-  /*height: 1.75rem;*/
-  /*line-height: 1.75rem;*/
-  width: 85%;
+  width: 100%;
   background: #fff;
   display: block;
   right: 0;
@@ -529,9 +499,22 @@ select {
   color:#E71D36
 }
 
-.input-options{
+
+.input-options {
   display: flex;
   margin-bottom: 0.5rem;
+}
+
+.input-options label {
+  width: 7.5rem;
+}
+
+.input-options input {
+  width: 100%;
+}
+
+.milestone-link {
+  font-size: 1.25rem;
 }
 
 .button_submit {
