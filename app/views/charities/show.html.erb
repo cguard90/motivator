@@ -1,6 +1,8 @@
-<h2 class="charity-title">Charity Name</h2>
-  <p class="charity-label"><%= @charity.name %></p>
- <h4 class="charity-title">Category</h4>
-  <p class="charity-label"><%= @charity.category %></p>
- <h4 class="charity-title">Url</h4>
-  <p class="charity-label"> <%= link_to @charity.url, "http://#{@charity.url}" %> </p>
+<h2 class="charity-title">Charity</h2>
+<p class="charity-label"><%= @charity.name %></p>
+
+<h3 class="charity-title">Category</h4>
+<p class="charity-label"><%= @charity.category %></p>
+
+<h3 class="charity-title">Url</h4>
+<p class="charity-label"> <%= link_to @charity.url, "http://#{@charity.url}", target: "_blank" %> </p>
