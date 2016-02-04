@@ -67,7 +67,7 @@
     <% else %>
     <p>So far, supporter pledges have matched $<%= @goal.supporter_pledge_total %> of <%= @goal.setter.username %>'s pledge of $<%= @goal.setter_pledge %>.</p>
     <% end %>
-    <ul>
+    <ul class="pledge_info">
       <% @goal.pledges.each do |pledge| %>
       <li class="pledge"><%= pledge.user.username %> pledged $<%= pledge.amount %> on <%= std_format_day(pledge.created_at) %></li>
       <% end %>
