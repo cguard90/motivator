@@ -399,47 +399,40 @@ fieldset input {
 }
 
 .charity-title{
-  font-size: 32px;
   color: #011627;
   text-decoration: none;
 }
 
 .charity-label{
-  font-size: 17px;
+  font-size: 1.5rem;
   color: #011627;
   text-decoration: none;
 }
 
 .cbox {
-  padding: 10px;
+  padding: 0.5rem;
   background-color: #FDFFFC;
   border-bottom: 0.12em #011627 solid;
-  margin:10px;
+  margin:0.5rem;
+}
+
+.milestone-container {
+
 }
 
 .cbox ul {
   list-style: none;
 }
 
-.milestone_info{
-  margin-left: 4em;
-}
-
 .milestone_list {
-  margin-left: 19em;
+  border: 1px green dotted;
+  margin: 0.75rem auto;
+  width: 100%;
+  padding-left: 0.5rem;
 }
 
-.cbox li p.milestone_info:before {
-  content: "";
-/*  border-color: transparent #FF9F1C;
-  border-style: solid;
-  border-width: 0.35em 0 0.35em 0.45em;*/
-  display: block;
-  height: 0;
-  width: 0;
-  left: -1em;
-  top: 0.9em;
-  position: relative;
+.milestone_info{
+  margin-left: 2.5rem;
 }
 
 .milestone_bullet

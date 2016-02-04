@@ -1,0 +1,31 @@
+/* These rules override rules in motivator and sidebar.css for responsiveness */
+
+/* TABLET - 680px */
+
+@media only screen and (min-width: 680px) {
+
+}
+
+
+/* COMPUTER (small monitor) - 960px */
+
+@media only screen and (min-width: 960px) {
+
+  .milestone_list {
+    width: 70%;
+  }
+
+}
+
+
+
+
+/* COMPUTER (desktop) - 1120px */
+
+@media only screen and (min-width: 1200px) {
+
+  .milestone_list {
+    width: 60%;
+  }
+
+}

@@ -12,6 +12,10 @@
  *
  *= require normalize
  *= require griddy
+ *= require motivator
+ *= require sidebar
+ *= require charges
+ *= require media_queries
  *= require_tree .
  *= require_self
  */
