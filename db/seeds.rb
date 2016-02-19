@@ -7,7 +7,7 @@ def charity_data(action, state_name, keyword)
   return response.parsed_response
 end
 
-api_data = charity_data("searchCharities", "NY", "animals")
+puts api_data = charity_data("searchCharities", "NY", "animals")
 hash = JSON.parse(api_data)
 charities_hash = hash['give-api']['data']['charities']['charity']
 charities = []
