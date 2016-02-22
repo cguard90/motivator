@@ -4,7 +4,7 @@ class PledgeMailer < ApplicationMailer
     @pledge = pledge
     @goal = @pledge.goal
     @setter = @goal.setter
-    @goal_url = "http://localhost:3000/goals/#{@goal.id}"
+    @goal_url = "https://protected-refuge-11475.herokuapp.com/goals/#{@goal.id}"
 
     mail to: @setter.email, subject: "#{@pledge.user.username} supported your goal!"
   end
