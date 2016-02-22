@@ -24,73 +24,73 @@ require 'date'
 
 Charity.create!(
   name: 'Boy Scouts of America Greater New York Councils',
-  url: 'https://www.bsa-gnyc.org',
+  url: 'www.bsa-gnyc.org',
   category: 'Child and Youth Organizations'
 )
 
 Charity.create!(
   name: 'Girl Scouts of Greater New York',
-  url: 'http://www.girlscoutsnyc.org/',
+  url: 'www.girlscoutsnyc.org/',
   category: 'Child and Youth Organizations'
 )
 
 Charity.create!(
   name: 'Big Brothers Big Sisters of New York City',
-  url: 'http://www.bigsnyc.org/',
+  url: 'www.bigsnyc.org/',
   category: 'Child and Youth Organizations'
 )
 
 Charity.create!(
   name: "The Children's Aid Society",
-  url: 'http://www.childrensaidsociety.org/',
+  url: 'www.childrensaidsociety.org/',
   category: 'Child and Youth Organizations'
 )
 
 Charity.create!(
   name: 'The Humane Society of New York',
-  url: 'http://www.humanesocietyny.org/',
+  url: 'www.humanesocietyny.org/',
   category: 'Animal Welfare'
 )
 
 Charity.create!(
-  name: 'ASPCA (American Society for the Prevention of Cruelty to Animals)'
-  url: 'https://www.aspca.org/',
+  name: 'ASPCA (American Society for the Prevention of Cruelty to Animals)',
+  url: 'www.aspca.org/',
   category: 'Animal Welfare'
 )
 
 Charity.create!(
   name: 'North Shore Animal League America',
-  url: 'http://www.animalleague.org/',
+  url: 'www.animalleague.org/',
   category: 'Animal Welfare'
 )
 
 Charity.create!(
   name: 'New York Save Animals in Veterinary Emergency',
-  url: 'http://www.nysave.org/',
+  url: 'www.nysave.org/',
   category: 'Animal Welfare'
 )
 
-Charity.create! (
+Charity.create!(
   name: 'Fund for Animals',
-  url: 'http://www.fundforanimals.org/',
+  url: 'www.fundforanimals.org/',
   category: 'Animal Welfare'
 )
 
 Charity.create!(
   name: 'Susan G. Komen Greater New York City',
-  url: 'http://www.komennyc.org/site/PageServer',
+  url: 'www.komennyc.org/site/PageServer',
   category: 'Health and Medical Research'
 )
 
 Charity.create!(
   name: 'JDRF (Juvenile Diabetes Research Foundation)',
-  url: 'http://jdrf.org/',
+  url: 'jdrf.org/',
   category: 'Health and Medical Research'
 )
 
 Charity.create!(
   name: 'Broadway Cares/Equity Fights AIDS',
-  url: 'https://www.broadwaycares.org/',
+  url: 'www.broadwaycares.org/',
   category: 'Health and Medical Research'
 )
 
@@ -133,19 +133,19 @@ edna = User.create!(
 jeff = User.create!(
   username: "Jeff George",
   email: "webdevjeffus@gmail.com",
-  password: "password"
+  password: "jeffstrap"
   )
 
 chris = User.create!(
   username: "Chris Guard",
   email: "cguard90@gmail.com",
-  password: "password"
+  password: "wingit16"
   )
 
 luis = User.create!(
   username: "Luis Plaz",
   email: "luisplaz@hotmail.com",
-  password: "password"
+  password: "babydont"
   )
 
 # Begin Al's goal
