@@ -1,26 +1,98 @@
 require 'date'
 
-def charity_data(action, state_name, keyword)
-  token = ENV['GIVE_API_TOKEN']
-  url = "https://app.place2give.com/Service.svc/give-api?token=#{token}&format=json&action=#{action}&PageNumber=1&NumPerPage=100&ProvState=#{state_name}&Keyword=#{keyword}"
-  response = HTTParty.get(url)
-  return response.parsed_response
-end
+# def charity_data(action, state_name, keyword)
+#   token = ENV['GIVE_API_TOKEN']
+#   url = "https://app.place2give.com/Service.svc/give-api?token=#{token}&format=json&action=#{action}&PageNumber=1&NumPerPage=100&ProvState=#{state_name}&Keyword=#{keyword}"
+#   response = HTTParty.get(url)
+#   return response.parsed_response
+# end
 
-api_data = charity_data("searchCharities", "NY", "animals")
-hash = JSON.parse(api_data)
-charities_hash = hash['give-api']['data']['charities']['charity']
-charities = []
+# api_data = charity_data("searchCharities", "NY", "animals")
+# hash = JSON.parse(api_data)
+# charities_hash = hash['give-api']['data']['charities']['charity']
+# charities = []
 
-charities_hash.map do |f|
-  if f["ContactInfo"]["URL"] != nil && f["Type"] != nil
-    charities.push(f)
-  end
-end
+# charities_hash.map do |f|
+#   if f["ContactInfo"]["URL"] != nil && f["Type"] != nil
+#     charities.push(f)
+#   end
+# end
 
-charities.each do |charity|
-  Charity.create!(name:charity['Name'],category:charity['Type'],url:charity["ContactInfo"]["URL"])
-end
+# charities.each do |charity|
+#   Charity.create!(name:charity['Name'],category:charity['Type'],url:charity["ContactInfo"]["URL"])
+# end
+
+Charity.create!(
+  name: 'Boy Scouts of America Greater New York Councils',
+  url: 'www.bsa-gnyc.org',
+  category: 'Child and Youth Organizations'
+)
+
+Charity.create!(
+  name: 'Girl Scouts of Greater New York',
+  url: 'www.girlscoutsnyc.org/',
+  category: 'Child and Youth Organizations'
+)
+
+Charity.create!(
+  name: 'Big Brothers Big Sisters of New York City',
+  url: 'www.bigsnyc.org/',
+  category: 'Child and Youth Organizations'
+)
+
+Charity.create!(
+  name: "The Children's Aid Society",
+  url: 'www.childrensaidsociety.org/',
+  category: 'Child and Youth Organizations'
+)
+
+Charity.create!(
+  name: 'The Humane Society of New York',
+  url: 'www.humanesocietyny.org/',
+  category: 'Animal Welfare'
+)
+
+Charity.create!(
+  name: 'ASPCA (American Society for the Prevention of Cruelty to Animals)',
+  url: 'www.aspca.org/',
+  category: 'Animal Welfare'
+)
+
+Charity.create!(
+  name: 'North Shore Animal League America',
+  url: 'www.animalleague.org/',
+  category: 'Animal Welfare'
+)
+
+Charity.create!(
+  name: 'New York Save Animals in Veterinary Emergency',
+  url: 'www.nysave.org/',
+  category: 'Animal Welfare'
+)
+
+Charity.create!(
+  name: 'Fund for Animals',
+  url: 'www.fundforanimals.org/',
+  category: 'Animal Welfare'
+)
+
+Charity.create!(
+  name: 'Susan G. Komen Greater New York City',
+  url: 'www.komennyc.org/site/PageServer',
+  category: 'Health and Medical Research'
+)
+
+Charity.create!(
+  name: 'JDRF (Juvenile Diabetes Research Foundation)',
+  url: 'jdrf.org/',
+  category: 'Health and Medical Research'
+)
+
+Charity.create!(
+  name: 'Broadway Cares/Equity Fights AIDS',
+  url: 'www.broadwaycares.org/',
+  category: 'Health and Medical Research'
+)
 
 admin = User.create!(
   username: "Motivator",
@@ -61,19 +133,19 @@ edna = User.create!(
 jeff = User.create!(
   username: "Jeff George",
   email: "webdevjeffus@gmail.com",
-  password: "password"
+  password: "jeffstrap"
   )
 
 chris = User.create!(
   username: "Chris Guard",
   email: "cguard90@gmail.com",
-  password: "password"
+  password: "wingit16"
   )
 
 luis = User.create!(
   username: "Luis Plaz",
   email: "luisplaz@hotmail.com",
-  password: "password"
+  password: "babydont"
   )
 
 # Begin Al's goal
