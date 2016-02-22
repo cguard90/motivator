@@ -3,7 +3,7 @@ class MilestoneMailer < ApplicationMailer
   def announce_milestone_email(milestone)
     @milestone = milestone
     @goal = milestone.goal
-    @goal_url = "http://localhost:3000/goals/#{@goal.id}"
+    @goal_url = "https://protected-refuge-11475.herokuapp.com/goals/#{@goal.id}"
     @setter = milestone.goal.setter
     @tender = milestone.goal.tender
 
