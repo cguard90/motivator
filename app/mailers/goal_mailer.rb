@@ -4,8 +4,8 @@ class GoalMailer < ApplicationMailer
     @goal = goal
     @setter = @goal.setter
     @tender = @goal.tender
-    @goal_url = "http://localhost:3000/goals/#{@goal.id}"
-    @register_url = "http://localhost:3000/register"
+    @goal_url = "https://protected-refuge-11475.herokuapp.com/goals/#{@goal.id}"
+    @register_url = "https://protected-refuge-11475.herokuapp.com/register"
 
     mail to: @tender.email, subject: "#{@setter.username} has asked for your help"
   end

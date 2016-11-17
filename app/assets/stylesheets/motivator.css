@@ -181,7 +181,8 @@ footer {
   margin-left: 0;
   margin-top: 2rem;
   margin-right:2rem;
-  background: url("http://i.imgur.com/N1ziRw2.png?2");
+/*  background: url("http://i.imgur.com/N1ziRw2.png?2"); */
+  background: url("https://raw.githubusercontent.com/nyc-island-foxes-2016/motivator/master/public/help.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   margin-bottom: 1rem;
